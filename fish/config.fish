@@ -1,35 +1,22 @@
-# anyenv
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
+function fish_user_key_bindings
+  bind \cr peco_select_history # Bind for prco history to Ctrl+r
+  bind \cc 'peco_cd'
+end
 
-# nodenv
-export PATH="$HOME/.anyenv/envs/nodenv/versions/*/bin:$PATH"
-
-# pyenv
-export PATH="$HOME/.anyenv/envs/pyenv/versions/*/bin:$PATH"
-
-# rbenv
-export PATH="$HOME/.anyenv/envs/rbenv/versions/*/bin:$PATH"
-
-# Flutter
-export PATH="$PATH:$HOME/Program/flutter/bin"
-
-# postresql
-export PGDATA=/usr/local/var/postgres
-
-# yarn
-# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+set GHQ_SELECTOR peco
+set -g theme_date_format "+%Y-%m-%d %H:%M:%S"
+set -g fish_prompt_pwd_dir_length 0
 
 # ===Alias===
 # Git
-alias cm='(){git commit -m "$1"}'
-alias ad='git add'
+alias gc='git commit -m'
+alias ga='git add'
 alias push='git push'
 alias pushf='git push -f'
-alias pushinit='(){git push --set-upstream origin $1}'
+alias pushinit='git push --set-upstream origin'
 alias pull='git pull'
-alias st='git status'
-alias log='git log'
+alias gs='git status'
+alias gl='git log'
 alias diff='git diff'
 alias reset='git reset'
 alias amend='git commit --amend'
@@ -38,12 +25,14 @@ alias cout='git checkout'
 alias coutb='git checkout -b'
 alias cout-='git checkout -'
 alias clone='git clone'
+alias gr='git browse-remote'
 
 # Docker
 alias dc='docker'
-alias dce='(){docker-compose exec $1}'
-alias dcbash='(){docker-compose exec $1 bash}'
-alias dczsh='(){docker-compose exec $1 zsh}'
+alias dps='docker ps'
+alias dce='docker-compose exec'
+alias dcbash='docker-compose exec $argv[1] bash'
+alias dczsh='docker-compose exec $argv[1] zsh'
 alias dcup='docker-compose up'
 alias dcdown='docker-compose down'
 alias dcbuild='docker-compose build'
@@ -66,7 +55,7 @@ alias rmigrate='bin/rails db:migrate'
 alias drun='python manage.py runserver 0.0.0.0:8000'
 alias dmakemigrate='python manage.py makemigrations'
 alias dmigrate='python manage.py migrate'
-alias dsuperuser='python manage.py createsuperuser'
+alias superuser='python manage.py createsuperuser'
 alias dshell='python manage.py shell'
 
 # Npm
@@ -83,11 +72,3 @@ alias ywatch='yarn run watch'
 # Util
 alias sa='ssh-add -K'
 alias relogin='exec $SHELL -l'
-
-
-export CLICOLOR=1
-export LSCOLORS="GxFxCxDxBxegedabagaced"
-
-
-# 最後にfish起動
-exec fish
