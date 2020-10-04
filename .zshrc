@@ -20,6 +20,9 @@ export PGDATA=/usr/local/var/postgres
 # yarn
 # export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+# nv code
+export PATH=$HOME/.local/bin:$PATH
+
 # ===Alias===
 # Git
 alias cm='(){git commit -m "$1"}'
