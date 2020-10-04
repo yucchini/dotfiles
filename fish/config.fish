@@ -9,13 +9,13 @@ set -g fish_prompt_pwd_dir_length 0
 
 # ===Alias===
 # Git
-alias gc='git commit -m'
-alias ga='git add'
+alias cm='git commit -m'
+alias ad='git add'
 alias push='git push'
 alias pushf='git push -f'
 alias pushinit='git push --set-upstream origin'
 alias pull='git pull'
-alias gs='git status'
+alias st='git status'
 alias gl='git log'
 alias diff='git diff'
 alias reset='git reset'
