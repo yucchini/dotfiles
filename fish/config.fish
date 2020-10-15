@@ -1,3 +1,4 @@
+A
 function fish_user_key_bindings
   bind \cr peco_select_history # Bind for prco history to Ctrl+r
   bind \cc 'peco_cd'
@@ -20,8 +21,9 @@ alias gl='git log'
 alias diff='git diff'
 alias reset='git reset'
 alias amend='git commit --amend'
-alias branch='git branch'
+alias bra='git branch'
 alias cout='git checkout'
+alias coutd='git checkout develop'
 alias coutb='git checkout -b'
 alias cout-='git checkout -'
 alias clone='git clone'
@@ -72,3 +74,5 @@ alias ywatch='yarn run watch'
 # Util
 alias sa='ssh-add -K'
 alias relogin='exec $SHELL -l'
+alias fconfig='cd && vim .config/fish/config.fish'
+alias zconfig='cd && vim .zshrc'

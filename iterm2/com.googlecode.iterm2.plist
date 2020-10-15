@@ -237,6 +237,8 @@
 	<string>391B3C3D-8F51-4133-A300-9CD0DC191D05</string>
 	<key>DimBackgroundWindows</key>
 	<true/>
+	<key>DimInactiveSplitPanes</key>
+	<true/>
 	<key>DimOnlyText</key>
 	<false/>
 	<key>DisableFullscreenTransparency</key>
@@ -256,14 +258,14 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0x7b-0x120000</key>
+		<key>0x6a-0x100000</key>
 		<dict>
 			<key>Action</key>
 			<integer>2</integer>
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0x7d-0x120000</key>
+		<key>0x6c-0x100000</key>
 		<dict>
 			<key>Action</key>
 			<integer>0</integer>
@@ -375,7 +377,7 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Program</string>
+	<string>~/dotfiles/iterm2</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{799, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -422,11 +424,11 @@
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>0 129 224 275 0 0 1680 1027 </string>
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
-	<string>1104 927 799 448 0 0 3008 1669 </string>
+	<string>440 445 799 448 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>1290 1050 620 392 0 0 3200 1777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>351 1448 1113 711 -529 1050 3200 1777 </string>
+	<string>0 0 1680 1050 0 0 1680 1027 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -2344,9 +2346,9 @@
 	<key>NoSyncFrame_SessionsPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {3200, 1800}}</string>
+		<string>{{0, 0}, {1680, 1050}}</string>
 		<key>topLeft</key>
-		<string>{1297, 1473}</string>
+		<string>{269, 595}</string>
 	</dict>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
@@ -2362,7 +2364,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>592886191.00041795</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>144</integer>
+	<integer>155</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -3133,7 +3135,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/yucchini/Program/settings/iterm2-setting</string>
+	<string>/Users/yucchini/dotfiles/iterm2</string>
 	<key>PreserveWindowSizeWhenTabBarVisibilityChanges</key>
 	<false/>
 	<key>Print In Black And White</key>
@@ -3149,7 +3151,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-10-03T14:13:45Z</date>
+	<date>2020-10-12T14:01:56Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
@@ -3170,6 +3172,8 @@
 	<real>0.40450188386524821</real>
 	<key>StatusBarPosition</key>
 	<integer>0</integer>
+	<key>StretchTabsToFillBar</key>
+	<false/>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>1</integer>
 	<key>TabViewType</key>
