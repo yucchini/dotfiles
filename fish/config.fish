@@ -62,17 +62,19 @@ alias dshell='python manage.py shell'
 
 # Npm
 alias nr='npm run'
-alias nwatch='npm run watch'
+alias nw='npm run watch'
 alias ninfo='npm info'
 alias ni='npm install'
 alias npmlistg='npm list --depth=0 -g'
 
 # yarn
 alias yr='yarn run'
-alias ywatch='yarn run watch'
+alias yw='yarn run watch'
 
 # Util
 alias sa='ssh-add -K'
 alias relogin='exec $SHELL -l'
-alias fconfig='cd && vim .config/fish/config.fish'
-alias zconfig='cd && vim .zshrc'
+alias fishc='cd && vim .config/fish/config.fish'
+alias zshc='cd && vim .zshrc'
+alias vi='nvim'
+alias ls='exa --icons -a'
