@@ -1,4 +1,4 @@
-A
+
 function fish_user_key_bindings
   bind \cr peco_select_history # Bind for prco history to Ctrl+r
   bind \cc 'peco_cd'
@@ -73,8 +73,10 @@ alias yw='yarn run watch'
 
 # Util
 alias sa='ssh-add -K'
-alias relogin='exec $SHELL -l'
+alias rel='exec $SHELL -l'
 alias fishc='cd && vim .config/fish/config.fish'
 alias zshc='cd && vim .zshrc'
 alias vi='nvim'
 alias ls='exa --icons -a'
+alias cdnote='cd && cd note'
+sa

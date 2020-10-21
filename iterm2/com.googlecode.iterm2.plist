@@ -258,10 +258,24 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0x69-0x100000</key>
+		<dict>
+			<key>Action</key>
+			<integer>31</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
 		<key>0x6a-0x100000</key>
 		<dict>
 			<key>Action</key>
 			<integer>2</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
+		<key>0x6b-0x100000</key>
+		<dict>
+			<key>Action</key>
+			<integer>30</integer>
 			<key>Text</key>
 			<string></string>
 		</dict>
@@ -588,12 +602,16 @@
 			<true/>
 			<key>Background Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.091177865862846375</real>
+				<real>0.159088134765625</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.071581222116947174</real>
+				<real>0.12227706347417081</real>
 				<key>Red Component</key>
-				<real>0.069047316908836365</real>
+				<real>0.11579380976036191</real>
 			</dict>
 			<key>Background Image Mode</key>
 			<integer>0</integer>
@@ -1520,13 +1538,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.24705882352941178</real>
+				<real>0.3258056640625</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.21176470588235294</real>
+				<real>0.26383478203763389</real>
 				<key>Red Component</key>
-				<real>0.1803921568627451</real>
+				<real>0.11855297349393368</real>
 			</dict>
 			<key>Background Image Mode</key>
 			<integer>0</integer>
@@ -2353,9 +2371,9 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1680, 1050}}</string>
+		<string>{{-710, 1050}, {3440, 1440}}</string>
 		<key>topLeft</key>
-		<string>{241, 769}</string>
+		<string>{1472, 1801}</string>
 	</dict>
 	<key>NoSyncHaveUsedCopyMode</key>
 	<true/>
@@ -2364,7 +2382,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>592886191.00041795</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>155</integer>
+	<integer>159</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -3151,7 +3169,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-10-12T14:01:56Z</date>
+	<date>2020-10-20T20:24:34Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
