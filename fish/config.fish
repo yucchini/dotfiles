@@ -4,6 +4,22 @@ function fish_user_key_bindings
   bind \cs 'peco_cd'
 end
 
+function attach_tmux_session_if_needed
+    set ID (tmux list-sessions)
+    if test -z "$ID"
+        tmux new-session
+        return
+    end
+
+    set new_session "Create New Session"
+    set ID (echo $ID\n$new_session | peco --on-cancel=error | cut -d: -f1)
+    if test "$ID" = "$new_session"
+        tmux new-session
+    else if test -n "$ID"
+        tmux attach-session -t "$ID"
+    end
+end
+
 set GHQ_SELECTOR peco
 set -g theme_date_format "+%Y-%m-%d %H:%M:%S"
 set -g fish_prompt_pwd_dir_length 0
@@ -28,6 +44,12 @@ alias ctb='git checkout -b'
 alias ctm='git checkout -'
 alias clone='git clone'
 alias ctd='git checkout develop'
+
+# tmux
+alias t='tmux'
+alias tk='tmux kill-session'
+alias tls='tmux ls'
+alias ta='tmux attach' # セッションを再開
 
 # Docker
 alias dc='docker'
@@ -89,4 +111,8 @@ alias vi='nvim'
 alias ls='exa --icons -a'
 alias cdnote='cd && cd note'
 
+# fish起動時にtmuxを起動
+attach_tmux_session_if_needed
+
+# 毎回やるの面倒なので起動時にssh-add -K
 sa
