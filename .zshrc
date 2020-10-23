@@ -19,6 +19,35 @@ export CLICOLOR=1
 export LSCOLORS="GxFxCxDxBxegedabagaced"
 export IS_FISH_START=YES
 
+if [ -d ~/dotfiles/freee ]; then
+  echo 'source freee.zsh!'
+  source ~/dotfiles/freee/freee.zsh
+fi
+
+if [[ $IS_FISH_START == YES ]]; then
+  exec fish
+else
+  # # fishを読み込まない時はtmuxの起動確認と秘密鍵の読み込み
+  # if [[ ! -n $TMUX && $- == *l* ]]; then
+  #   # get the IDs
+  #   ID="`tmux list-sessions`"
+  #   if [[ -z "$ID" ]]; then
+  #     tmux new-session
+  #   fi
+  #   create_new_session="Create New Session"
+  #   ID="$ID\n${create_new_session}:"
+  #   ID="`echo $ID | $PERCOL | cut -d: -f1`"
+  #   if [[ "$ID" = "${create_new_session}" ]]; then
+  #     tmux new-session
+  #   elif [[ -n "$ID" ]]; then
+  #     tmux attach-session -t "$ID"
+  #   else
+  #     :  # Start terminal normally
+  #   fi
+  # fi
+  sa
+fi
+
 # ===Alias===
 # Git
 alias cm='git commit -m "$1"'
@@ -53,6 +82,16 @@ alias dprune='docker system prune' # 停止コンテナ、タグ無しイメー�
 alias diprune='docker image prune' # 未使用イメージ一括削除
 alias dvprune='docker volume prune' # 未使用ボリューム一括削除
 alias dnprune='docker network prune' # 未使用ネットワーク一括削除
+
+# tmux
+alias t='tmux'
+alias tn='tmux new -s'
+alias tls='tmux ls' # セッションの一覧表示
+alias tlsc='tmux lsc' # 接続クライアントの一覧表示
+alias ta='tmux attach -t' # セッションを再開
+alias tk='tmux kill-session'
+alias tkt='tmux kill-session -t'
+alias tks='tmux kill-server' # tmux全体を終了
 
 # Rails
 alias be='bundle exec'
@@ -99,33 +138,3 @@ alias ls='exa --icons -a'
 alias cdnote='cd && cd note'
 alias vs='code .'
 alias lslink='ls -la | grep "\->"'
-
-if [ -d ~/dotfiles/freee ]; then
-  echo 'source freee.zsh!'
-  source ~/dotfiles/freee/freee.zsh
-fi
-
-if [[ $IS_FISH_START == YES ]]; then
-  # 最後にfish起動
-  exec fish
-else
-  # # fishを読み込まない時はtmuxの起動確認と秘密鍵の読み込み
-  # if [[ ! -n $TMUX && $- == *l* ]]; then
-  #   # get the IDs
-  #   ID="`tmux list-sessions`"
-  #   if [[ -z "$ID" ]]; then
-  #     tmux new-session
-  #   fi
-  #   create_new_session="Create New Session"
-  #   ID="$ID\n${create_new_session}:"
-  #   ID="`echo $ID | $PERCOL | cut -d: -f1`"
-  #   if [[ "$ID" = "${create_new_session}" ]]; then
-  #     tmux new-session
-  #   elif [[ -n "$ID" ]]; then
-  #     tmux attach-session -t "$ID"
-  #   else
-  #     :  # Start terminal normally
-  #   fi
-  # fi
-  sa
-fi

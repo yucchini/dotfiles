@@ -58,9 +58,13 @@ alias ctd='git checkout develop'
 
 # tmux
 alias t='tmux'
+alias tn='tmux new -s'
+alias tls='tmux ls' # セッションの一覧表示
+alias tlsc='tmux lsc' # 接続クライアントの一覧表示
+alias ta='tmux attach -t' # セッションを再開
 alias tk='tmux kill-session'
-alias tls='tmux ls'
-alias ta='tmux attach' # セッションを再開
+alias tkt='tmux kill-session -t'
+alias tks='tmux kill-server' # tmux全体を終了
 
 # Docker
 alias dc='docker'
