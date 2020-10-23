@@ -122,6 +122,7 @@ alias vi='nvim'
 alias ls='exa --icons -a'
 alias cdnote='cd && cd note'
 alias vs='code .'
+alias lslink='ls -la | grep "\->"'
 
 if [ -d ~/dotfiles/freee ]
 	echo 'source freee.config.fish!'
