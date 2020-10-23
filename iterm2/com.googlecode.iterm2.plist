@@ -1536,13 +1536,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.3258056640625</real>
+				<real>0.348052978515625</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.26383478203763389</real>
+				<real>0.31034343636861195</real>
 				<key>Red Component</key>
-				<real>0.11855297349393368</real>
+				<real>0.096748061478137956</real>
 			</dict>
 			<key>Background Image Mode</key>
 			<integer>0</integer>
@@ -1644,13 +1644,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.73083609999631682</real>
+				<real>0.31672771275043488</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.812530517578125</real>
+				<real>0.85858154296875</real>
 				<key>Red Component</key>
-				<real>0.33940159482881427</real>
+				<real>0.80131714434673995</real>
 			</dict>
 			<key>Guid</key>
 			<string>391B3C3D-8F51-4133-A300-9CD0DC191D05</string>
@@ -2502,13 +2502,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.140716552734375</real>
+				<real>0.3370361328125</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.13977710287247191</real>
+				<real>0.33522715946669629</real>
 				<key>Red Component</key>
-				<real>0.038103575818240643</real>
+				<real>0.13944602571427822</real>
 			</dict>
 			<key>Background Image Mode</key>
 			<integer>0</integer>
@@ -2610,13 +2610,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.83254793175779007</real>
+				<real>0.70150265516713262</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.875030517578125</real>
+				<real>0.745635986328125</real>
 				<key>Red Component</key>
-				<real>0.62899494403973222</real>
+				<real>0.73605859142280194</real>
 			</dict>
 			<key>Guid</key>
 			<string>50AE9AF9-200B-48DC-BBE2-E370F94587F7</string>
@@ -4139,11 +4139,13 @@
 	<key>ThreeFingerEmulates</key>
 	<false/>
 	<key>TmuxUsesDedicatedProfile</key>
-	<true/>
+	<false/>
 	<key>UseBorder</key>
 	<false/>
 	<key>UseLionStyleFullscreen</key>
 	<false/>
+	<key>UseTmuxStatusBar</key>
+	<true/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>WindowNumber</key>
