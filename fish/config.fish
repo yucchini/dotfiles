@@ -1,3 +1,11 @@
+set -x PATH $HOME/.anyenv/bin $PATH
+eval anyenv init - fish | source
+set PATH $HOME/.local/bin $PATH
+set GHQ_SELECTOR peco
+set -g theme_date_format "+%Y-%m-%d %H:%M:%S"
+set -g fish_prompt_pwd_dir_length 0
+# 現在使用しているshell
+set using_shell (ps -p %self | tail +2 | awk '{print $NF}')
 
 function fish_user_key_bindings
   bind \cr peco_select_history # Bind for prco history to Ctrl+r
@@ -20,9 +28,12 @@ function attach_tmux_session_if_needed
     end
 end
 
-set GHQ_SELECTOR peco
-set -g theme_date_format "+%Y-%m-%d %H:%M:%S"
-set -g fish_prompt_pwd_dir_length 0
+# fish起動時にtmuxを起動
+if test -z $TMUX
+  if test $using_shell = 'fish'
+    attach_tmux_session_if_needed
+  end
+end
 
 # ===Alias===
 # Git
@@ -104,15 +115,18 @@ alias yw='yarn run watch'
 alias sa='ssh-add -K'
 alias rel='exec $SHELL -l'
 alias ressh='sudo launchctl stop com.openssh.sshd'
-alias fishc='cd && vim .config/fish/config.fish'
-alias zshc='cd && vim .zshrc'
-alias bashc='cd && vim .bashrc'
+alias bashc='cd && nvim ~/dotfiles/.bashrc'
+alias zshrc='cd && nvim ~/dotfiles/.zshrc'
+alias fishc='cd && nvim ~/dotfiles/fish/config.fish'
 alias vi='nvim'
 alias ls='exa --icons -a'
 alias cdnote='cd && cd note'
+alias vs='code .'
 
-# fish起動時にtmuxを起動
-attach_tmux_session_if_needed
+if [ -d ~/dotfiles/freee ]
+	echo 'source freee.config.fish!'
+  source ~/dotfiles/freee/freee.config.fish
+end
 
 # 毎回やるの面倒なので起動時にssh-add -K
 sa
