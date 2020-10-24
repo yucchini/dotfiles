@@ -1,3 +1,6 @@
+set -xg LC_CTYPE ja_JP.UTF-8
+set -xg LC_ALL ja_JP.UTF-8
+set -xg LANG ja_JP.UTF-8
 set -x PATH $HOME/.anyenv/bin $PATH
 eval anyenv init - fish | source
 set PATH $HOME/.local/bin $PATH

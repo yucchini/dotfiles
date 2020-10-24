@@ -1,3 +1,5 @@
+export LANG=ja_JP.UTF-8
+export LC_CTYPE=ja_JP.UTF-8
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
