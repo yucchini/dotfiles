@@ -165,6 +165,7 @@ augroup fileTypeIndent
   au FileType go setlocal tabstop=4 shiftwidth=4
   au FileType vim setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType php setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType python setlocal tabstop=4 shiftwidth=4
   au FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType typescript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab

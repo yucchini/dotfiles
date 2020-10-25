@@ -31,6 +31,12 @@ function attach_tmux_session_if_needed
     end
 end
 
+function ide
+  tmux split-window -v -p 30
+  tmux split-window -h -p 66
+  tmux split-window -h -p 50
+end
+
 # fish起動時にtmuxを起動
 if test -z $TMUX
   if test $using_shell = 'fish'
@@ -130,6 +136,8 @@ alias ls='exa --icons -a'
 alias cdnote='cd && cd note'
 alias vs='code .'
 alias lslink='ls -la | grep "\->"'
+alias lg='ls | grep'
+alias cl='clear'
 
 if [ -d ~/dotfiles/freee ]
 	echo 'source freee.config.fish!'
