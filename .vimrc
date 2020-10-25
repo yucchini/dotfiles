@@ -675,7 +675,7 @@ let g:lexima_enable_basic_rules = 1
 " }}}
 
 " {{{ docker.vim
-let g:docker_terminal_open = 'vert'
+" let g:docker_terminal_open = 'vert'
 "let s:docker_auth_file = expand('~/.docker/docker.vim.json')
 "let g:docker_registry_auth = json_decode(join(readfile(s:docker_auth_file), "\n"))
 " }}}
@@ -910,3 +910,13 @@ augroup END
 " }}}
 
 " vim: foldmethod=marker
+
+if has("unix")
+  let s:uname = system("uname -s")
+  " Do Mac stuff
+  if s:uname == "Darwin\n"
+    source ~/.osx.vimrc
+  endif
+endif
+source ~/.maps.vimrc
+source ~/.lightline.vimrc
