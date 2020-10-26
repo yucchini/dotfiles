@@ -1,9 +1,13 @@
 set -xg LC_CTYPE ja_JP.UTF-8
 set -xg LC_ALL ja_JP.UTF-8
 set -xg LANG ja_JP.UTF-8
-set -x PATH $HOME/.anyenv/bin $PATH
-eval anyenv init - fish | source
-set PATH $HOME/.local/bin $PATH
+
+set -x PATH $PATH $HOME
+set -x PATH $PATH $HOME/.anyenv/bin
+set -x PATH $PATH $HOME/.anyenv/envs/*/bin
+set -x PATH $HOME/.local/bin $PATH
+set -x PATH /usr/local/sbin $PATH
+
 set GHQ_SELECTOR peco
 set -g theme_date_format "+%Y-%m-%d %H:%M:%S"
 set -g fish_prompt_pwd_dir_length 0
@@ -45,11 +49,24 @@ function idef
   tmux split-window -h -p 50
 end
 
+# Install fisher
+if not functions -q fisher
+  set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+  curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+  fish -c fisher
+end
+
+# fzf settings
+set -U FZF_LEGACY_KEYBINDINGS 0
+
+# anynenv
+status --is-interactive; and source (anyenv init -|psub)
+
 # fish起動時にtmuxを起動
 if test -z $TMUX
-  if test $using_shell = 'fish'
-    attach_tmux_session_if_needed
-  end
+  # if test $using_shell = '-fish'
+  attach_tmux_session_if_needed
+  # end
 end
 
 # ===Alias===
@@ -78,10 +95,12 @@ alias t='tmux'
 alias tn='tmux new -s'
 alias tls='tmux ls' # セッションの一覧表示
 alias tlsc='tmux lsc' # 接続クライアントの一覧表示
-alias ta='tmux attach -t' # セッションを再開
+alias ta='tmux a'
+alias tat='tmux attach -t' # セッションを再開
 alias tk='tmux kill-session'
 alias tkt='tmux kill-session -t'
 alias tks='tmux kill-server' # tmux全体を終了
+alias ret='tmux source ~/.tmux.conf'
 
 # Docker
 alias dc='docker'
@@ -139,14 +158,18 @@ alias ressh='sudo launchctl stop com.openssh.sshd'
 alias bashc='cd && nvim ~/dotfiles/.bashrc'
 alias zshrc='cd && nvim ~/dotfiles/.zshrc'
 alias fishc='cd && nvim ~/dotfiles/fish/config.fish'
+alias tmuxc='cd && nvim ~/dotfiles/.tmux.conf'
 alias cdd='cd && cd dotfiles/'
 alias vi='nvim'
 alias ls='exa --icons -a'
+alias lsl='exa -1 --icons -a'
 alias cdnote='cd && cd note'
+alias cdynote='cd && cd ../yucchini/note'
 alias vs='code .'
 alias lslink='ls -la | grep "\->"'
 alias lg='ls | grep'
 alias cl='clear'
+alias sshc='cd && nvim .ssh/config'
 
 if [ -d ~/dotfiles/freee ]
 	echo 'source freee.config.fish!'
@@ -155,3 +178,4 @@ end
 
 # 毎回やるの面倒なので起動時にssh-add -K
 sa
+set -g fish_user_paths "/usr/local/sbin" $fish_user_paths

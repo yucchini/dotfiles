@@ -50,3 +50,21 @@ $ sh dotfilesLink.sh # if windows use this > mklink.bat
 | space | コピー開始位置決定（viモード）             |
 | Enter | コピー終了位置決定（viモード）             |
 | ]     | コピーした内容を貼り付け                   |
+
+### パネル操作
+
+| keybind     | operation                           |
+| ----- | ------------------------------------------ |
+| !     | 画面分割を解除する |
+| space | パネルのサイズ調整             |
+| :set-window-option synchronize-panes on | パネルの同期             |
+| :set-window-option synchronize-panes off     | パネルの同期を_off                  |
+
+### セッション操作
+
+| keybind     | operation                           |
+| ----- | ------------------------------------------ |
+| :choose-session     | セッションの切り替え |
+| :rename-session newname | セッションの名前を変更             |
+| d | セッションをデタッチ             |
+| :set-window-option synchronize-panes off     | パネルの同期を_off                  |
