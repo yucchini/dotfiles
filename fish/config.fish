@@ -142,6 +142,7 @@ alias dvprune='docker volume prune' # 未使用ボリューム一括削除
 alias dnprune='docker network prune' # 未使用ネットワーク一括削除
 
 # Rails
+alias b='bundle'
 alias be='bundle exec'
 alias rd='bin/rails d'
 alias rg='bin/rails g'
@@ -186,17 +187,22 @@ alias bashc='cd && nvim ~/dotfiles/.bashrc'
 alias zshrc='cd && nvim ~/dotfiles/.zshrc'
 alias fishc='cd && nvim ~/dotfiles/fish/config.fish'
 alias tmuxc='cd && nvim ~/dotfiles/.tmux.conf'
-alias cdd='cd && cd dotfiles/'
+alias cdd='cd ~/dotfiles/'
 alias vim='nvim'
 alias ls='exa --icons -a'
 alias lsl='exa -1 --icons -a'
-alias cdnote='cd && cd note'
-alias cdynote='cd && cd ../yucchini/note'
+alias cdnote='cd ~/note'
+alias cdynote='cd ~/../yucchini/note'
 alias vs='code .'
 alias lslink='ls -la | grep "\->"'
 alias lg='ls | grep'
-alias cl='clear'
-alias sshc='cd && nvim .ssh/config'
+alias c='clear'
+alias sshc='nvim ~/.ssh/config'
+alias ..="cd .."
+alias ...='cd ../../'
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
 
 if [ -d ~/dotfiles/freee ]
 	echo 'source freee.config.fish!'
