@@ -172,7 +172,7 @@ alias cl='clear'
 alias sshc='cd && nvim .ssh/config'
 
 if [ -d ~/dotfiles/freee ]
-	echo 'source freee.config.fish!'
+	# echo 'source freee.config.fish!'
   source ~/dotfiles/freee/freee.config.fish
 end
 

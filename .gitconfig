@@ -7,7 +7,7 @@
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [user]
-	name = Yuki Shimizu
+	name = uki
 	email = yucchini.yuki1014@gmail.com
 [commit]
 	template = /Users/yucchini/.stCommitMsg
