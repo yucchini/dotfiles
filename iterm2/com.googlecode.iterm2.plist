@@ -1993,6 +1993,8 @@
 			<integer>-2</integer>
 			<key>Scrollback Lines</key>
 			<integer>0</integer>
+			<key>Scrollback in Alternate Screen</key>
+			<false/>
 			<key>Selected Text Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -2502,13 +2504,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.3370361328125</real>
+				<real>0.139617919921875</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.33522715946669629</real>
+				<real>0.13897032267471154</real>
 				<key>Red Component</key>
-				<real>0.13944602571427822</real>
+				<real>0.068882235791534185</real>
 			</dict>
 			<key>Background Image Mode</key>
 			<integer>0</integer>
@@ -3331,12 +3333,12 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1680, 1050}}</string>
 		<key>topLeft</key>
-		<string>{362, 696}</string>
+		<string>{709, 831}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
 	<string>3FE3E9D3-21D4-4457-AD8B-0569FA15496E</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>60</integer>
+	<integer>62</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -4053,6 +4055,8 @@
 			</dict>
 		</array>
 	</dict>
+	<key>NoSyncSuppressClipboardAccessDeniedWarning</key>
+	<true/>
 	<key>NoSyncSuppressMissingProfileInArrangementWarning</key>
 	<true/>
 	<key>NoSyncTipOfTheDayEligibilityBeganTime</key>
