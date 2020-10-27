@@ -17,6 +17,8 @@
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
+  "suggest.enablePreselect": true,
+  "solargraph.commandPath": "solargraph",
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
     "variable": "\ue79b",
