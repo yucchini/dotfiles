@@ -3,10 +3,35 @@ set -xg LC_ALL ja_JP.UTF-8
 set -xg LANG ja_JP.UTF-8
 
 set -x PATH $PATH $HOME
-set -x PATH $PATH $HOME/.anyenv/bin
-set -x PATH $PATH $HOME/.anyenv/envs/*/bin
-set -x PATH $HOME/.local/bin $PATH
-set -x PATH /usr/local/sbin $PATH
+
+if status --is-interactive
+  # anyenv
+  set -x PATH $PATH $HOME/.anyenv/bin
+  anyenv init - fish | source
+
+  # nodenv
+  set -x PATH $HOME/.anyenv/envs/nodenv/bin $HOME/.anyenv/envs/nodenv/shims $PATH
+
+  # pyenv
+  set -x PATH $HOME/.anyenv/envs/pyenv/bin $HOME/.anyenv/envs/pyenv/shims $PATH
+
+  # rbenv（tmuxを使用している場合はtmuxがシステムデフォルトのrubyを見に行ってしまうのであえてPATHを指定する）
+  set -x PATH $HOME/.anyenv/envs/rbenv/bin $HOME/.anyenv/envs/rbenv/shims $PATH
+
+  # direnv
+  # direnv hook fish | source
+
+  # Rust
+  # set -x PATH $PATH $HOME/.cargo/bin
+
+  # Go
+  # set -x GOPATH $HOME/go
+  # set -x PATH $PATH $GOPATH/bin
+
+  # いろいろ入れておくところ
+  # set -x PATH $PATH $HOME/dotfiles/.bin
+  # set -x PATH $PATH $HOME/bin
+end
 
 set GHQ_SELECTOR peco
 set -g theme_date_format "+%Y-%m-%d %H:%M:%S"
@@ -20,19 +45,19 @@ function fish_user_key_bindings
 end
 
 function attach_tmux_session_if_needed
-    set ID (tmux list-sessions)
-    if test -z "$ID"
-        tmux new-session
-        return
-    end
+  set ID (tmux list-sessions)
+  if test -z "$ID"
+    tmux new-session
+    return
+  end
 
-    set new_session "Create New Session"
-    set ID (echo $ID\n$new_session | peco --on-cancel=error | cut -d: -f1)
-    if test "$ID" = "$new_session"
-        tmux new-session
-    else if test -n "$ID"
-        tmux attach-session -t "$ID"
-    end
+  set new_session "Create New Session"
+  set ID (echo $ID\n$new_session | peco --on-cancel=error | cut -d: -f1)
+  if test "$ID" = "$new_session"
+    tmux new-session
+  else if test -n "$ID"
+    tmux attach-session -t "$ID"
+  end
 end
 
 function ide
@@ -59,9 +84,6 @@ end
 # fzf settings
 set -U FZF_LEGACY_KEYBINDINGS 0
 
-# anynenv
-status --is-interactive; and source (anyenv init -|psub)
-
 # fish起動時にtmuxを起動
 if test -z $TMUX
   # if test $using_shell = '-fish'
@@ -80,13 +102,14 @@ alias pul='git pull'
 alias puld='git pull pr develop'
 alias st='git status'
 alias gl='git log'
-alias diff='git diff'
+alias gd='git diff'
 alias gr='git reset'
 alias ga='git commit --amend'
 alias gb='git branch'
-alias ct='git checkout'
-alias ctb='git checkout -b'
-alias ctm='git checkout -'
+alias gf='git fetch'
+alias gct='git checkout'
+alias gctb='git checkout -b'
+alias gct-='git checkout -'
 alias clone='git clone'
 alias ctd='git checkout develop'
 
@@ -138,18 +161,20 @@ alias psh='python manage.py shell'
 
 # Npm
 alias nr='npm run'
-alias yr='yarn run'
 alias nw='npm run watch'
-alias yw='yarn run watch'
-alias stb='npm run storybook'
+alias nsb='npm run storybook'
+alias nc='npm run clean'
 alias ninfo='npm info'
 alias ni='npm install'
 alias nci='npm ci'
 alias npmlistg='npm list --depth=0 -g'
 
 # yarn
+alias ya='yarn add'
 alias yr='yarn run'
 alias yw='yarn run watch'
+alias ysb='yarn run storybook'
+alias yc='yarn run clean'
 
 # Util
 alias sa='ssh-add -K'
@@ -172,10 +197,9 @@ alias cl='clear'
 alias sshc='cd && nvim .ssh/config'
 
 if [ -d ~/dotfiles/freee ]
-	# echo 'source freee.config.fish!'
+	echo 'source freee.config.fish!'
   source ~/dotfiles/freee/freee.config.fish
 end
 
 # 毎回やるの面倒なので起動時にssh-add -K
 sa
-set -g fish_user_paths "/usr/local/sbin" $fish_user_paths

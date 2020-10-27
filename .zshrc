@@ -1,21 +1,18 @@
 export LANG=ja_JP.UTF-8
 export LC_CTYPE=ja_JP.UTF-8
+
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
+eval "$(anyenv init - zsh)"
 # nodenv
-# export PATH="$HOME/.anyenv/envs/nodenv/versions/*/bin:$PATH"
+export PATH="$HOME/.anyenv/envs/nodenv/versions/*/bin:$PATH"
 # pyenv
-# export PATH="$HOME/.anyenv/envs/pyenv/versions/*/bin:$PATH"
+export PATH="$HOME/.anyenv/envs/pyenv/versions/*/bin:$PATH"
 # rbenv
-# export PATH="$HOME/.anyenv/envs/rbenv/versions/*/bin:$PATH"
+export PATH="$HOME/.anyenv/envs/rbenv/versions/*/bin:$PATH"
 # Flutter
 export PATH="$PATH:$HOME/Program/flutter/bin"
 
-# postresql
-export PGDATA=/usr/local/var/postgres
-
-# nv code
 export PATH=$HOME/.local/bin:$PATH
 export CLICOLOR=1
 export LSCOLORS="GxFxCxDxBxegedabagaced"
@@ -27,7 +24,7 @@ if [ -d ~/dotfiles/freee ]; then
 fi
 
 if [[ $IS_FISH_START == YES ]]; then
-  exec fish
+  # exec fish
 else
   # # fishを読み込まない時はtmuxの起動確認と秘密鍵の読み込み
   # if [[ ! -n $TMUX && $- == *l* ]]; then
@@ -47,7 +44,7 @@ else
   #     :  # Start terminal normally
   #   fi
   # fi
-  sa
+  # sa
 fi
 
 # ===Alias===
@@ -61,13 +58,14 @@ alias pul='git pull'
 alias puld='git pull pr develop'
 alias st='git status'
 alias gl='git log'
-alias diff='git diff'
+alias gd='git diff'
 alias gr='git reset'
 alias ga='git commit --amend'
 alias gb='git branch'
-alias ct='git checkout'
-alias ctb='git checkout -b'
-alias ctm='git checkout -'
+alias gf='git fetch'
+alias gct='git checkout'
+alias gctb='git checkout -b'
+alias gct-='git checkout -'
 alias clone='git clone'
 alias ctd='git checkout develop'
 
@@ -117,16 +115,20 @@ alias psh='python manage.py shell'
 
 # Npm
 alias nr='npm run'
-alias yr='yarn run'
-alias nc='npm run clean'
-alias yc='yarn clean'
 alias nw='npm run watch'
-alias yw='yarn run watch'
-alias stb='npm run storybook'
+alias nsb='npm run storybook'
+alias nc='npm run clean'
 alias ninfo='npm info'
 alias ni='npm install'
 alias nci='npm ci'
 alias npmlistg='npm list --depth=0 -g'
+
+# yarn
+alias ya='yarn add'
+alias yr='yarn run'
+alias yw='yarn run watch'
+alias ysb='yarn run storybook'
+alias yc='yarn run clean'
 
 # Util
 alias sa='ssh-add -K'
