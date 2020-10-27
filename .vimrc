@@ -5,6 +5,7 @@ scriptencoding utf-8
 " stop loading config if it's on tiny or small
 if !1 | finish | endif
 
+" 行番号
 set number
 set nocompatible
 syntax enable
@@ -19,8 +20,9 @@ set showcmd
 set cmdheight=1
 set laststatus=2
 set scrolloff=10
+" Tabの文字分入力されたとき、tabに変換せずスペースのままになる
 set expandtab
-"let loaded_matchparen = 1
+" let loaded_matchparen = 1
 set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
 

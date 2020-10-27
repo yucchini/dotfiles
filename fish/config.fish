@@ -203,6 +203,7 @@ alias ...='cd ../../'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
+alias python3='python3.8'
 
 if [ -d ~/dotfiles/freee ]
 	echo 'source freee.config.fish!'
