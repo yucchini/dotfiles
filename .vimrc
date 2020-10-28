@@ -14,6 +14,7 @@ set encoding=utf-8
 set title
 set autoindent
 set background=dark
+" ファイルを上書きする前にバックアップを作ることを無効化
 set nobackup
 set hlsearch
 set showcmd
@@ -25,6 +26,8 @@ set expandtab
 " let loaded_matchparen = 1
 set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
+" ヤンクをクリップボードと共有させる
+set clipboard+=unnamed
 
 " incremental substitution (neovim)
 if has('nvim')
@@ -51,6 +54,7 @@ set tabstop=2
 set ai "Auto indent
 set si "Smart indent
 set nowrap "No Wrap lines
+" 鍾乳モードでバックスペースで削除できるようにする
 set backspace=start,eol,indent
 " Finding files - Search down into subfolders
 set path+=**
