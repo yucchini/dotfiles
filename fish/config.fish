@@ -94,6 +94,7 @@ end
 # ===Alias===
 # Git
 alias cm='git commit -m'
+alias aad='git add .'
 alias ad='git add'
 alias pu='git push'
 alias puf='git push -f'
