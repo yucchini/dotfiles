@@ -9,6 +9,7 @@ if !1 | finish | endif
 set number
 set nocompatible
 syntax enable
+syntax on
 set fileencodings=utf-8,sjis,euc-jp,latin
 set encoding=utf-8
 set title
@@ -27,6 +28,19 @@ set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
 " ヤンクをクリップボードと共有させる                                                                                                                                                                                 │  .npm/
 set clipboard+=unnamed"
+
+function! ZenkakuSpace()
+  highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
+endfunction
+
+if has('syntax')
+  augroup ZenkakuSpace
+    autocmd!
+    autocmd ColorScheme * call ZenkakuSpace()
+    autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
+  augroup END
+  call ZenkakuSpace()
+endif
 
 " incremental substitution (neovim)
 if has('nvim')
@@ -61,7 +75,8 @@ set backspace=start,eol,indent
 " Finding files - Search down into subfolders
 set path+=**
 set wildignore+=*/node_modules/*
-
+" コマンドラインモードで<Tab>キーによるファイル名補完を有効にする
+set wildmenu
 " Turn off paste mode when leaving insert
 autocmd InsertLeave * set nopaste
 
@@ -143,6 +158,11 @@ let g:localvimrc_ask = 0
 "-------------------------------------------------------------------------------
 
 let s:dein_dir = expand('~/.cache/dein')
+" deinがなかったら取得する
+if !isdirectory(s:dein_dir)
+  execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+endif
+
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
