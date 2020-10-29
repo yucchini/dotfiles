@@ -74,6 +74,11 @@ function idef
   tmux split-window -h -p 50
 end
 
+function idet
+  tmux split-window -v -p 19
+  tmux split-window -h -p 50
+end
+
 # Install fisher
 if not functions -q fisher
   set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
