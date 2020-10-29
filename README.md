@@ -8,6 +8,21 @@ $ sh dotfilesLink.sh # if windows use this > mklink.bat
 
 ※ `sh dotfilesLink.sh`を実行する時は既存のシンボリックリンクやファイル位置に注意
 
+## dependent packages
+
+- ag
+- powerline
+- font
+
+
+## 困ったときに実行するvim script
+
+```vim
+:coc#util#install()
+:call dein#recache_runtimepath()
+
+```
+
 ## tmux keybindings
 
 ### ウィンドウ操作

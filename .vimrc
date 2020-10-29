@@ -14,7 +14,6 @@ set encoding=utf-8
 set title
 set autoindent
 set background=dark
-" ファイルを上書きする前にバックアップを作ることを無効化
 set nobackup
 set hlsearch
 set showcmd
@@ -23,16 +22,20 @@ set laststatus=2
 set scrolloff=10
 " Tabの文字分入力されたとき、tabに変換せずスペースのままになる
 set expandtab
-" let loaded_matchparen = 1
+"let loaded_matchparen = 1
 set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
-" ヤンクをクリップボードと共有させる
-set clipboard+=unnamed
+" ヤンクをクリップボードと共有させる                                                                                                                                                                                 │  .npm/
+set clipboard+=unnamed"
 
 " incremental substitution (neovim)
 if has('nvim')
   set inccommand=split
 endif
+
+" work well in tmux
+set t_8f=^[[38;2;%lu;%lu;%lum
+set t_8b=^[[48;2;%lu;%lu;%lum
 
 " Suppress appending <PasteStart> and <PasteEnd> when pasting
 set t_BE=
@@ -54,7 +57,6 @@ set tabstop=2
 set ai "Auto indent
 set si "Smart indent
 set nowrap "No Wrap lines
-" 鍾乳モードでバックスペースで削除できるようにする
 set backspace=start,eol,indent
 " Finding files - Search down into subfolders
 set path+=**
