@@ -14,13 +14,11 @@ $ sh dotfilesLink.sh # if windows use this > mklink.bat
 - powerline
 - font
 
-
-## 困ったときに実行するvim script
+## 困ったときに実行する vim script
 
 ```vim
-:coc#util#install()
 :call dein#recache_runtimepath()
-
+:call coc#util#install()
 ```
 
 ## tmux keybindings
