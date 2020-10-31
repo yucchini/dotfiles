@@ -153,6 +153,12 @@ set completeopt-=preview
 " localvimrc
 let g:localvimrc_ask = 0
 
+if !empty(globpath(&rtp, 'autoload/coc.vim'))
+  function! s:coc_configure_and_start() abort
+    let g:coc_user_config = {}
+    let g:coc_user_config['coc.preferences.jumpCommand'] = ':SplitIfNotOpen4COC'
+	endfunction
+endif
 "-------------------------------------------------------------------------------
 " Dein
 "-------------------------------------------------------------------------------

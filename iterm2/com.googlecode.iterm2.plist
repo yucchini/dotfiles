@@ -436,13 +436,11 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSColorPanel</key>
-	<string>0 129 224 275 0 0 1680 1027 </string>
+	<string>0 131 224 275 0 0 1680 1027 </string>
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
-	<string>440 445 799 448 0 0 1680 1027 </string>
-	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>1290 1050 620 392 0 0 3200 1777 </string>
+	<string>348 406 799 448 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 46 1680 981 0 0 1680 1027 </string>
+	<string>0 0 1680 1050 0 0 1680 1027 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1515,12 +1513,16 @@
 			</dict>
 			<key>Ansi 8 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.33333333333333331</real>
+				<real>0.32955824504808884</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.33333333333333331</real>
+				<real>0.344329833984375</real>
 				<key>Red Component</key>
-				<real>0.33333333333333331</real>
+				<real>0.31678281677886844</real>
 			</dict>
 			<key>Ansi 9 Color</key>
 			<dict>
@@ -1538,13 +1540,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.40234375</real>
+				<real>0.463714599609375</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.36088808418125218</real>
+				<real>0.37854478624210053</real>
 				<key>Red Component</key>
-				<real>0.10754787921905518</real>
+				<real>0.053350953385233879</real>
 			</dict>
 			<key>Background Image Mode</key>
 			<integer>0</integer>
@@ -1568,7 +1570,7 @@
 			<key>Blur</key>
 			<false/>
 			<key>Blur Radius</key>
-			<real>14.450600809010151</real>
+			<real>13.910489371827412</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -1596,12 +1598,16 @@
 			<real>0.0</real>
 			<key>Cursor Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.4411742118818146</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.721923828125</real>
 				<key>Red Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.20077184587717056</real>
 			</dict>
 			<key>Cursor Guide Color</key>
 			<dict>
@@ -1646,13 +1652,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.51238575950264931</real>
+				<real>0.50980392156862742</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.782379150390625</real>
+				<real>0.7803921568627451</real>
 				<key>Red Component</key>
-				<real>0.75384561440753473</real>
+				<real>0.75294117647058822</real>
 			</dict>
 			<key>Guid</key>
 			<string>391B3C3D-8F51-4133-A300-9CD0DC191D05</string>
@@ -1970,7 +1976,7 @@
 				<real>0.943634033203125</real>
 			</dict>
 			<key>Minimum Contrast</key>
-			<real>0.0</real>
+			<real>0.34543678977272729</real>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
@@ -2000,13 +2006,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.074798583984375</real>
+				<real>0.074509803921568626</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.070928263868107619</real>
+				<real>0.070588235294117646</real>
 				<key>Red Component</key>
-				<real>0.06656841142103076</real>
+				<real>0.062745098039215685</real>
 			</dict>
 			<key>Selection Color</key>
 			<dict>
@@ -2316,11 +2322,11 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.37242425444162436</real>
+			<real>0.30853624682741115</real>
 			<key>Unicode Normalization</key>
 			<integer>0</integer>
 			<key>Unicode Version</key>
-			<integer>9</integer>
+			<integer>8</integer>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
@@ -3313,19 +3319,13 @@
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
-		<string>3.3.11</string>
-		<string>3.3.8</string>
-		<string>3.3.6</string>
 		<string>3.3.12</string>
-		<string>3.3.5</string>
-		<string>3.3.7</string>
-		<string>3.3.9</string>
-		<string>3.3.4</string>
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
 		<string>Hack Nerd Font</string>
-		<string>Hack</string>
+		<string>Monaco</string>
+		<string>Menlo</string>
 	</array>
 	<key>NoSyncFrame_SessionsPreferences</key>
 	<dict>
@@ -3337,28 +3337,24 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{-710, 1050}, {3440, 1440}}</string>
+		<string>{{0, 0}, {1680, 1050}}</string>
 		<key>topLeft</key>
-		<string>{885, 1646}</string>
+		<string>{709, 831}</string>
 	</dict>
-	<key>NoSyncHaveUsedCopyMode</key>
-	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>27A6CEFA-4B9A-4AAC-823C-D9669413A84D</string>
-	<key>NoSyncLastTipTime</key>
-	<real>592886191.00041795</real>
+	<string>3FE3E9D3-21D4-4457-AD8B-0569FA15496E</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>161</integer>
+	<integer>65</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
-	<real>591270043.84972095</real>
+	<real>619583672.25091898</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
 	<true/>
 	<key>NoSyncPermissionToShowTip</key>
-	<true/>
+	<false/>
 	<key>NoSyncRecordedVariables</key>
 	<dict>
 		<key>0</key>
@@ -4065,24 +4061,12 @@
 			</dict>
 		</array>
 	</dict>
-	<key>NoSyncTipOfTheDayEligibilityBeganTime</key>
-	<real>590994755.60921705</real>
-	<key>NoSyncTipsDisabled</key>
+	<key>NoSyncSuppressClipboardAccessDeniedWarning</key>
 	<true/>
-	<key>NoSyncTipsToNotShow</key>
-	<array>
-		<string>0006</string>
-		<string>0003</string>
-		<string>0000</string>
-		<string>0007</string>
-		<string>0004</string>
-		<string>000</string>
-		<string>0001</string>
-		<string>0008</string>
-		<string>0005</string>
-		<string>0002</string>
-		<string>0009</string>
-	</array>
+	<key>NoSyncSuppressMissingProfileInArrangementWarning</key>
+	<true/>
+	<key>NoSyncTipOfTheDayEligibilityBeganTime</key>
+	<real>619247418.74661195</real>
 	<key>PMPrintingExpandedStateForPrint2</key>
 	<false/>
 	<key>PointerActions</key>
@@ -4119,7 +4103,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/yucchini/dotfiles/iterm2</string>
+	<string>/Users/shimizu-yuki/dotfiles/iterm2</string>
 	<key>PreserveWindowSizeWhenTabBarVisibilityChanges</key>
 	<false/>
 	<key>PreventEscapeSequenceFromChangingProfile</key>
@@ -4133,16 +4117,12 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final_new.xml?shard=30</string>
+	<string>https://iterm2.com/appcasts/final_new.xml?shard=12</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-10-27T14:17:30Z</date>
+	<date>2020-10-29T02:18:43Z</date>
 	<key>SUSendProfileInfo</key>
-	<false/>
-	<key>SUUpdateGroupIdentifier</key>
-	<integer>684008233</integer>
-	<key>SUUpdateRelaunchingMarker</key>
 	<false/>
 	<key>SavePasteHistory</key>
 	<true/>
@@ -4159,7 +4139,7 @@
 	<key>StatusBarPosition</key>
 	<integer>0</integer>
 	<key>StretchTabsToFillBar</key>
-	<true/>
+	<false/>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>1</integer>
 	<key>TabViewType</key>

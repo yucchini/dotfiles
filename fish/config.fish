@@ -61,21 +61,35 @@ function attach_tmux_session_if_needed
 end
 
 function ide
-  tmux split-window -v -p 23
+  tmux split-window -v -p 21
   tmux split-window -h -p 66
   tmux split-window -h -p 50
 end
 
 
+function idem
+  tmux split-window -v -p 30
+  tmux split-window -h -p 66
+  tmux split-window -h -p 50
+end
+
+function idefm
+  tmux split-window -v -p 30
+	tmux split-window -h -p 75
+	tmux split-window -h -p 66
+	tmux split-window -h -p 50
+end
+
+
 function idef
-  tmux split-window -v -p 23
+  tmux split-window -v -p 21
   tmux split-window -h -p 75
   tmux split-window -h -p 66
   tmux split-window -h -p 50
 end
 
 function idet
-  tmux split-window -v -p 19
+  tmux split-window -v -p 21
   tmux split-window -h -p 50
 end
 
