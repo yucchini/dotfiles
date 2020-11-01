@@ -1,8 +1,17 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["json", "css", "markdown"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "json",
+    "css",
+    "markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
   "eslint.autoFixOnSave": true,
   "eslint.autoFix": true,
   "tsserver.enableJavascript": false,
+  "tsserver.npm": "~/.anyenv/envs/nodenv/shims/npm",
   "languageserver": {
     "flow": {
       "command": "flow",

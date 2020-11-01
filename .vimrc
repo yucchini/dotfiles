@@ -88,7 +88,7 @@ endif
 " Add asterisks in block comments
 set formatoptions+=r
 
-set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
+set suffixesadd=.js,.es,.jsx,.ts,.tsx,.json,.css,.less,.sass,.styl,.php,.py,.md
 
 autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
@@ -97,11 +97,19 @@ autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 " JavaScript
 au BufNewFile,BufRead *.es6 setf javascript
 " TypeScript
-au BufNewFile,BufRead *.tsx setf typescript
+au BufNewFile,BufRead *.ts setf typescript
 " Markdown
 au BufNewFile,BufRead *.md set filetype=markdown
 " Flow
 au BufNewFile,BufRead *.flow set filetype=javascript
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+
+
+augroup ReactFiletypes
+  autocmd!
+  autocmd BufRead,BufNewFile *.jsx setf filetype=javascriptreact
+  autocmd BufRead,BufNewFile *.tsx setf filetype=typescriptreact
+augroup END
 
 "-------------------------------------------------------------------------------
 " Cursor line
@@ -165,9 +173,9 @@ endif
 
 let s:dein_dir = expand('~/.cache/dein')
 " deinがなかったら取得する
-" if !isdirectory(s:dein_dir)
-  " execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
-" endif
+if !isdirectory(s:dein_dir)
+  execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+endif
 
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state(s:dein_dir)
