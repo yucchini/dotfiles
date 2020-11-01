@@ -9,7 +9,6 @@ if !1 | finish | endif
 set number
 set nocompatible
 syntax enable
-syntax on
 set fileencodings=utf-8,sjis,euc-jp,latin
 set encoding=utf-8
 set title
@@ -23,7 +22,7 @@ set laststatus=2
 set scrolloff=10
 " Tabの文字分入力されたとき、tabに変換せずスペースのままになる
 set expandtab
-"let loaded_matchparen = 1
+let loaded_matchparen = 1
 set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
 " ヤンクをクリップボードと共有させる                                                                                                                                                                                 │  .npm/
@@ -50,6 +49,7 @@ endif
 " work well in tmux
 set t_8f=^[[38;2;%lu;%lu;%lum
 set t_8b=^[[48;2;%lu;%lu;%lum
+" set t_ut=
 
 " Suppress appending <PasteStart> and <PasteEnd> when pasting
 set t_BE=
@@ -165,9 +165,9 @@ endif
 
 let s:dein_dir = expand('~/.cache/dein')
 " deinがなかったら取得する
-if !isdirectory(s:dein_dir)
-  execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
-endif
+" if !isdirectory(s:dein_dir)
+  " execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+" endif
 
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state(s:dein_dir)

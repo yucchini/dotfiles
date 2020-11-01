@@ -83,5 +83,3 @@ repo = 'tomtom/tcomment_vim'
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
 
-[[plugins]]
-repo = 'tpope/vim-surround'
