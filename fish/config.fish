@@ -150,10 +150,12 @@ alias tks='tmux kill-server' # tmux全体を終了
 alias ret='tmux source ~/.tmux.conf'
 
 # Docker
-alias dc='docker'
+alias d='docker'
+alias dc='docker-compose'
 alias dce='docker-compose exec'
 alias dcp='docker-compose'
 alias dps='docker ps'
+alias dis='docker images'
 alias dcup='docker-compose up'
 alias dcdown='docker-compose down'
 alias dcbuild='docker-compose build'
