@@ -48,10 +48,10 @@ endif
 
 " work well in tmux
 set termguicolors
-"set t_8f=^[[38;2;%lu;%lu;%lum
-"set t_8b=^[[48;2;%lu;%lu;%lum
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set t_8f=^[[38;2;%lu;%lu;%lum
+set t_8b=^[[48;2;%lu;%lu;%lum
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Suppress appending <PasteStart> and <PasteEnd> when pasting
 set t_BE=
@@ -237,5 +237,6 @@ source ~/.lightline.vimrc
 "-------------------------------------------------------------------------------
 
 colorscheme solarized
+let g:solarized_termcolors=256
 
 set exrc
