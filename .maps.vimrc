@@ -17,6 +17,10 @@ nnoremap - <C-x>
 " i: up
 " nnoremap i k
 
+" jとkの同時押しで INSERTモードから抜ける
+inoremap jk <Esc>  
+inoremap kj <Esc>
+
 " backspaceキーで削除
 nnoremap dw vb"_d
 
@@ -46,8 +50,8 @@ vnoremap <silent> # :<C-U>
 "-------------------------------------------------------------------------------
 " Open current directory
 nmap te :tabedit
-nmap <S-f> :tabnext<Return>
-nmap <S-d> :tabprev<Return>
+nmap s<C-[> :tabnext<Return>
+nmap s<C-]> :tabprev<Return>
 
 "-------------------------------------------------------------------------------
 " Windows
