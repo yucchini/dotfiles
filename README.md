@@ -13,6 +13,17 @@ $ sh dotfilesLink.sh # if windows use this > mklink.bat
 - ag
 - powerline
 - font
+- fzf
+- peco
+- ghq
+- bat
+- ripgrep
+- tmux
+- neovim
+  - gem
+  - npm
+  - pip
+- hub
 
 ## 困ったときに実行する vim script
 

@@ -7,7 +7,17 @@ nnoremap x "_x
 nnoremap + <C-a>
 nnoremap - <C-x>
 
-" Delete a word backwards
+" 方向keyを変えたいとき
+" h: insert mode
+" nnoremap h i
+" j: left
+" nnoremap j h
+" k: down
+" nnoremap k j
+" i: up
+" nnoremap i k
+
+" backspaceキーで削除
 nnoremap dw vb"_d
 
 " Select all

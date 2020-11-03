@@ -19,7 +19,7 @@ if status --is-interactive
   set -x PATH $HOME/.anyenv/envs/rbenv/bin $HOME/.anyenv/envs/rbenv/shims $PATH
 
   # direnv
-  # direnv hook fish | source
+  direnv hook fish | source
 
   # Rust
   # set -x PATH $PATH $HOME/.cargo/bin
@@ -38,6 +38,7 @@ set -g theme_date_format "+%Y-%m-%d %H:%M:%S"
 set -g fish_prompt_pwd_dir_length 0
 # 現在使用しているshell
 set using_shell (ps -p %self | tail +2 | awk '{print $NF}')
+set -g fish_user_paths "/usr/local/opt/openssl@1.1/bin" $fish_user_paths
 
 function fish_user_key_bindings
   bind \cr peco_select_history # Bind for prco history to Ctrl+r
@@ -112,6 +113,7 @@ end
 
 # ===Alias===
 # Git
+alias git='hub'
 alias cm='git commit -m'
 alias aad='git add .'
 alias ad='git add'

@@ -25,8 +25,8 @@ set expandtab
 let loaded_matchparen = 1
 set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
-" ヤンクをクリップボードと共有させる                                                                                                                                                                                 │  .npm/
-set clipboard+=unnamed"
+" ヤンクをクリップボードと共有させる
+set clipboard+=unnamed
 
 function! ZenkakuSpace()
   highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
@@ -47,9 +47,11 @@ if has('nvim')
 endif
 
 " work well in tmux
-set t_8f=^[[38;2;%lu;%lu;%lum
-set t_8b=^[[48;2;%lu;%lu;%lum
-" set t_ut=
+set termguicolors
+"set t_8f=^[[38;2;%lu;%lu;%lum
+"set t_8b=^[[48;2;%lu;%lu;%lum
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Suppress appending <PasteStart> and <PasteEnd> when pasting
 set t_BE=
@@ -111,6 +113,9 @@ augroup ReactFiletypes
   autocmd BufRead,BufNewFile *.tsx setf filetype=typescriptreact
 augroup END
 
+" let g:python_host_prog = $HOME .'/.anyenv/envs/pyenv/versions/2.7.0/python'
+" let g:python3_host_prog = $HOME .'/.anyenv/envs/pyenv/versions/3.8.0/python'
+
 "-------------------------------------------------------------------------------
 " Cursor line
 "-------------------------------------------------------------------------------
@@ -133,6 +138,8 @@ if &term =~ "screen"
   autocmd BufEnter * if bufname("") !~ "^?[A-Za-z0-9?]*://" | silent! exe '!echo -n "\ek[`hostname`:`basename $PWD`/`basename %`]\e\\"' | endif
   autocmd VimLeave * silent!  exe '!echo -n "\ek[`hostname`:`basename $PWD`]\e\\"'
 endif
+
+let g:extra_whitespace_ignored_filetypes = ['unite', 'mkd']
 
 "-------------------------------------------------------------------------------
 " Other plugins
@@ -167,6 +174,11 @@ if !empty(globpath(&rtp, 'autoload/coc.vim'))
     let g:coc_user_config['coc.preferences.jumpCommand'] = ':SplitIfNotOpen4COC'
 	endfunction
 endif
+
+" vimの外でファイルを編集した場合にもすぐに反映させる
+" autocmd BufWritePost * call defx#redraw()
+" autocmd BufEnter * call defx#redraw()
+
 "-------------------------------------------------------------------------------
 " Dein
 "-------------------------------------------------------------------------------
@@ -174,7 +186,8 @@ endif
 let s:dein_dir = expand('~/.cache/dein')
 " deinがなかったら取得する
 if !isdirectory(s:dein_dir)
-  execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+  execute '!curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh' s:dein_dir
+  execute '!sh ./installer.sh ~/.cache/dein'
 endif
 
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
@@ -190,6 +203,7 @@ if dein#load_state(s:dein_dir)
   call dein#end()
   call dein#save_state()
 endif
+
 if dein#check_install()
   call dein#install()
 endif
