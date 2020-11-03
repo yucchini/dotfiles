@@ -80,6 +80,3 @@ source ~/.config/nvim/plugins/coc.rc.vim
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
 
-[[plugins]]
-repo = 'bronson/vim-trailing-whitespace'
-
