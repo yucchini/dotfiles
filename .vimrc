@@ -8,7 +8,6 @@ if !1 | finish | endif
 " 行番号
 set number
 set nocompatible
-syntax enable
 set fileencodings=utf-8,sjis,euc-jp,latin
 set encoding=utf-8
 set title
@@ -67,7 +66,7 @@ set ignorecase
 " Be smart when using tabs ;)
 set smarttab
 " indents
-filetype indent on
+filetype plugin indent on
 set shiftwidth=2
 set tabstop=2
 set ai "Auto indent
@@ -105,7 +104,8 @@ au BufNewFile,BufRead *.md set filetype=markdown
 " Flow
 au BufNewFile,BufRead *.flow set filetype=javascript
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
-
+" fish
+au BufNewFile,BufRead fish_funced set filetype=fish
 
 augroup ReactFiletypes
   autocmd!
@@ -238,5 +238,7 @@ source ~/.lightline.vimrc
 
 colorscheme solarized
 let g:solarized_termcolors=256
+
+syntax enable
 
 set exrc
