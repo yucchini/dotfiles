@@ -77,3 +77,8 @@ hook_add = """
 source ~/.config/nvim/plugins/coc.rc.vim
 """
 
+[[plugins]]
+repo = 'alvan/vim-closetag'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'

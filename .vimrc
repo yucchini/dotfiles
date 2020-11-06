@@ -49,8 +49,6 @@ endif
 set termguicolors
 set t_8f=^[[38;2;%lu;%lu;%lum
 set t_8b=^[[48;2;%lu;%lu;%lum
-" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Suppress appending <PasteStart> and <PasteEnd> when pasting
 set t_BE=
@@ -58,9 +56,9 @@ set t_BE=
 set nosc noru nosm
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
-"set showmatch
+set showmatch
 " How many tenths of a second to blink when matching brackets
-"set mat=2
+set mat=2
 " Ignore case when searching
 set ignorecase
 " Be smart when using tabs ;)
@@ -71,13 +69,10 @@ set shiftwidth=2
 set tabstop=2
 set ai "Auto indent
 set si "Smart indent
-set nowrap "No Wrap lines
 set backspace=start,eol,indent
 " Finding files - Search down into subfolders
 set path+=**
 set wildignore+=*/node_modules/*
-" コマンドラインモードで<Tab>キーによるファイル名補完を有効にする
-set wildmenu
 " Turn off paste mode when leaving insert
 autocmd InsertLeave * set nopaste
 
@@ -91,9 +86,20 @@ set formatoptions+=r
 
 set suffixesadd=.js,.es,.jsx,.ts,.tsx,.json,.css,.less,.sass,.styl,.php,.py,.md
 
+" ----------------------
+"  Utils
+" ----------------------
+
+" 他で書き換えられたら自動で読み直す
+set autoread
+" コマンドラインモードで<Tab>キーによるファイル名補完を有効にする
+set wildmenu
+set nowrap "No Wrap lines
+
 autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
+autocmd FileType python setlocal shiftwidth=4 tabstop=4
 
 " JavaScript
 au BufNewFile,BufRead *.es6 setf javascript
@@ -113,20 +119,48 @@ augroup ReactFiletypes
   autocmd BufRead,BufNewFile *.tsx setf filetype=typescriptreact
 augroup END
 
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue,*.js,*.jsx,*.ts,*.tsx'
+let g:indent_guides_enable_on_vim_startup = 1
+
 " let g:python_host_prog = $HOME .'/.anyenv/envs/pyenv/versions/2.7.0/python'
 " let g:python3_host_prog = $HOME .'/.anyenv/envs/pyenv/versions/3.8.0/python'
+
+if has('mouse')
+  set mouse=a
+  if has('mouse_sgr')
+    set ttymouse=sgr
+  elseif v:version > 703 || v:version is 703 && has('patch632')
+    set ttymouse=sgr
+  else
+    set ttymouse=xterm2
+  endif
+endif
+
+" ペースとするときに自動インデントでずれないようにする
+if &term =~ "xterm"
+  let &t_SI .= "\e[?2004h"
+  let &t_EI .= "\e[?2004l"
+  let &pastetoggle = "\e[201~"
+
+  function XTermPasteBegin(ret)
+    set paste
+    return a:ret
+  endfunction
+
+  inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+endif
 
 "-------------------------------------------------------------------------------
 " Cursor line
 "-------------------------------------------------------------------------------
 
 set cursorline
-"set cursorcolumn
+" set cursorcolumn
 
 " Set cursor line color on visual mode
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 
-highlight LineNr       cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
+highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
 
 augroup BgHighlight
   autocmd!

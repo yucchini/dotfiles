@@ -14,9 +14,9 @@
   "tsserver.npm": "~/.anyenv/envs/nodenv/shims/npm",
   "languageserver": {
     "flow": {
-      "command": "flow",
+      "command": "./node_modules/.bin/flow",
       "args": ["lsp"],
-      "filetypes": ["javascript", "javascriptreact"],
+      "filetypes": ["javascript", "javascriptreact", "javascript.jsx"],
       "initializationOptions": {},
       "requireRootPattern": true,
       "settings": {},
