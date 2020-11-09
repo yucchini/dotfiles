@@ -125,16 +125,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 " let g:python_host_prog = $HOME .'/.anyenv/envs/pyenv/versions/2.7.0/python'
 " let g:python3_host_prog = $HOME .'/.anyenv/envs/pyenv/versions/3.8.0/python'
 
-if has('mouse')
-  set mouse=a
-  if has('mouse_sgr')
-    set ttymouse=sgr
-  elseif v:version > 703 || v:version is 703 && has('patch632')
-    set ttymouse=sgr
-  else
-    set ttymouse=xterm2
-  endif
-endif
+set mouse=a
 
 " ペースとするときに自動インデントでずれないようにする
 if &term =~ "xterm"
