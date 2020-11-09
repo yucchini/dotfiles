@@ -1,31 +1,51 @@
 " init autocmd
 autocmd!
-" set script encoding
+" vimrcでマルチバイト文字を使用しているため設定
 scriptencoding utf-8
 " stop loading config if it's on tiny or small
 if !1 | finish | endif
 
+" ヘルプの言語を日本語優先にする
+set helplang=ja
+
+" 他のバッファに移動する時に自動保存
+set autowrite
+
 " 行番号
 set number
 set nocompatible
-set fileencodings=utf-8,sjis,euc-jp,latin
+
+" 文字コード
 set encoding=utf-8
+set fileencodings=utf-8,sjis,euc-jp,latin
+
+" タブを常に表示
+set showtabline=2
+
+" ミュート
+set belloff=all
+
 set title
 set autoindent
 set background=dark
 set nobackup
-set hlsearch
 set showcmd
 set cmdheight=1
 set laststatus=2
-set scrolloff=10
-" Tabの文字分入力されたとき、tabに変換せずスペースのままになる
-set expandtab
+
 let loaded_matchparen = 1
 set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
-" ヤンクをクリップボードと共有させる
-set clipboard+=unnamed
+
+" undoできる最大数
+set undolevels=1000
+
+" クリップボードを共有
+if has("mac")
+  set clipboard+=unnamed
+else
+  set clipboard^=unnamedplus
+endif
 
 function! ZenkakuSpace()
   highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
@@ -39,6 +59,22 @@ if has('syntax')
   augroup END
   call ZenkakuSpace()
 endif
+
+"-------------------------------------------------------------------------------
+" 検索
+"-------------------------------------------------------------------------------
+
+" インクリメントサーチを有効にする
+set incsearch
+
+" ハイライトサーチを有効にする
+set hlsearch
+
+" 検索時大文字小文字を区別しない
+set ignorecase
+
+" 検索時に大文字を入力した場合ignorecaseが無効になる
+set smartcase
 
 " incremental substitution (neovim)
 if has('nvim')
@@ -59,47 +95,54 @@ set lazyredraw
 set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
-" Ignore case when searching
-set ignorecase
 " Be smart when using tabs ;)
 set smarttab
-" indents
+
+"-------------------------------------------------------------------------------
+" インデント
+"-------------------------------------------------------------------------------
+
+" ファイル形式別プラグインとインデントを有効にする
 filetype plugin indent on
+
+" 自動インデントの空白の数
 set shiftwidth=2
+
+" タブでも常に空白を挿入
 set tabstop=2
+
+" Tabの文字分入力されたとき、tabに変換せずスペースのままになる
+set expandtab
+
+" 改行時自動インデント
 set ai "Auto indent
 set si "Smart indent
 set backspace=start,eol,indent
-" Finding files - Search down into subfolders
-set path+=**
-set wildignore+=*/node_modules/*
-" Turn off paste mode when leaving insert
-autocmd InsertLeave * set nopaste
 
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+" 拡張子ごとのインデント設定
+augroup fileTypeIndent
+  au!
+  au FileType go setlocal tabstop=4 shiftwidth=4
+  au FileType vim setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType ruby setlocal shiftwidth=2 tabstop=2
+  au FileType php setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType python setlocal tabstop=4 shiftwidth=4
+  au FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType typescript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType vue  setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType json setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType sh setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType fish setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType coffee setlocal shiftwidth=2 tabstop=2
+augroup END
 
-" Add asterisks in block comments
-set formatoptions+=r
+"-------------------------------------------------------------------------------
+" 拡張子系
+"-------------------------------------------------------------------------------
 
 set suffixesadd=.js,.es,.jsx,.ts,.tsx,.json,.css,.less,.sass,.styl,.php,.py,.md
-
-" ----------------------
-"  Utils
-" ----------------------
-
-" 他で書き換えられたら自動で読み直す
-set autoread
-" コマンドラインモードで<Tab>キーによるファイル名補完を有効にする
-set wildmenu
-set nowrap "No Wrap lines
-
-autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
-autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
-autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
-autocmd FileType python setlocal shiftwidth=4 tabstop=4
 
 " JavaScript
 au BufNewFile,BufRead *.es6 setf javascript
@@ -125,9 +168,40 @@ let g:indent_guides_enable_on_vim_startup = 1
 " let g:python_host_prog = $HOME .'/.anyenv/envs/pyenv/versions/2.7.0/python'
 " let g:python3_host_prog = $HOME .'/.anyenv/envs/pyenv/versions/3.8.0/python'
 
+" Finding files - Search down into subfolders
+set path+=**
+set wildignore+=*/node_modules/*
+" Turn off paste mode when leaving insert
+autocmd InsertLeave * set nopaste
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+" Add asterisks in block comments
+set formatoptions+=r
+
+
+" ----------------------
+"  Utils
+" ----------------------
+
+" 外部でファイルの変更があった場合、自動的に読み直す
+set autoread
+augroup vimrc-misc
+  au!
+  au WinEnter,FocusGained * checktime
+augroup END
+
+" コマンドラインモードで<Tab>キーによるファイル名補完を有効にする
+set wildmenu
+set nowrap "No Wrap lines
+
+" マウスを使えるようにする
 set mouse=a
 
-" ペースとするときに自動インデントでずれないようにする
+" ペーストするときに自動インデントでずれないようにする
 if &term =~ "xterm"
   let &t_SI .= "\e[?2004h"
   let &t_EI .= "\e[?2004l"
@@ -141,17 +215,49 @@ if &term =~ "xterm"
   inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
 
+" trailing-whitespace使用時にdefx.nvimのバグが発生しないようにする
+let g:extra_whitespace_ignored_filetypes = ['unite', 'mkd']
+
+" undoの保存先
+if has('persistent_undo')
+  let undo_path = expand('~/.vim/undo')
+  " ディレクトリが存在しない場合は作成
+  if !isdirectory(undo_path)
+    call mkdir(undo_path, 'p')
+  endif
+  exe 'set undodir=' .. undo_path
+  set undofile
+endif
+
 "-------------------------------------------------------------------------------
 " Cursor line
 "-------------------------------------------------------------------------------
 
 set cursorline
+
+" カーソルが常に中央に来るようにする
+set scrolloff=100
+" set scrolloff=10
+
+" 描画負担軽減のため、行番号のみハイライト
+if !has('nvim')
+  set cursorlineopt=number
+endif
 " set cursorcolumn
 
 " Set cursor line color on visual mode
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 
 highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
+
+" カーソルラインの位置を保存する
+augroup cursorlineRestore
+  au!
+  au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal! g'\"" |
+        \ endif
+augroup END
 
 augroup BgHighlight
   autocmd!
@@ -163,8 +269,6 @@ if &term =~ "screen"
   autocmd BufEnter * if bufname("") !~ "^?[A-Za-z0-9?]*://" | silent! exe '!echo -n "\ek[`hostname`:`basename $PWD`/`basename %`]\e\\"' | endif
   autocmd VimLeave * silent!  exe '!echo -n "\ek[`hostname`:`basename $PWD`]\e\\"'
 endif
-
-let g:extra_whitespace_ignored_filetypes = ['unite', 'mkd']
 
 "-------------------------------------------------------------------------------
 " Other plugins
@@ -219,9 +323,11 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
+  " .toml file
   let g:rc_dir = expand('~/.vim/rc')
   let s:toml = g:rc_dir . '/dein.toml'
   let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+  " read toml and cache
   call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
@@ -229,11 +335,25 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 
+" plugin installation check
 if dein#check_install()
   call dein#install()
 endif
 
+" plugin remove check
+let s:removed_plugins = dein#check_clean()
+if len(s:removed_plugins) > 0
+  call map(s:removed_plugins, "delete(v:val, 'rf')")
+  call dein#recache_runtimepath()
+endif
+
 filetype plugin indent on
+
+" ビルトインのファイラnetrwをoff
+let loaded_netrwPlugin = 1
+
+" カレントディレクトリでvimを起動したときにdefxをアイコン付きで起動する
+autocmd VimEnter * execute 'Defx -columns=indent:mark:icon:icons:filename:git:size'
 
 "-------------------------------------------------------------------------------
 " DevIcons
@@ -264,6 +384,50 @@ source ~/.lightline.vimrc
 colorscheme solarized
 let g:solarized_termcolors=256
 
+" シンタックスを有効にする
 syntax enable
 
+" 一行が長いファイルをsyntaxを制御することで軽くする
+set synmaxcol=256
+
 set exrc
+
+
+"-------------------------------------------------------------------------------
+" 理解してない
+"-------------------------------------------------------------------------------
+
+" " grepした結果をquickfixに表示する {{{
+" augroup grepwindow
+"   au!
+"   au QuickFixCmdPost *grep* cwindow
+" augroup END
+" " }}}
+
+" " プラグインディレクトリ配下の.vimをすべてsourceする {{{
+" function! SourceDir(...) abort
+"   let l:path = getcwd()
+"   if a:0 > 1
+"     let l:path = a:1
+"   endif
+
+"   if !isdirectory(l:path)
+"     return
+"   endif
+
+"   exe 'set rtp^=' . l:path
+"   if isdirectory(l:path . '/plugin')
+"     exe 'runtime plugin/*.vim'
+"   endif
+
+"   if isdirectory(l:path . '/autoload')
+"     exe 'runtime autoload/*.vim'
+"   endif
+
+"   if isdirectory(l:path . '/syntax')
+"     exe 'runtime syntax/*.vim'
+"   endif
+" endfunction
+
+" command! -nargs=* Source call SourceDir(<f-args>)
+" " }}}

@@ -18,8 +18,16 @@ nnoremap - <C-x>
 " nnoremap i k
 
 " jとkの同時押しで INSERTモードから抜ける
-inoremap jk <Esc>  
+inoremap jk <Esc>
 inoremap kj <Esc>
+
+" ファイル保存と終了
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q!<CR>
+
+" vimrcを開く
+nnoremap <Leader>. :new ~/.vimrc<CR>
+nnoremap <Leader>s :source ~/.vimrc<CR>
 
 " backspaceキーで削除
 nnoremap dw vb"_d
@@ -52,6 +60,10 @@ vnoremap <silent> # :<C-U>
 nmap te :tabedit
 nmap <S-Tab> :tabprev<Return>
 nmap <Tab> :tabnext<Return>
+
+" タブ切り替え
+nnoremap <C-l> gt
+nnoremap <C-h> gT
 
 "-------------------------------------------------------------------------------
 " Windows
