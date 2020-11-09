@@ -17,6 +17,10 @@ nnoremap - <C-x>
 " i: up
 " nnoremap i k
 
+" vimコマンドのエイリアス
+cnoreabbrev coci coc#util#install()
+cnoreabbrev recache dein#recache_runtimepath()
+
 " jとkの同時押しで INSERTモードから抜ける
 inoremap jk <Esc>
 inoremap kj <Esc>

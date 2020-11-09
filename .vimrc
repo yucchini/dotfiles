@@ -19,6 +19,11 @@ set nocompatible
 set encoding=utf-8
 set fileencodings=utf-8,sjis,euc-jp,latin
 
+if exists('&ambiwidth')
+  " UTF-8の□や○でカーソル位置がずれないようにする
+  set ambiwidth=double
+endif"
+
 " タブを常に表示
 set showtabline=2
 
@@ -138,6 +143,22 @@ augroup fileTypeIndent
   au FileType coffee setlocal shiftwidth=2 tabstop=2
 augroup END
 
+" tab: タブの表示を決定する
+" trail: 行末に続くスペースを表す
+" extends:ウィンドウの幅が狭くて右に省略された文字がある場合に表示される
+" preceds: extendsと同じで左に省略された文字がある場合に表示される
+" set list
+" set listchars=tab:>-,trail:·,extends:>,precedes:<,space:·
+" indentLineを非表示にするファイル
+let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'calendar', 'thumbnail', 'tweetvim', 'defx', 'denite']
+let g:indentLine_color_term = 245
+" let g:indentLine_leadingSpaceEnabled=1
+" let g:indentLine_char = '·'
+
+" indentLine
+let g:indentLine_char_list = ['┊', '┊', '┊', '┊']
+
+
 "-------------------------------------------------------------------------------
 " 拡張子系
 "-------------------------------------------------------------------------------
@@ -163,7 +184,6 @@ augroup ReactFiletypes
 augroup END
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue,*.js,*.jsx,*.ts,*.tsx'
-let g:indent_guides_enable_on_vim_startup = 1
 
 " let g:python_host_prog = $HOME .'/.anyenv/envs/pyenv/versions/2.7.0/python'
 " let g:python3_host_prog = $HOME .'/.anyenv/envs/pyenv/versions/3.8.0/python'
@@ -351,9 +371,6 @@ filetype plugin indent on
 
 " ビルトインのファイラnetrwをoff
 let loaded_netrwPlugin = 1
-
-" カレントディレクトリでvimを起動したときにdefxをアイコン付きで起動する
-autocmd VimEnter * execute 'Defx -columns=indent:mark:icon:icons:filename:git:size'
 
 "-------------------------------------------------------------------------------
 " DevIcons
