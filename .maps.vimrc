@@ -25,7 +25,7 @@ inoremap kj <Esc>
 nnoremap dw vb"_d
 
 " Select all
-nmap <C-a> gg<S-v>G
+nmap aa gg<S-v>G
 
 " Open BufExplorer
 nmap \\ \be
@@ -50,8 +50,8 @@ vnoremap <silent> # :<C-U>
 "-------------------------------------------------------------------------------
 " Open current directory
 nmap te :tabedit
-nmap s<C-[> :tabnext<Return>
-nmap s<C-]> :tabprev<Return>
+nmap <S-Tab> :tabprev<Return>
+nmap <Tab> :tabnext<Return>
 
 "-------------------------------------------------------------------------------
 " Windows
@@ -61,10 +61,6 @@ nmap ss :split<Return><C-w>w
 nmap sv :vsplit<Return><C-w>w
 " Move window
 nmap <Space> <C-w>w
-map s<left> <C-w>h
-map s<up> <C-w>k
-map s<down> <C-w>j
-map s<right> <C-w>l
 map sh <C-w>h
 map sk <C-w>k
 map sj <C-w>j
