@@ -67,20 +67,20 @@ function ide
   tmux split-window -h -p 50
 end
 
-
+# macの画面で使う用
 function idem
   tmux split-window -v -p 30
   tmux split-window -h -p 66
   tmux split-window -h -p 50
 end
 
+# macの画面で使う用
 function idefm
   tmux split-window -v -p 30
 	tmux split-window -h -p 75
 	tmux split-window -h -p 66
 	tmux split-window -h -p 50
 end
-
 
 function idef
   tmux split-window -v -p 21
@@ -92,6 +92,14 @@ end
 function idet
   tmux split-window -v -p 21
   tmux split-window -h -p 50
+end
+
+function freeeide
+  tmux split-window -v -p 30
+  tmux split-window -h -p 80
+  tmux split-window -h -p 50
+  tmux split-window -h -p 40
+  tmux split-window -v -p 50
 end
 
 # Install fisher
@@ -128,6 +136,7 @@ alias diff='git diff'
 alias greset='git reset'
 alias amend='git commit --amend'
 alias br='git branch'
+alias brd='git branch -D'
 alias fe='git fetch'
 alias cout='git checkout'
 alias coutb='git checkout -b'
@@ -233,6 +242,7 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias python3='python3.8'
 alias shell='echo $SHELL'
+alias p='pwd'
 
 if [ -d ~/dotfiles/freee ]
 	echo 'source freee.config.fish!'
