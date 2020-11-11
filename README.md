@@ -19,6 +19,7 @@ $ sh dotfilesLink.sh # if windows use this > mklink.bat
 - bat
 - ripgrep
 - tmux
+- tig
 - neovim
   - gem
   - npm
