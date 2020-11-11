@@ -122,6 +122,7 @@ end
 # ===Alias===
 # Git
 alias git='hub'
+alias g='git'
 alias cm='git commit -m'
 alias aad='git add .'
 alias ad='git add'
