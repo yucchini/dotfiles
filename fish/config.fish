@@ -144,7 +144,7 @@ alias cout-='git checkout -'
 alias clone='git clone'
 alias coutd='git checkout develop'
 alias fepul='git fetch pr pull/$argv[1]/head:$argv[2]'
-alias gmc='gitmoji -c'
+alias ce='gitmoji -c'
 
 # tmux
 alias t='tmux'

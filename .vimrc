@@ -21,7 +21,7 @@ set fileencodings=utf-8,sjis,euc-jp,latin
 
 if exists('&ambiwidth')
   " UTF-8の□や○でカーソル位置がずれないようにする
-  set ambiwidth=double
+  set ambiwidth=single
 endif"
 
 " タブを常に表示
