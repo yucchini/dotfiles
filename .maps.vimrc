@@ -62,8 +62,8 @@ vnoremap <silent> # :<C-U>
 "-------------------------------------------------------------------------------
 " Open current directory
 nmap te :tabedit
-nmap <S-Tab> :tabprev<Return>
-nmap <Tab> :tabnext<Return>
+nmap <S-l> :tabprev<Return>
+nmap <S-h> :tabnext<Return>
 
 " タブ切り替え
 nnoremap <C-l> gt
