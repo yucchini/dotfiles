@@ -19,11 +19,6 @@ set nocompatible
 set encoding=utf-8
 set fileencodings=utf-8,sjis,euc-jp,latin
 
-if exists('&ambiwidth')
-  " UTF-8の□や○でカーソル位置がずれないようにする
-  set ambiwidth=single
-endif"
-
 " タブを常に表示
 set showtabline=2
 
@@ -37,6 +32,7 @@ set nobackup
 set showcmd
 set cmdheight=1
 set laststatus=2
+set noswapfile
 
 let loaded_matchparen = 1
 set shell=fish
@@ -64,6 +60,13 @@ if has('syntax')
   augroup END
   call ZenkakuSpace()
 endif
+
+" 補完表示時のEnterで改行をしない
+" inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
+" set completeopt=menuone,noinsert
+" inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
+" inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
+
 
 "-------------------------------------------------------------------------------
 " 検索
@@ -215,7 +218,7 @@ augroup vimrc-misc
 augroup END
 
 " コマンドラインモードで<Tab>キーによるファイル名補完を有効にする
-set wildmenu
+set wildmenu wildmode=list:full
 set nowrap "No Wrap lines
 
 " マウスを使えるようにする
@@ -387,12 +390,12 @@ if has("unix")
   let s:uname = system("uname -s")
   " Do Mac stuff
   if s:uname == "Darwin\n"
-    source ~/.osx.vimrc
+    source ~/dotfiles/.osx.vimrc
   endif
 endif
 
-source ~/.maps.vimrc
-source ~/.lightline.vimrc
+source ~/dotfiles/.maps.vimrc
+source ~/dotfiles/.lightline.vimrc
 
 "-------------------------------------------------------------------------------
 " Color scheme

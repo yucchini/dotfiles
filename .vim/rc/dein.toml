@@ -54,9 +54,6 @@ repo = 'jlanzarotta/bufexplorer'
 repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
-repo = 'jiangmiao/auto-pairs'
-
-[[plugins]]
 # Yet Another Remote Plugin Framework for Neovim
 repo = 'roxma/nvim-yarp'
 if = '''!has('nvim')'''
