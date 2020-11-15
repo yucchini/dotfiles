@@ -58,9 +58,9 @@ vnoremap <silent> # :<C-U>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 " 行頭と行末移動のkeymapを変更
-inoremap <C-e> <Esc>$
+inoremap <C-s> <Esc>$
 inoremap <C-a> <Esc>^
-noremap <C-e> <Esc>$
+noremap <C-s> <Esc>$
 noremap <C-a> <Esc>^
 
 "-------------------------------------------------------------------------------
