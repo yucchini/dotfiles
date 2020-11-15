@@ -46,9 +46,9 @@ on_ft = ['javascript', 'javascript.jsx']
 repo = 'maxmellon/vim-jsx-pretty'
 on_ft = ['javascript', 'javascript.jsx']
 
-[[plugins]]
-repo = 'tpope/vim-endwise'
-on_ft = ['ruby']
+# [[plugins]]
+# repo = 'tpope/vim-endwise'
+# on_ft = ['ruby']
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'

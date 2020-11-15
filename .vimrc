@@ -13,6 +13,7 @@ set autowrite
 
 " 行番号
 set number
+" 挙動をvi互換ではなく、vimのデフォルト設定にする
 set nocompatible
 
 " 文字コード
@@ -26,12 +27,13 @@ set showtabline=2
 set belloff=all
 
 set title
-set autoindent
 set background=dark
 set nobackup
+" 入力中のコマンドを表示する
 set showcmd
 set cmdheight=1
 set laststatus=2
+" swapファイルを使わない
 set noswapfile
 
 let loaded_matchparen = 1
@@ -62,10 +64,10 @@ if has('syntax')
 endif
 
 " 補完表示時のEnterで改行をしない
-" inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
-" set completeopt=menuone,noinsert
-" inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
-" inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
+inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
+set completeopt=menuone,noinsert
+inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
+inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
 
 
 "-------------------------------------------------------------------------------
@@ -103,8 +105,6 @@ set lazyredraw
 set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
-" Be smart when using tabs ;)
-set smarttab
 
 "-------------------------------------------------------------------------------
 " インデント
@@ -116,11 +116,17 @@ filetype plugin indent on
 " 自動インデントの空白の数
 set shiftwidth=2
 
+" tabでshiftwidthの数だけインデントする
+set smarttab
+
 " タブでも常に空白を挿入
 set tabstop=2
 
 " Tabの文字分入力されたとき、tabに変換せずスペースのままになる
 set expandtab
+
+" 改行時に前の行のインデントを継続する
+set autoindent
 
 " 改行時自動インデント
 set ai "Auto indent

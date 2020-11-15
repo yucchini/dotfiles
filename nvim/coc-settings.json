@@ -12,7 +12,7 @@
   "eslint.autoFixOnSave": true,
   "eslint.autoFix": true,
   "tsserver.enableJavascript": false,
-  "tsserver.npm": "~/.anyenv/envs/nodenv/shims/npm",
+  "tsserver.npm": "npm",
   "languageserver": {
     "flow": {
       "command": "./node_modules/.bin/flow",
