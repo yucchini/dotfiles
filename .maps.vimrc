@@ -42,6 +42,9 @@ nmap aa gg<S-v>G
 " Open BufExplorer
 nmap \\ \be
 
+" ハイライトを解除する
+nnoremap - :noh<CR>
+
 " Save with root permission
 command! W w !sudo tee > /dev/null %
 
