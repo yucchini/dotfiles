@@ -79,3 +79,4 @@ repo = 'alvan/vim-closetag'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
+

@@ -211,6 +211,8 @@ endif
 " Add asterisks in block comments
 set formatoptions+=r
 
+" jsonファイルでのコメントアウト
+autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 
 " ----------------------
 "  Utils

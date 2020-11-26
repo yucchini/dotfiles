@@ -9,6 +9,7 @@
     "typescript",
     "typescriptreact"
   ],
+  "eslint.enable": false,
   "eslint.autoFixOnSave": true,
   "eslint.autoFix": true,
   "tsserver.enableJavascript": false,
