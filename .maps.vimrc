@@ -70,13 +70,9 @@ noremap <C-a> <Esc>^
 " Tabs
 "-------------------------------------------------------------------------------
 " Open current directory
-nmap te :tabedit
+nmap te :tabedit<CR>sf
 nmap <S-l> :tabprev<Return>
 nmap <S-h> :tabnext<Return>
-
-" タブ切り替え
-nnoremap <C-l> gt
-nnoremap <C-h> gT
 
 "-------------------------------------------------------------------------------
 " Windows
