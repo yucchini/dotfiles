@@ -21,10 +21,6 @@ nnoremap - <C-x>
 cnoreabbrev coci coc#util#install()
 cnoreabbrev recache dein#recache_runtimepath()
 
-" jとkの同時押しで INSERTモードから抜ける
-inoremap jk <Esc>
-inoremap kj <Esc>
-
 " ファイル保存と終了
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q!<CR>
@@ -59,12 +55,6 @@ vnoremap <silent> # :<C-U>
   \gvy?<C-R><C-R>=substitute(
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
-
-" 行頭と行末移動のkeymapを変更
-inoremap <C-s> <Esc>$
-inoremap <C-a> <Esc>^
-noremap <C-s> <Esc>$
-noremap <C-a> <Esc>^
 
 "-------------------------------------------------------------------------------
 " Tabs
