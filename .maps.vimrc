@@ -1,6 +1,6 @@
 nnoremap <S-C-p> "0p
 " Delete without yank
-nnoremap <leader>d "_d
+nnoremap <Leader>d "_d
 nnoremap x "_x
 
 " Increment/decrement
@@ -16,6 +16,12 @@ nnoremap - <C-x>
 " nnoremap k j
 " i: up
 " nnoremap i k
+
+" redo
+nnoremap r <C-r>
+
+" Yでカーソル位置から行末までヤンク
+nnoremap Y y$
 
 " vimコマンドのエイリアス
 cnoreabbrev coci coc#util#install()
