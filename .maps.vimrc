@@ -24,10 +24,24 @@ cnoreabbrev recache dein#recache_runtimepath()
 " ファイル保存と終了
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q!<CR>
+nnoremap <Leader>a :qa<CR>
+
+" コメントアウト
+nmap <Leader>f <Plug>NERDCommenterToggle
+vmap <Leader>f <Plug>NERDCommenterToggle
+" コメントアウトしてインサートモード
+nmap <Leader>i <Plug>NERDCommenterAppend
+" ブロックコメントアウト
+vmap <Leader>b <Plug>NERDCommenterSexy
 
 " vimrcを開く
 nnoremap <Leader>. :new ~/.vimrc<CR>
 nnoremap <Leader>s :source ~/.vimrc<CR>
+
+" call recache
+nnoremap <Leader>re :call dein#recache_runtimepath()<CR>
+" call coci
+nnoremap <Leader>co :call coc#util#install()<CR>
 
 " backspaceキーで削除
 nnoremap dw vb"_d

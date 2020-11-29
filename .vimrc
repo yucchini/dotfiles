@@ -5,6 +5,8 @@ scriptencoding utf-8
 " stop loading config if it's on tiny or small
 if !1 | finish | endif
 
+let mapleader = ','
+
 " ヘルプの言語を日本語優先にする
 set helplang=ja
 
@@ -338,6 +340,14 @@ endif
 " vimの外でファイルを編集した場合にもすぐに反映させる
 " autocmd BufWritePost * call defx#redraw()
 " autocmd BufEnter * call defx#redraw()
+
+" --- NERD commenter ---
+" デフォルトのキーマッピングをオフ
+let g:NERDCreateDefaultMappings = 0
+" コメントアウト時にスペースを1つ挿入
+let NERDSpaceDelims = 1
+" コメント記号を左に揃える
+let g:NERDDefaultAlign = 'left'
 
 "-------------------------------------------------------------------------------
 " Dein
