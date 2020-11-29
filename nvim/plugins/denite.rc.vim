@@ -68,25 +68,25 @@ call denite#custom#option('default', s:denite_default_options)
 "            \ 'final_opts': [],
 "            \ })
 
-let s:ignore_globs = [ '.git/', '.ropeproject/', '__pycache__/', 'undo/',
-    \ 'venv/', 'node_modules/', '*.min.*', 'fonts/', 'tmp/', '.cache/', 'vendor/', 'log/', '__snapshots__/']
+" let s:ignore_globs = [ '.git/', '.ropeproject/', '__pycache__/', 'undo/',
+"     \ 'venv/', 'node_modules/', '*.min.*', 'fonts/', 'tmp/', '.cache/', 'vendor/', 'log/', '__snapshots__/']
 " そもそも ag のレベルで検索対象からはずす
 call denite#custom#var('file/rec', 'command', [
       \ 'ag',
       \ '--follow',
       \ '--hidden',
-      \ ] + map(deepcopy(s:ignore_globs), { k, v -> '--ignore=' . v }) + [
       \ '--nocolor',
       \ '--nogroup',
       \ '-g',
       \ ''
       \ ])
 
+" \ ] + map(deepcopy(s:ignore_globs), { k, v -> '--ignore=' . v }) + [
 " matcher/ignore_globs 以外のお好みの matcher を指定する
 call denite#custom#source('file/rec', 'matchers', ['matcher/substring'])
 
 " 他のソース向けに ignore_globs 自体は初期化
-call denite#custom#filter('matcher/ignore_globs', 'ignore_globs', s:ignore_globs)
+" call denite#custom#filter('matcher/ignore_globs', 'ignore_globs', s:ignore_globs)
 
 " Ag command on grep source
 call denite#custom#var('grep', {
@@ -99,8 +99,8 @@ call denite#custom#var('grep', {
     \ })
 
 
-" call denite#custom#var('file/rec', 'command',
-"     \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+call denite#custom#var('file/rec', 'command',
+    \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
 
 " call denite#custom#filter('matcher/ignore_globs', 'ignore_globs',
 "     \ [ '.git/', '.ropeproject/', '__pycache__/',

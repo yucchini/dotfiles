@@ -1,0 +1,13 @@
+.git/
+.ropeproject/
+__pycache__/
+undo/
+venv/
+node_modules/
+*.min.*
+fonts/
+tmp/
+.cache/
+vendor/
+log/
+__snapshots__/
