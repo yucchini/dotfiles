@@ -4,6 +4,10 @@ augroup denite_filter
   function! s:denite_my_settings() abort
     nnoremap <silent><buffer><expr> <CR>
     \ denite#do_map('do_action')
+    nnoremap <silent><buffer><expr> l
+    \ denite#do_map('do_action', 'vsplit')
+    nnoremap <silent><buffer><expr> <Space>
+    \ denite#do_map('do_action', 'split')
     nnoremap <silent><buffer><expr> d
     \ denite#do_map('do_action', 'delete')
     nnoremap <silent><buffer><expr> p
@@ -12,7 +16,7 @@ augroup denite_filter
     \ denite#do_map('quit')
     nnoremap <silent><buffer><expr> i
     \ denite#do_map('open_filter_buffer')
-    nnoremap <silent><buffer><expr> <Space>
+    nnoremap <silent><buffer><expr> t
     \ denite#do_map('toggle_select').'j'
     imap <silent><buffer> <C-n> <Plug>(denite_filter_quit)<DOWN>
     imap <silent><buffer> <C-p> <Plug>(denite_filter_quit)<UP>
@@ -49,18 +53,33 @@ for [key, value] in items(s:denite_default_options)
 endfor
 call denite#custom#option('default', s:denite_default_options)
 
+" call denite#custom#var('file/rec', 'command',
+"     \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
 call denite#custom#var('file/rec', 'command',
-    \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+\ ['rg', '--files', '--glob', '!.git', '--color', 'never'])
 call denite#custom#filter('matcher/ignore_globs', 'ignore_globs',
     \ [ '.git/', '.ropeproject/', '__pycache__/',
-    \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
+    \   'venv/', 'node_modules/', '*.min.*', 'fonts/', 'tmp/', '.cache/', 'vendor/', 'log/'])
 " Ag command on grep source
-call denite#custom#var('grep', 'command', ['ag'])
-call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', [])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
+" call denite#custom#var('grep', {
+"     \ 'command': ['ag'],
+"     \ 'default_opts': ['-i', '--vimgrep'],
+"     \ 'recursive_opts': [],
+"     \ 'pattern_opt': [],
+"     \ 'separator': ['--'],
+"     \ 'final_opts': [],
+"     \ })
+" Ripgrep command on grep source
+" rgの方がagより速いらしい
+call denite#custom#var('grep', {
+           \ 'command': ['rg'],
+           \ 'default_opts': ['-i', '--vimgrep', '--no-heading'],
+           \ 'recursive_opts': [],
+           \ 'pattern_opt': ['--regexp'],
+           \ 'separator': ['--'],
+           \ 'final_opts': [],
+           \ })
+
 " grep
 command! -nargs=? Dgrep call s:Dgrep(<f-args>)
 function s:Dgrep(...)
@@ -87,5 +106,5 @@ call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'nor
 nnoremap <silent> ;r :<C-u>Dgrep<CR>
 nnoremap <silent> ;f :<C-u>Denite file/rec<CR>
 nnoremap <silent> ;; :<C-u>Denite command command_history<CR>
-nnoremap <silent> ;p :<C-u>Denite -resume<CR>
+nnoremap <silent> ;s :<C-u>Denite -resume<CR>
 
