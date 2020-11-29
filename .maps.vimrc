@@ -83,6 +83,8 @@ vnoremap <silent> # :<C-U>
 nmap te :tabedit<CR>sf
 nmap <S-h> :tabprev<Return>
 nmap <S-l> :tabnext<Return>
+" Close current tab
+nmap cl :tabclose<CR>
 
 "-------------------------------------------------------------------------------
 " Windows
