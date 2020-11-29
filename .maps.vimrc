@@ -18,7 +18,7 @@ nnoremap - <C-x>
 " nnoremap i k
 
 " redo
-nnoremap r <C-r>
+nnoremap <S-u> <C-r>
 
 " Yでカーソル位置から行末までヤンク
 nnoremap Y y$
