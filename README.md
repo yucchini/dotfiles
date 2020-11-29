@@ -82,6 +82,21 @@ $ sh dotfilesLink.sh # if windows use this > mklink.bat
 | yw      | 1 単語コピー                           |
 | =       | 自動インデント修正でずれたのを一括修正 |
 
+### vim mode
+
+| cmd                    | mode                                       |
+| ---------------------- | ------------------------------------------ |
+| map, noremap, unmap    | ノーマル, ビジュアル, 選択, オペレータ待機 |
+| nmap, nnoremap, nunmap | ノーマル                                   |
+| vmap, vnoremap, vunmap | ビジュアル, 選択                           |
+| smap, snoremap, sunmap | 選択                                       |
+| xmap, xnoremap, xunmap | ビジュアル                                 |
+| omap, onremap, ounmap  | オペレータ待機                             |
+| map!, noremap!, unmap! | 挿入, コマンドライン                       |
+| imap, inoremap, iunmap | 挿入                                       |
+| lmap, lnoremap, lunmap | 挿入, コマンドライン, Lang-Arg             |
+| cmap, cnoremap, cunmap | コマンドライン                             |
+
 ## tmux keybindings
 
 ### ウィンドウ操作
