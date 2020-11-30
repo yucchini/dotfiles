@@ -99,8 +99,8 @@ call denite#custom#var('grep', {
     \ })
 
 
-call denite#custom#var('file/rec', 'command',
-    \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+" call denite#custom#var('file/rec', 'command',
+"     \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
 
 " call denite#custom#filter('matcher/ignore_globs', 'ignore_globs',
 "     \ [ '.git/', '.ropeproject/', '__pycache__/',
