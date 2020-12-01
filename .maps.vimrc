@@ -28,8 +28,8 @@ cnoreabbrev coci coc#util#install()
 cnoreabbrev recache dein#recache_runtimepath()
 
 " ファイル保存と終了
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q!<CR>
+nnoremap <Leader>s :w<CR>
+nnoremap <Leader>d :q!<CR>
 nnoremap <Leader>a :qa<CR>
 
 " コメントアウト
@@ -42,7 +42,7 @@ vmap <Leader>b <Plug>NERDCommenterSexy
 
 " vimrcを開く
 nnoremap <Leader>. :new ~/.vimrc<CR>
-nnoremap <Leader>s :source ~/.vimrc<CR>
+nnoremap <Leader>v :source ~/.vimrc<CR>
 
 " call recache
 nnoremap <Leader>re :call dein#recache_runtimepath()<CR>
