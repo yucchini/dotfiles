@@ -10,5 +10,9 @@ tmp/
 .cache/
 vendor/
 log/
+__tests__/
 __snapshots__/
 dict/
+.bundle
+.github/
+bin/
