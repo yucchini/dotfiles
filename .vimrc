@@ -229,7 +229,7 @@ augroup END
 
 " コマンドラインモードで<Tab>キーによるファイル名補完を有効にする
 set wildmenu wildmode=list:full
-" set nowrap "No Wrap lines
+set nowrap "No Wrap lines
 
 " マウスを使えるようにする
 set mouse=a
