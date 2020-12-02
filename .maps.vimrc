@@ -32,17 +32,20 @@ nnoremap <Leader>s :w<CR>
 nnoremap <Leader>d :q!<CR>
 nnoremap <Leader>a :qa<CR>
 
+" 選択
+nnoremap <Leader>v <S-v>
+
 " コメントアウト
 nmap <Leader>f <Plug>NERDCommenterToggle
 vmap <Leader>f <Plug>NERDCommenterToggle
 " コメントアウトしてインサートモード
-nmap <Leader>i <Plug>NERDCommenterAppend
+nmap <Leader>r <Plug>NERDCommenterAppend
 " ブロックコメントアウト
 vmap <Leader>b <Plug>NERDCommenterSexy
 
 " vimrcを開く
 nnoremap <Leader>. :new ~/.vimrc<CR>
-nnoremap <Leader>v :source ~/.vimrc<CR>
+nnoremap <Leader>vi :source ~/.vimrc<CR>
 
 " call recache
 nnoremap <Leader>re :call dein#recache_runtimepath()<CR>
@@ -99,10 +102,10 @@ map sk <C-w>k
 map sj <C-w>j
 map sl <C-w>l
 " Resize window
-nmap <C-w><left> <C-w><
-nmap <C-w><right> <C-w>>
-nmap <C-w><up> <C-w>+
-nmap <C-w><down> <C-w>-
+nmap <Leader>h <C-w><
+nmap <Leader>l <C-w>>
+nmap <Leader>k <C-w>+
+nmap <Leader>j <C-w>-
 
 "-------------------------------------------------------------------------------
 " Plugins
