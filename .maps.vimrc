@@ -92,7 +92,6 @@ nmap <Leader>cm :Gcommit<CR>
 nmap <Leader>bl :Gblame<CR>
 nmap <Leader>diff :Gdiff<CR>
 nmap <Leader>re :Gread<CR>
-nmap <Leader>res :Gread .<CR>
 
 "-------------------------------------------------------------------------------
 " Tabs
