@@ -212,6 +212,7 @@ alias nsb='npm run storybook'
 alias nc='npm run clean'
 alias ninfo='npm info'
 alias ni='npm install'
+alias nui='npm uninstall'
 alias nci='npm ci'
 alias npmlistg='npm list --depth=0 -g'
 
