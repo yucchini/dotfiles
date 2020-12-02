@@ -47,6 +47,10 @@ vmap <Leader>b <Plug>NERDCommenterSexy
 nnoremap <Leader>. :new ~/.vimrc<CR>
 nnoremap <Leader>vi :source ~/.vimrc<CR>
 
+" bとwの移動キーの変更
+noremap <S-l> w
+noremap <S-h> b
+
 " call recache
 nnoremap <Leader>re :call dein#recache_runtimepath()<CR>
 " call coci
@@ -84,8 +88,10 @@ vnoremap <silent> # :<C-U>
 "-------------------------------------------------------------------------------
 " Open current directory
 nmap te :tabedit<CR>sf
-nmap <S-h> :tabprev<Return>
-nmap <S-l> :tabnext<Return>
+" nmap <S-h> :tabprev<Return>
+" nmap <S-l> :tabnext<Return>
+nmap <Tab> :tabnext<Return>
+nmap <S-Tab> :tabprev<Return>
 " Close current tab
 nmap cl :tabclose<CR>
 
