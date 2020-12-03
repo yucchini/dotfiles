@@ -12,7 +12,12 @@
   "eslint.enable": true,
   "eslint.autoFixOnSave": true,
   "eslint.autoFix": true,
-  "eslint.options": { "configFile": "./.eslintrc.json" },
+  "eslint.options": {
+    "$or": [
+      { "configFile": "./.eslintrc.json" },
+      { "configFile": "./.eslintrc.js" }
+    ]
+  },
   "tsserver.enableJavascript": false,
   "tsserver.npm": "npm",
   "languageserver": {
