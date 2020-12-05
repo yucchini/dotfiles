@@ -68,8 +68,6 @@ call denite#custom#option('default', s:denite_default_options)
 "            \ 'final_opts': [],
 "            \ })
 
-" let s:ignore_globs = [ '.git/', '.ropeproject/', '__pycache__/', 'undo/',
-"     \ 'venv/', 'node_modules/', '*.min.*', 'fonts/', 'tmp/', '.cache/', 'vendor/', 'log/', '__snapshots__/']
 " そもそも ag のレベルで検索対象からはずす
 call denite#custom#var('file/rec', 'command', [
       \ 'ag',
@@ -88,23 +86,18 @@ call denite#custom#source('file/rec', 'matchers', ['matcher/substring'])
 " 他のソース向けに ignore_globs 自体は初期化
 " call denite#custom#filter('matcher/ignore_globs', 'ignore_globs', s:ignore_globs)
 
+" let s:ignore_globs = [ '.git/', '.ropeproject/', '__pycache__/', 'undo/',
+"     \ 'venv/', 'node_modules/', '*.min.*', 'fonts/', 'tmp/', '.cache/', 'vendor/', 'log/', '__snapshots__/']
+
 " Ag command on grep source
 call denite#custom#var('grep', {
     \ 'command': ['ag'],
-    \ 'default_opts': ['-i', '--vimgrep'],
+    \ 'default_opts': ['-i', '--vimgrep', '--hidden'],
     \ 'recursive_opts': [],
     \ 'pattern_opt': [],
     \ 'separator': ['--'],
     \ 'final_opts': [],
     \ })
-
-
-" call denite#custom#var('file/rec', 'command',
-"     \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-
-" call denite#custom#filter('matcher/ignore_globs', 'ignore_globs',
-"     \ [ '.git/', '.ropeproject/', '__pycache__/',
-"     \   'venv/', 'node_modules/', '*.min.*', 'fonts/', 'tmp/', '.cache/', 'vendor/', 'log/'])
 
 " grep
 command! -nargs=? Dgrep call s:Dgrep(<f-args>)
