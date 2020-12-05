@@ -95,6 +95,11 @@ nmap <Leader>bl :Gblame<CR>
 nmap <Leader>diff :Gdiff<CR>
 nmap <Leader>coutr :Gread<CR>
 
+" Gitgutter
+" 変更点の部分にジャンプ
+nmap gl <Plug>(GitGutterNextHunk)
+nmap gh <Plug>(GitGutterPrevHunk)
+
 "-------------------------------------------------------------------------------
 " Tabs
 "-------------------------------------------------------------------------------

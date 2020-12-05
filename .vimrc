@@ -5,6 +5,7 @@ scriptencoding utf-8
 " stop loading config if it's on tiny or small
 if !1 | finish | endif
 
+" Leader - 使いまわせるprefix key
 let mapleader = ','
 
 " ヘルプの言語を日本語優先にする
@@ -319,6 +320,10 @@ if !exists('*fugitive#statusline')
   set statusline+=%=
   set statusline+=%{fugitive#statusline()}
 endif
+
+" gitgutter
+" 反映タイミングを早める
+set updatetime=250
 
 " JSX
 let g:jsx_ext_required = 0

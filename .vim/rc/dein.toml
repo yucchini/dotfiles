@@ -82,3 +82,6 @@ repo = 'Yggdroot/indentLine'
 
 [[plugins]]
 repo = 'preservim/nerdcommenter'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
