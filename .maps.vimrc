@@ -32,6 +32,8 @@ nnoremap <Leader>s :w<CR>
 nnoremap <Leader>d :q!<CR>
 nnoremap <Leader>a :qa<CR>
 
+noremap <Space><CR> o<ESC>
+
 " 選択
 nnoremap <Leader>v <S-v>
 
