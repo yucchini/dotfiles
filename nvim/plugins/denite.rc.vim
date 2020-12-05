@@ -112,11 +112,16 @@ function s:Dgrep(...)
   if a:0 > 0
     execute(':Denite -buffer-name=grep-buffer-denite grep -path='.a:1)
   else
-    let l:path = expand('%:p:h')
-    if has_key(defx#get_candidate(), 'action__path')
-      let l:path = fnamemodify(defx#get_candidate()['action__path'], ':p:h')
-    endif
-    execute(':Denite -buffer-name=grep-buffer-denite -no-empty '.join(s:denite_option_array, ' ').' grep -path='.l:path)
+    " 現在いるファイルのディレクトリ
+    " let l:path = expand('%:p:h')
+
+    " カーソルがある部分のディレクトリを取得してるぽい
+    " if has_key(defx#get_candidate(), 'action__path')
+    "   let l:path = fnamemodify(defx#get_candidate()['action__path'], ':p:h')
+    " endif
+    " execute(':Denite -buffer-name=grep-buffer-denite -no-empty '.join(s:denite_option_array, ' ').' grep -path='.l:path)
+    " Projectのルートを基準にgrep
+    execute(':DeniteProjectDir -buffer-name=grep-buffer-denite -no-empty '.join(s:denite_option_array, ' ').' grep')
   endif
 endfunction
 " show Denite grep results

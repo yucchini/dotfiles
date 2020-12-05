@@ -20,6 +20,9 @@ nnoremap - <C-x>
 " redo
 nnoremap <S-u> <C-r>
 
+" 外部コマンドの入力
+nnoremap <Leader>ca :!
+
 " Yでカーソル位置から行末までヤンク
 nnoremap Y y$
 
