@@ -56,6 +56,10 @@ nnoremap <Leader>vi :source ~/.vimrc<CR>
 noremap <S-l> w
 noremap <S-h> b
 
+" call update dein
+nnoremap <Leader>ud :call dein#update('dein.vim')<CR>
+nnoremap <Leader>u :call dein#update()<CR>
+
 " call recache
 nnoremap <Leader>re :call dein#recache_runtimepath()<CR>
 " call coci
