@@ -17,6 +17,9 @@ nnoremap - <C-x>
 " i: up
 " nnoremap i k
 
+" バッファの再読み込み
+nnoremap <Leader>e :tabdo edit<CR>
+
 " redo
 nnoremap <S-u> <C-r>
 
