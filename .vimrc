@@ -359,14 +359,21 @@ let g:NERDDefaultAlign = 'left'
 au BufNewFile,BufRead *.prisma setfiletype graphql
 
 " vim-auto-save
-let g:auto_save = 1
+" let g:auto_save = 1
+let g:auto_save_events = ['InsertLeave', 'TextChanged', 'CursorHold']
 " 自動保存が保存時間を変更しないようにする
 let g:auto_save_no_updatetime = 1
 " インサートモード中は自動保存しない
 let g:auto_save_in_insert_mode = 0
 " 自動保存の通知を非表示
-let g:auto_save_silent = 1
+" let g:auto_save_silent = 1
 
+" コミット編集時にはOFFにする
+if expand("%:p") =~ 'COMMIT_EDITMSG'
+  let g:auto_save = 0
+else
+  let g:auto_save = 1
+endif
 "-------------------------------------------------------------------------------
 " Dein
 "-------------------------------------------------------------------------------
