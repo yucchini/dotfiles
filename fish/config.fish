@@ -25,8 +25,10 @@ if status --is-interactive
   # set -x PATH $PATH $HOME/.cargo/bin
 
   # Go
+  set -x GOPATH "$HOME/go"
   set -x GOENV_ROOT "$HOME/.anyenv/envs/goenv"
   set -x PATH $PATH "$GOENV_ROOT/bin"
+  set -x GO111MODULE on
 
   command goenv rehash 2>/dev/null
   function goenv
