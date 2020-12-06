@@ -354,6 +354,9 @@ let NERDSpaceDelims = 1
 " コメント記号を左に揃える
 let g:NERDDefaultAlign = 'left'
 
+" vim-graphql
+au BufNewFile,BufRead *.prisma setfiletype graphql
+
 "-------------------------------------------------------------------------------
 " Dein
 "-------------------------------------------------------------------------------
