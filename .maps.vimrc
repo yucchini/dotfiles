@@ -7,18 +7,11 @@ nnoremap x "_x
 nnoremap + <C-a>
 nnoremap - <C-x>
 
-" 方向keyを変えたいとき
-" h: insert mode
-" nnoremap h i
-" j: left
-" nnoremap j h
-" k: down
-" nnoremap k j
-" i: up
-" nnoremap i k
-
 " バッファの再読み込み
 nnoremap <Leader>e :tabdo edit<CR>
+
+" Shift + iで後ろにinsert
+nnoremap <S-i> a
 
 " redo
 nnoremap <S-u> <C-r>

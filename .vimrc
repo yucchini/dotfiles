@@ -211,8 +211,9 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 
-" Add asterisks in block comments
-set formatoptions+=r
+" コメントアウト行で改行時にコメントアウトしない
+set formatoptions-=ro
+autocmd FileType * setlocal formatoptions-=ro
 
 " jsonファイルでのコメントアウト
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
