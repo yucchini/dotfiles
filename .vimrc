@@ -202,7 +202,7 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue,*.js,*.jsx,
 
 " Finding files - Search down into subfolders
 set path+=**
-set wildignore+=*/node_modules/*
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store/*,*/node_modules/*
 " Turn off paste mode when leaving insert
 autocmd InsertLeave * set nopaste
 

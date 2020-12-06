@@ -95,6 +95,9 @@ call defx#custom#column('git', 'indicators', {
   \ 'Deleted'   : '✖',
   \ 'Unknown'   : '?'
   \ })
+" 隠しファイルを表示させる
+" show_ignored_filesを0にしてignored_filesを指定すると指定されたファイルのみignoreされるぽい
 call defx#custom#option('_', {
-  \ 'show_ignored_files': 1
+  \ 'show_ignored_files': 0,
+  \ 'ignored_files': '.DS_Store'
   \ })
