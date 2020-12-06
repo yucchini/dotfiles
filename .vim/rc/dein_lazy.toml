@@ -65,3 +65,7 @@ on_ft = ['typescript', 'typescript.tsx']
 [[plugins]]
 repo = 'neoclide/jsonc.vim'
 on_ft = ['jsonc']
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
