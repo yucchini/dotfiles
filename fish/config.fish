@@ -25,8 +25,21 @@ if status --is-interactive
   # set -x PATH $PATH $HOME/.cargo/bin
 
   # Go
-  # set -x GOPATH $HOME/go
-  # set -x PATH $PATH $GOPATH/bin
+  set -x GOENV_ROOT "$HOME/.anyenv/envs/goenv"
+  set -x PATH $PATH "$GOENV_ROOT/bin"
+
+  command goenv rehash 2>/dev/null
+  function goenv
+    set command $argv[1]
+    set -e argv[1]
+
+    switch "$command"
+    case rehash shell
+      source (goenv "sh-$command" $argv|psub)
+    case '*'
+      command goenv "$command" $argv
+    end
+  end
 
   # いろいろ入れておくところ
   # set -x PATH $PATH $HOME/dotfiles/.bin
