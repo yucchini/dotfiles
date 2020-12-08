@@ -56,25 +56,25 @@ set using_shell (ps -p %self | tail +2 | awk '{print $NF}')
 set -g fish_user_paths "/usr/local/opt/openssl@1.1/bin" $fish_user_paths
 
 # function ssh
-  # tmux起動時
-  # if [[ -n (printenv TMUX) ]]
-      # 現在のペインIDを記録
-      # local pane_id=(tmux display -p '#{pane_id}')
-      # 接続先ホスト名に応じて背景色を切り替え
-      # if [[ `echo 1 | grep 'prd'` ]]
-          # tmux select-pane -P 'bg=colour52,fg=white'
-      # elif [[ `echo 1 | grep 'stg'` ]]
-          # tmux select-pane -P 'bg=colour25,fg=white'
-      # end
+#   # tmux起動時
+#   if [[ -e printenv TMUX ]]
+#       # 現在のペインIDを記録
+#       set pane_id=(tmux display -p '#{pane_id}')
+#       # 接続先ホスト名に応じて背景色を切り替え
+#       if [[ `echo 1 | grep 'prd'` ]]
+#           tmux select-pane -P 'bg=colour52,fg=white'
+#       elif [[ `echo 1 | grep 'stg'` ]]
+#           tmux select-pane -P 'bg=colour25,fg=white'
+#       end
 
-      # 通常通りssh続行
-      # command ssh $@
+#       # 通常通りssh続行
+#       command ssh $argv[1]
 
-      # デフォルトの背景色に戻す
-      # tmux select-pane -t $pane_id -P 'default'
-  # else
-      # command ssh $@
-  # end
+#       # デフォルトの背景色に戻す
+#       tmux select-pane -t $pane_id -P 'default'
+#   else
+#       command ssh $argv[1]
+#   end
 # end
 
 function fish_user_key_bindings

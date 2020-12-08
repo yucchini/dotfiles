@@ -338,6 +338,8 @@ let g:NERDCreateDefaultMappings = 0
 let NERDSpaceDelims = 1
 " コメント記号を左に揃える
 let g:NERDDefaultAlign = 'left'
+" fishのコメントアウトが対応していなかったので追加
+let g:NERDCustomDelimiters = { 'fish': { 'left': '#' } }
 
 " vim-graphql
 au BufNewFile,BufRead *.prisma setfiletype graphql
