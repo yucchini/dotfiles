@@ -53,19 +53,6 @@ else
   set clipboard^=unnamedplus
 endif
 
-function! ZenkakuSpace()
-  highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
-endfunction
-
-if has('syntax')
-  augroup ZenkakuSpace
-    autocmd!
-    autocmd ColorScheme * call ZenkakuSpace()
-    autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
-  augroup END
-  call ZenkakuSpace()
-endif
-
 " 補完表示時のEnterで改行をしない
 inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
 set completeopt=menuone,noinsert
@@ -250,9 +237,6 @@ if &term =~ "xterm"
   inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
 
-" trailing-whitespace使用時にdefx.nvimのバグが発生しないようにする
-let g:extra_whitespace_ignored_filetypes = ['unite', 'mkd']
-
 " undoの保存先
 if has('persistent_undo')
   let undo_path = expand('~/.vim/undo')
@@ -374,6 +358,10 @@ if expand("%:p") =~ 'COMMIT_EDITMSG'
 else
   let g:auto_save = 1
 endif
+
+" thinca/vim-zenspace
+let g:zenspace#default_mode = 'on'
+
 "-------------------------------------------------------------------------------
 " Dein
 "-------------------------------------------------------------------------------
@@ -412,8 +400,6 @@ if len(s:removed_plugins) > 0
   call map(s:removed_plugins, "delete(v:val, 'rf')")
   call dein#recache_runtimepath()
 endif
-
-filetype plugin indent on
 
 " ビルトインのファイラnetrwをoff
 let loaded_netrwPlugin = 1
@@ -459,13 +445,6 @@ set exrc
 "-------------------------------------------------------------------------------
 " 理解してない
 "-------------------------------------------------------------------------------
-
-" " grepした結果をquickfixに表示する {{{
-" augroup grepwindow
-"   au!
-"   au QuickFixCmdPost *grep* cwindow
-" augroup END
-" " }}}
 
 " " プラグインディレクトリ配下の.vimをすべてsourceする {{{
 " function! SourceDir(...) abort

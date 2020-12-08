@@ -88,3 +88,9 @@ repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
 repo = 'vim-scripts/vim-auto-save'
+
+[[plugins]]
+repo = 'ntpeters/vim-better-whitespace'
+
+[[plugins]]
+repo = 'yucchini/vim-zenspace'
