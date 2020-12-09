@@ -10,9 +10,6 @@ nnoremap - <C-x>
 " バッファの再読み込み
 nnoremap <Leader>e :tabdo edit<CR>
 
-" Shift + iで後ろにinsert
-nnoremap <S-i> a
-
 " redo
 nnoremap <S-u> <C-r>
 
