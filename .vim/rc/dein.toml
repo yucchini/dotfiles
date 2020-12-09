@@ -94,3 +94,11 @@ repo = 'ntpeters/vim-better-whitespace'
 
 [[plugins]]
 repo = 'yucchini/vim-zenspace'
+
+# 入れてみたいがまだ内容把握してないので保留
+# [[plugins]]
+# repo = 'dense-analysis/ale'
+
+# # emmet for vim
+# [[plugins]]
+# repo = 'mattn/emmet-vim'
