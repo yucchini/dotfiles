@@ -27,6 +27,14 @@ repo = 'maxmellon/vim-jsx-pretty'
 on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
 
 [[plugins]]
+repo = 'mlaursen/vim-react-snippets'
+on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
+
+[[plugins]]
+repo = 'SirVer/ultisnips'
+on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
+
+[[plugins]]
 repo = 'jparise/vim-graphql'
 on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
 
