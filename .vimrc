@@ -184,8 +184,8 @@ augroup END
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue,*.js,*.jsx,*.ts,*.tsx'
 
-" let g:python_host_prog = $HOME .'/.anyenv/envs/pyenv/versions/2.7.0/python'
-" let g:python3_host_prog = $HOME .'/.anyenv/envs/pyenv/versions/3.8.0/python'
+let g:python_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'
+let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim3/bin/python'
 
 " Finding files - Search down into subfolders
 set path+=**

@@ -14,6 +14,9 @@ if status --is-interactive
 
   # pyenv
   set -x PATH $HOME/.anyenv/envs/pyenv/bin $HOME/.anyenv/envs/pyenv/shims $PATH
+  # pyenv-virtualenv
+  pyenv init - | source
+  pyenv virtualenv-init - | source
 
   # rbenv（tmuxを使用している場合はtmuxがシステムデフォルトのrubyを見に行ってしまうのであえてPATHを指定する）
   set -x PATH $HOME/.anyenv/envs/rbenv/bin $HOME/.anyenv/envs/rbenv/shims $PATH
