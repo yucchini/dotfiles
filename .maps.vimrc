@@ -16,6 +16,9 @@ nnoremap <S-u> <C-r>
 " 外部コマンドの入力
 nnoremap <Leader>ca :!
 
+" 置換
+nnoremap <Leader>c :%s//
+
 " vimコマンドのエイリアス
 cnoreabbrev coci coc#util#install()
 cnoreabbrev recache dein#recache_runtimepath()
