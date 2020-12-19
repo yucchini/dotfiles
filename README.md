@@ -11,7 +11,6 @@ $ sh dotfilesLink.sh # if windows use this > mklink.bat
 ## dependent packages
 
 - ag
-- powerline
 - font
 - fzf
 - peco
@@ -24,6 +23,7 @@ $ sh dotfilesLink.sh # if windows use this > mklink.bat
   - gem
   - npm
   - pip
+  - powerline-status(pip)
 - hub
 
 ## 困ったときに実行する vim script
