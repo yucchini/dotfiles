@@ -19,11 +19,13 @@ $ sh dotfilesLink.sh # if windows use this > mklink.bat
 - ripgrep
 - tmux
 - tig
+- pyenv-virtualenv
 - neovim
   - gem
   - npm
   - pip
   - powerline-status(pip)
+  - psutil(pip)
 - hub
 
 ## 困ったときに実行する vim script
