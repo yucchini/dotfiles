@@ -3247,7 +3247,7 @@
 	<key>OpenBookmark</key>
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
-	<false/>
+	<true/>
 	<key>PMPrintingExpandedStateForPrint2</key>
 	<false/>
 	<key>PointerActions</key>
@@ -3288,6 +3288,8 @@
 	<key>PreventEscapeSequenceFromChangingProfile</key>
 	<false/>
 	<key>Print In Black And White</key>
+	<true/>
+	<key>PromptOnQuitEvenIfThereAreNoWindows</key>
 	<true/>
 	<key>RestoreWindowsWithinScreens</key>
 	<true/>

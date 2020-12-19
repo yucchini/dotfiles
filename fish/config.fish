@@ -17,6 +17,8 @@ if status --is-interactive
   # pyenv-virtualenv
   pyenv init - | source
   pyenv virtualenv-init - | source
+  # export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
+  # export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
 
   # rbenv（tmuxを使用している場合はtmuxがシステムデフォルトのrubyを見に行ってしまうのであえてPATHを指定する）
   set -x PATH $HOME/.anyenv/envs/rbenv/bin $HOME/.anyenv/envs/rbenv/shims $PATH
