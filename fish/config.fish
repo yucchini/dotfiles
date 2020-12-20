@@ -196,6 +196,7 @@ alias sclonem='git clone --branch master --depth 1'
 alias coutd='git checkout develop'
 alias fepul='git fetch upstream pull/$argv[1]/head:$argv[2]'
 alias ce='gitmoji -c'
+alias go='git open'
 
 # tmux
 alias t='tmux'
