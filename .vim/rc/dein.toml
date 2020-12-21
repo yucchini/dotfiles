@@ -4,6 +4,10 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
 
+# ここからcolorschemeを取ってきているぽいけどなくても大丈夫そう
+# [[plugins]]
+# repo = 'overcache/NeoSolarized'
+
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 

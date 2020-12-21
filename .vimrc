@@ -432,7 +432,7 @@ source ~/dotfiles/.lightline.vimrc
 " Color scheme
 "-------------------------------------------------------------------------------
 
-colorscheme solarized
+" colorscheme NeoSolarized
 let g:solarized_termcolors=256
 
 " シンタックスを有効にする
