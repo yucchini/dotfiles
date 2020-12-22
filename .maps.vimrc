@@ -53,6 +53,9 @@ noremap <S-h> b
 nnoremap <Leader>ud :call dein#update('dein.vim')<CR>
 nnoremap <Leader>u :call dein#update()<CR>
 
+" coc.nvimでfloatingが消えない時に消すkeymap
+nmap <Esc> :call coc#float#close_all() <CR>
+
 " call recache
 nnoremap <Leader>re :call dein#recache_runtimepath()<CR>
 " call coci
