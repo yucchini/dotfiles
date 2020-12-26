@@ -82,6 +82,12 @@ set -g fish_user_paths "/usr/local/opt/openssl@1.1/bin" $fish_user_paths
 #   end
 # end
 
+# Dockerコンテナのシェルアクセスをfzfで簡単にする
+function docker-exec
+  set name (docker ps --format "{{.Names}}" | fzf)
+  docker exec -it $name $argv
+end
+
 function fish_user_key_bindings
   bind \cr peco_select_history # Bind for prco history to Ctrl+r
   bind \cs 'peco_cd'
