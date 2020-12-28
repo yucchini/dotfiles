@@ -35,6 +35,9 @@ if status --is-interactive
   set -x PATH $PATH "$GOENV_ROOT/bin"
   set -x GO111MODULE on
 
+  # neovim
+  set -x PATH $HOME/nvim-osx64/bin $PATH
+
   command goenv rehash 2>/dev/null
   function goenv
     set command $argv[1]
@@ -161,11 +164,11 @@ end
 set -U FZF_LEGACY_KEYBINDINGS 0
 
 # fish起動時にtmuxを起動
-if test -z $TMUX
-  # if test $using_shell = '-fish'
-  attach_tmux_session_if_needed
-  # end
-end
+# if test -z $TMUX
+#   # if test $using_shell = '-fish'
+#   attach_tmux_session_if_needed
+#   # end
+# end
 
 # ===Alias===
 # Git
