@@ -99,6 +99,9 @@ repo = 'ntpeters/vim-better-whitespace'
 [[plugins]]
 repo = 'yucchini/vim-zenspace'
 
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+
 # 入れてみたいがまだ内容把握してないので保留
 # [[plugins]]
 # repo = 'dense-analysis/ale'
