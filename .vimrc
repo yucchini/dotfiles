@@ -204,7 +204,7 @@ endif
 set formatoptions-=ro
 autocmd FileType * setlocal formatoptions-=ro
 
-" jsonファイルでのコメントアウト
+" jsonファイルでのコメントを可能にする(tsconfigのみ)
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 
 " ----------------------
@@ -249,6 +249,9 @@ if has('persistent_undo')
   exe 'set undodir=' .. undo_path
   set undofile
 endif
+
+" コメント中の特定の単語を強調表示する
+autocmd WinEnter,BufRead,BufNew,Syntax * call matchadd('Todo', '\W\zs\(TODO\|FIXME\|CHANGED\|XXX\|BUG\|HACK\|NOTE\|MEMO\|INFO\|IDEA\)')
 
 "-------------------------------------------------------------------------------
 " Cursor line
