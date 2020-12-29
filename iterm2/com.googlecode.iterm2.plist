@@ -243,17 +243,19 @@
 	<false/>
 	<key>GlobalKeyMap</key>
 	<dict>
+		<key>0x68-0x100000-0x4</key>
+		<dict>
+			<key>Action</key>
+			<integer>2</integer>
+			<key>Label</key>
+			<string></string>
+			<key>Text</key>
+			<string></string>
+		</dict>
 		<key>0x69-0x100000</key>
 		<dict>
 			<key>Action</key>
 			<integer>31</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x6a-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>2</integer>
 			<key>Text</key>
 			<string></string>
 		</dict>
@@ -264,10 +266,12 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0x6c-0x100000</key>
+		<key>0x6c-0x100000-0x25</key>
 		<dict>
 			<key>Action</key>
 			<integer>0</integer>
+			<key>Label</key>
+			<string></string>
 			<key>Text</key>
 			<string></string>
 		</dict>
