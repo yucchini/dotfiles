@@ -105,6 +105,9 @@ repo = 'jiangmiao/auto-pairs'
 [[plugins]]
 repo = 'tpope/vim-rails'
 
+[[plugins]]
+repo = 'chrisbra/Colorizer'
+
 # 入れてみたいがまだ内容把握してないので保留
 # [[plugins]]
 # repo = 'dense-analysis/ale'
