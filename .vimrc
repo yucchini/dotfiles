@@ -150,9 +150,8 @@ augroup END
 " set listchars=tab:>-,trail:·,extends:>,precedes:<,space:·
 " indentLineを非表示にするファイル
 let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'calendar', 'thumbnail', 'tweetvim', 'defx', 'denite']
-let g:indentLine_color_term = 245
-" let g:indentLine_leadingSpaceEnabled=1
-" let g:indentLine_char = '·'
+let g:indentLine_color_term =239
+let g:indentLine_color_gui = '#708090'
 
 " indentLine
 let g:indentLine_char_list = ['┊', '┊', '┊', '┊']
@@ -444,7 +443,7 @@ let g:solarized_termcolors=256
 syntax enable
 
 " 一行が長いファイルをsyntaxを制御することで軽くする
-set synmaxcol=256
+" set synmaxcol=256
 
 set exrc
 
