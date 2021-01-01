@@ -142,13 +142,24 @@ let colors_name = "NeoSolarized"
     let s:gui_base1       = "#93a1a1"
     let s:gui_base2       = "#eee8d5"
     let s:gui_base3       = "#fdf6e3"
-    let s:gui_yellow      = "#b58900"
-    let s:gui_orange      = "#cb4b16"
-    let s:gui_red         = "#dc322f"
-    let s:gui_magenta     = "#d33682"
+    " original
+    " let s:gui_yellow      = "#b58900"
+    let s:gui_yellow      = "#cc9b00"
+    " original
+    " let s:gui_orange      = "#cb4b16"
+    let s:gui_orange      = "#e77574"
+    " original
+    " let s:gui_red         = "#dc322f"
+    let s:gui_red         = "#db5a58"
+    " original
+    " let s:gui_magenta     = "#d33682"
+    let s:gui_magenta     = "#de68a1"
     let s:gui_violet      = "#6c71c4"
-    let s:gui_blue        = "#268bd2"
+    " original
+    " let s:gui_blue        = "#268bd2"
+    let s:gui_blue        = "#45a2e3"
     let s:gui_cyan        = "#2aa198"
+    let s:gui_turquoise   = '#2ba69c'
     let s:gui_green       = "#719e07" "experimental
     "let s:green       = "#859900" "original
 
@@ -321,6 +332,7 @@ exe "let s:fg_magenta   = ' "   .   "guifg=".s:gui_magenta  .   " ctermfg=".s:te
 exe "let s:fg_violet    = ' "   .   "guifg=".s:gui_violet   .   " ctermfg=".s:term_violet    .   "'"
 exe "let s:fg_blue      = ' "   .   "guifg=".s:gui_blue     .   " ctermfg=".s:term_blue      .   "'"
 exe "let s:fg_cyan      = ' "   .   "guifg=".s:gui_cyan     .   " ctermfg=".s:term_cyan      .   "'"
+exe "let s:fg_turquoise = ' "   .   "guifg=".s:gui_turquoise.   " ctermfg=".s:term_cyan .   "'"
 
 exe "let s:fmt_none     = ' "   .   "gui=NONE"          .   " cterm=NONE"           .   "'"
 exe "let s:fmt_bold     = ' "   .   "gui=NONE".s:b      .   " cterm=NONE".s:b       .   "'"
@@ -390,9 +402,13 @@ endif
 " Normal: 通常のfontの色（変数など）
 exe "hi! Normal"         .s:fmt_none   .s:fg_base1  .s:bg_back
 
-exe "hi! Comment"        .s:fmt_ital   .s:fg_cyan .s:bg_none
+" コメントアウトの色
+" exe "hi! Comment"        .s:fmt_ital   .s:fg_cyan .s:bg_none
+exe "hi! Comment"        .s:fmt_ital   .s:fg_turquoise .s:bg_none
+
 "       *Comment         any comment
 
+" 定数
 exe "hi! Constant"       .s:fmt_none   .s:fg_cyan   .s:bg_none
 "       *Constant        any constant
 "        String          a string constant: "this is a string"
@@ -401,10 +417,12 @@ exe "hi! Constant"       .s:fmt_none   .s:fg_cyan   .s:bg_none
 "        Boolean         a boolean constant: TRUE, false
 "        Float           a floating point constant: 2.3e10
 
+" 変数名
 exe "hi! Identifier"     .s:fmt_none   .s:fg_blue   .s:bg_none
 "       *Identifier      any variable name
 "        Function        function name (also: methods for classes)
-"
+
+" 命令文
 exe "hi! Statement"      .s:fmt_none   .s:fg_green  .s:bg_none
 "       *Statement       any statement
 "        Conditional     if, then, else, endif, switch, etc.
@@ -414,6 +432,7 @@ exe "hi! Statement"      .s:fmt_none   .s:fg_green  .s:bg_none
 "        Keyword         any other keyword
 "        Exception       try, catch, throw
 
+" プリプロセッサー命令
 exe "hi! PreProc"        .s:fmt_none   .s:fg_orange .s:bg_none
 "       *PreProc         generic Preprocessor
 "        Include         preprocessor #include
@@ -427,6 +446,7 @@ exe "hi! Type"           .s:fmt_none   .s:fg_yellow .s:bg_none
 "        Structure       struct, union, enum, etc.
 "        Typedef         A typedef
 
+" 特殊なシンボル
 exe "hi! Special"        .s:fmt_none   .s:fg_red    .s:bg_none
 "       *Special         any special symbol
 "        SpecialChar     special character in a constant
@@ -454,13 +474,16 @@ exe "hi! Todo"           .s:fmt_bold   .s:fg_magenta.s:bg_none
 " ---------------------------------------------------------------------
 if  (g:neosolarized_visibility=="high")
     exe "hi! SpecialKey" .s:fmt_revr   .s:fg_red    .s:bg_none
-    exe "hi! NonText"    .s:fmt_bold   .s:fg_red    .s:bg_none
+    exe "hi! NonText"    .s:fmt_none   .s:fg_base1  .s:bg_back
+    " exe "hi! NonText"    .s:fmt_bold   .s:fg_red    .s:bg_none
 elseif  (g:neosolarized_visibility=="low")
     exe "hi! SpecialKey" .s:fmt_bold   .s:fg_base02 .s:bg_none
-    exe "hi! NonText"    .s:fmt_bold   .s:fg_base02 .s:bg_none
+    exe "hi! NonText"    .s:fmt_none   .s:fg_base1  .s:bg_back
+    " exe "hi! NonText"    .s:fmt_bold   .s:fg_base02 .s:bg_none
 else
     exe "hi! SpecialKey" .s:fmt_bold   .s:fg_base00 .s:bg_base02
-    exe "hi! NonText"    .s:fmt_bold   .s:fg_base00 .s:bg_none
+    exe "hi! NonText"    .s:fmt_none   .s:fg_base1  .s:bg_back
+    " exe "hi! NonText"    .s:fmt_bold   .s:fg_base00 .s:bg_none
 endif
 exe "hi! StatusLine"     .s:fmt_none   .s:fg_base1  .s:bg_base02 .s:fmt_revbb
 exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base00 .s:bg_base02 .s:fmt_revbb
@@ -545,7 +568,8 @@ exe "hi! helpNote"          .s:fmt_none    .s:fg_magenta.s:bg_none
 exe "hi! helpVim"           .s:fmt_none    .s:fg_magenta.s:bg_none
 exe "hi! helpHyperTextJump" .s:fmt_undr    .s:fg_blue   .s:bg_none
 exe "hi! helpHyperTextEntry".s:fmt_none    .s:fg_green  .s:bg_none
-exe "hi! vimIsCommand"      .s:fmt_none    .s:fg_base00 .s:bg_none
+exe "hi! vimIsCommand"      .s:fmt_none   .s:fg_base1  .s:bg_back
+" exe "hi! vimIsCommand"      .s:fmt_none    .s:fg_base00 .s:bg_none
 exe "hi! vimSynMtchOpt"     .s:fmt_none    .s:fg_yellow .s:bg_none
 exe "hi! vimSynType"        .s:fmt_none    .s:fg_cyan   .s:bg_none
 exe "hi! vimHiLink"         .s:fmt_none    .s:fg_blue   .s:bg_none
@@ -612,12 +636,16 @@ hi! link gitcommitUnmergedArrow  gitcommitUnmergedFile
 "
 " html highlighting "{{{
 " ---------------------------------------------------------------------
-exe "hi! htmlTag"           .s:fmt_none .s:fg_base01 .s:bg_none
-exe "hi! htmlEndTag"        .s:fmt_none .s:fg_base01 .s:bg_none
-exe "hi! htmlTagN"          .s:fmt_bold .s:fg_base1  .s:bg_none
+" exe "hi! htmlTag"           .s:fmt_none .s:fg_base01 .s:bg_none
+exe "hi! htmlTag"         .s:fmt_none   .s:fg_base1  .s:bg_back
+" exe "hi! htmlEndTag"        .s:fmt_none .s:fg_base01 .s:bg_none
+exe "hi! htmlEndTag"         .s:fmt_none   .s:fg_base1  .s:bg_back
+" exe "hi! htmlTagN"          .s:fmt_bold .s:fg_base1  .s:bg_none
+exe "hi! htmlTagN"         .s:fmt_none   .s:fg_base1  .s:bg_back
 exe "hi! htmlTagName"       .s:fmt_bold .s:fg_blue   .s:bg_none
 exe "hi! htmlSpecialTagName".s:fmt_ital .s:fg_blue   .s:bg_none
-exe "hi! htmlArg"           .s:fmt_none .s:fg_base00 .s:bg_none
+" exe "hi! htmlArg"           .s:fmt_none .s:fg_base00 .s:bg_none
+exe "hi! htmlArg"         .s:fmt_none   .s:fg_base1  .s:bg_back
 exe "hi! javaScript"        .s:fmt_none .s:fg_yellow .s:bg_none
 "}}}
 
@@ -681,7 +709,8 @@ exe "hi! cPreCondit". s:fg_orange.s:bg_none   .s:fmt_none
 exe "hi! VarId"    . s:fg_blue   .s:bg_none   .s:fmt_none
 exe "hi! ConId"    . s:fg_yellow .s:bg_none   .s:fmt_none
 exe "hi! hsImport" . s:fg_magenta.s:bg_none   .s:fmt_none
-exe "hi! hsString" . s:fg_base00 .s:bg_none   .s:fmt_none
+" exe "hi! hsString" . s:fg_base00 .s:bg_none   .s:fmt_none
+exe "hi! hsString"   .s:fmt_none   .s:fg_base1  .s:bg_back
 
 exe "hi! hsStructure"        . s:fg_cyan   .s:bg_none   .s:fmt_none
 exe "hi! hs_hlFunctionName"  . s:fg_blue   .s:bg_none
