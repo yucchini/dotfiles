@@ -1445,13 +1445,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.32955824504808884</real>
+				<real>0.32941176470588235</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.344329833984375</real>
+				<real>0.3411764705882353</real>
 				<key>Red Component</key>
-				<real>0.31678281677886844</real>
+				<real>0.31372549019607843</real>
 			</dict>
 			<key>Ansi 9 Color</key>
 			<dict>
@@ -1574,6 +1574,8 @@
 			<string>Default</string>
 			<key>Disable Window Resizing</key>
 			<true/>
+			<key>Draw Powerline Glyphs</key>
+			<true/>
 			<key>Flashing Bell</key>
 			<false/>
 			<key>Foreground Color</key>
@@ -1601,6 +1603,8 @@
 			<integer>0</integer>
 			<key>Initial Text</key>
 			<string></string>
+			<key>Initial Use Transparency</key>
+			<true/>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -1905,7 +1909,7 @@
 				<real>0.943634033203125</real>
 			</dict>
 			<key>Minimum Contrast</key>
-			<real>0.29196999289772729</real>
+			<real>0.50941051136363635</real>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
@@ -2250,8 +2254,10 @@
 			<array/>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
+			<key>Thin Strokes</key>
+			<integer>4</integer>
 			<key>Transparency</key>
-			<real>0.084517766497461941</real>
+			<real>0.11105448921319798</real>
 			<key>Unicode Normalization</key>
 			<integer>0</integer>
 			<key>Unicode Version</key>
@@ -3288,8 +3294,6 @@
 		</dict>
 	</dict>
 	<key>PreserveWindowSizeWhenTabBarVisibilityChanges</key>
-	<false/>
-	<key>PreventEscapeSequenceFromChangingProfile</key>
 	<false/>
 	<key>Print In Black And White</key>
 	<true/>
