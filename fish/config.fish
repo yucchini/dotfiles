@@ -164,11 +164,11 @@ end
 set -U FZF_LEGACY_KEYBINDINGS 0
 
 # fish起動時にtmuxを起動
-# if test -z $TMUX
-#   # if test $using_shell = '-fish'
-#   attach_tmux_session_if_needed
-#   # end
-# end
+if test -z $TMUX
+  # if test $using_shell = '-fish'
+  attach_tmux_session_if_needed
+  # end
+end
 
 # ===Alias===
 # Git
