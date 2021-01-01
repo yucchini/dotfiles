@@ -3,6 +3,7 @@ set -xg LC_ALL ja_JP.UTF-8
 set -xg LANG ja_JP.UTF-8
 
 set -x PATH $PATH $HOME
+set -x TERM xterm-256color
 
 if status --is-interactive
   # anyenv
