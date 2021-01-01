@@ -54,32 +54,51 @@ endfor
 call denite#custom#option('default', s:denite_default_options)
 
 " -----ripgrep-----
-" call denite#custom#var('file/rec', 'command',
-" \ ['rg', '--files', '--glob', '!.git', '--color', 'never'])
+" --ignore-case: 大文字小文字の区別を無視
+call denite#custom#var('file/rec', 'command', [
+        \ 'rg',
+        \ '--files',
+        \ '--ignore-case',
+        \ '--hidden',
+        \ '--glob',
+        \ '!.git',
+        \ '--color',
+        \ 'never'
+        \ ])
 
 " Ripgrep command on grep source
 " rgの方がagより速いらしい
-" call denite#custom#var('grep', {
-"            \ 'command': ['rg'],
-"            \ 'default_opts': ['-i', '--vimgrep', '--no-heading'],
-"            \ 'recursive_opts': [],
-"            \ 'pattern_opt': ['--regexp'],
-"            \ 'separator': ['--'],
-"            \ 'final_opts': [],
-"            \ })
+call denite#custom#var('grep', {
+           \ 'command': ['rg'],
+           \ 'default_opts': ['-i', '--vimgrep', '--no-heading'],
+           \ 'recursive_opts': [],
+           \ 'pattern_opt': ['--regexp'],
+           \ 'separator': ['--'],
+           \ 'final_opts': [],
+           \ })
 
+" -----ag-----
 " そもそも ag のレベルで検索対象からはずす
-call denite#custom#var('file/rec', 'command', [
-      \ 'ag',
-      \ '--follow',
-      \ '--hidden',
-      \ '--nocolor',
-      \ '--nogroup',
-      \ '-g',
-      \ ''
-      \ ])
+" call denite#custom#var('file/rec', 'command', [
+"       \ 'ag',
+"       \ '--follow',
+"       \ '--hidden',
+"       \ '--nocolor',
+"       \ '--nogroup',
+"       \ '-g',
+"       \ ''
+"       \ ])
 
-" \ ] + map(deepcopy(s:ignore_globs), { k, v -> '--ignore=' . v }) + [
+" Ag command on grep source
+" call denite#custom#var('grep', {
+"     \ 'command': ['ag'],
+"     \ 'default_opts': ['-i', '--vimgrep', '--hidden'],
+"     \ 'recursive_opts': [],
+"     \ 'pattern_opt': [],
+"     \ 'separator': ['--'],
+"     \ 'final_opts': [],
+"     \ })
+
 " matcher/ignore_globs 以外のお好みの matcher を指定する
 call denite#custom#source('file/rec', 'matchers', ['matcher/substring'])
 
@@ -88,16 +107,6 @@ call denite#custom#source('file/rec', 'matchers', ['matcher/substring'])
 
 " let s:ignore_globs = [ '.git/', '.ropeproject/', '__pycache__/', 'undo/',
 "     \ 'venv/', 'node_modules/', '*.min.*', 'fonts/', 'tmp/', '.cache/', 'vendor/', 'log/', '__snapshots__/']
-
-" Ag command on grep source
-call denite#custom#var('grep', {
-    \ 'command': ['ag'],
-    \ 'default_opts': ['-i', '--vimgrep', '--hidden'],
-    \ 'recursive_opts': [],
-    \ 'pattern_opt': [],
-    \ 'separator': ['--'],
-    \ 'final_opts': [],
-    \ })
 
 " grep
 command! -nargs=? Dgrep call s:Dgrep(<f-args>)
