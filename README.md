@@ -1,13 +1,3 @@
-## Usage
-
-```shell
-$ cd ~/ # if windows use this > cd %HOMEPATH%
-$ git clone https://github.com/your_name/dotfiles.git
-$ sh dotfilesLink.sh # if windows use this > mklink.bat
-```
-
-※ `sh dotfilesLink.sh`を実行する時は既存のシンボリックリンクやファイル位置に注意
-
 ## dependent packages
 
 - ag
@@ -28,21 +18,7 @@ $ sh dotfilesLink.sh # if windows use this > mklink.bat
   - psutil(pip)
 - hub
 
-## 困ったときに実行する vim script
-
-```vim
-:call dein#recache_runtimepath()
-:call coc#util#install()
-```
-
 ## vim keymaps
-
-### 移動
-
-| keybind | operation          |
-| ------- | ------------------ |
-| w / b   | 単語の先頭に移動   |
-| e / ge  | 単語の最後尾に移動 |
 
 ### 検索と置換
 
@@ -134,15 +110,6 @@ $ sh dotfilesLink.sh # if windows use this > mklink.bat
 | }        | ペインの入れ替え（後方向）   |
 | ctrl + o | ペインの入れ替え（全体）     |
 | t        | ペインに時計を表示           |
-
-### コピーモード
-
-| keybind | operation                                  |
-| ------- | ------------------------------------------ |
-| [       | コピーモードの開始（カーソルで自由に移動） |
-| space   | コピー開始位置決定（vi モード）            |
-| Enter   | コピー終了位置決定（vi モード）            |
-| ]       | コピーした内容を貼り付け                   |
 
 ### パネル操作
 
