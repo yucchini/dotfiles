@@ -258,6 +258,9 @@ autocmd WinEnter,BufRead,BufNew,Syntax * call matchadd('Todo', '\W\zs\(TODO\|FIX
 
 set cursorline
 
+" 全モードでblock cursorを使用
+set guicursor=a:block
+
 " カーソルが常に中央に来るようにする
 set scrolloff=100
 " set scrolloff=10
