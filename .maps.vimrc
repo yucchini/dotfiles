@@ -24,9 +24,9 @@ cnoreabbrev coci coc#util#install()
 cnoreabbrev recache dein#recache_runtimepath()
 
 " ファイル保存と終了
-nnoremap <Leader>s :w<CR>
-nnoremap <Leader>d :q!<CR>
-nnoremap <Leader>a :qa<CR>
+nnoremap ;s :w<CR>
+nnoremap ;d :q!<CR>
+nnoremap ;a :qa<CR>
 
 noremap <Space><CR> o<ESC>
 
