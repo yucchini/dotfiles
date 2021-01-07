@@ -208,7 +208,7 @@ alias coutd='git checkout develop'
 alias coutm='git checkout master'
 alias fepul='git fetch upstream pull/$argv[1]/head:$argv[2]'
 alias ce='gitmoji -c'
-alias go='git open'
+alias gopen='git open'
 
 # tmux
 alias t='tmux'
