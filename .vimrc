@@ -371,6 +371,14 @@ endif
 " thinca/vim-zenspace
 let g:zenspace#default_mode = 'on'
 
+" coc-eslint
+autocmd BufNewFile,BufReadPre,BufEnter
+  \ *.{flow}
+  \   call coc#config('eslint.enable', v:false)
+autocmd BufLeave
+  \ *.{js,jsx,ts,tsx}
+  \   call coc#config('eslint.enable', v:true)
+
 "-------------------------------------------------------------------------------
 " Dein
 "-------------------------------------------------------------------------------

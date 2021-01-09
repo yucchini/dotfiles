@@ -7,8 +7,8 @@ set -x TERM xterm-256color
 
 if status --is-interactive
   # anyenv
-  set -x PATH $PATH $HOME/.anyenv/bin
-  anyenv init - fish | source
+  # set -x PATH $PATH $HOME/.anyenv/bin
+  # anyenv init - fish | source
 
   # nodenv
   set -x PATH $HOME/.anyenv/envs/nodenv/bin $HOME/.anyenv/envs/nodenv/shims $PATH
