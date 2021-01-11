@@ -154,6 +154,14 @@ function freeeide
   tmux split-window -v -p 50
 end
 
+function update_nvim
+  cd
+  rm -rf ~/nvim-osx64
+  curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
+  tar xzf ~/nvim-macos.tar.gz
+  rm -f ~/nvim-macos.tar.gz
+end
+
 # Install fisher
 if not functions -q fisher
   set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
@@ -291,6 +299,7 @@ alias vimkey='nvim ~/dotfiles/.maps.vimrc'
 alias cdd='cd ~/dotfiles/'
 alias vim='nvim'
 alias vi='nvim'
+alias uvi='update_nvim'
 # カレントディレクトリを指定した場合はDefxを起動させるために下記のファイルを同時に読み込む
 alias v='nvim . -S ~/.config/nvim/plugins/defx.start.rc.vim'
 alias ls='exa --icons -a'
