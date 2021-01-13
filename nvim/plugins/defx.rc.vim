@@ -3,12 +3,12 @@
 "      \ -columns=indent:mark:icon:icons:filename:git:size
 "      \ -buffer-name=tab`tabpagenr()`<CR>
 " sfでファイラ起動
-nnoremap <silent>sf :<C-u>Defx -listed -resume
+nnoremap <silent>fs :<C-u>Defx -listed -resume
       \ -columns=indent:mark:icon:icons:filename:git:size
       \ -buffer-name=tab`tabpagenr()`
       \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
 " fiでファイラに戻る
-nnoremap <silent>fi :<C-u>Defx -new
+nnoremap <silent>sf :<C-u>Defx -new
       \ -columns=indent:mark:icon:icons:filename:git:size
       \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
 
