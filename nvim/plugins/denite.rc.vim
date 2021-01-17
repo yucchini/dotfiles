@@ -44,7 +44,7 @@ let s:denite_default_options = {
     \ 'winheight': float2nr(&lines * s:denite_win_height_percent),
     \ 'winrow': float2nr((&lines - (&lines * s:denite_win_height_percent)) / 2),
     \ 'highlight_filter_background': 'DeniteFilter',
-    \ 'prompt': 'λ ',
+    \ 'prompt': '$ ',
     \ 'start_filter': v:true,
     \ }
 let s:denite_option_array = []
