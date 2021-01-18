@@ -123,8 +123,8 @@ function s:Dgrep(...)
     " endif
     " execute(':Denite -buffer-name=grep-buffer-denite -no-empty '.join(s:denite_option_array, ' ').' grep -path='.l:path)
     " Projectのルートを基準にgrep
-    " execute(':DeniteProjectDir -buffer-name=grep-buffer-denite -no-empty '.join(s:denite_option_array, ' ').' grep')
-    execute(':DeniteBufferDir -buffer-name=grep-buffer-denite -no-empty '.join(s:denite_option_array, ' ').' grep')
+    execute(':DeniteProjectDir -buffer-name=grep-buffer-denite -no-empty '.join(s:denite_option_array, ' ').' grep')
+    " execute(':DeniteBufferDir -buffer-name=grep-buffer-denite -no-empty '.join(s:denite_option_array, ' ').' grep')
   endif
 endfunction
 " show Denite grep results
