@@ -76,6 +76,9 @@ nmap \\ \be
 " ハイライトを解除する
 nnoremap - :noh<CR>
 
+" syntax highlightを再読み込み
+nnoremap <F9> :syntax sync fromstart<CR>
+
 " Save with root permission
 command! W w !sudo tee > /dev/null %
 
