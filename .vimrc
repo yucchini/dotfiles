@@ -185,8 +185,8 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue,*.js,*.jsx,
 
 let g:python_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'
 let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim3/bin/python'
-" let g:ruby_host_prog = $RBENV_ROOT.'/versions/2.6.5/bin/neovim-ruby-host'
-" let g:node_host_prog = $NODENV_ROOT.'/versions/12.13.0/bin/neovim-node-host'
+let g:ruby_host_prog = $RBENV_ROOT.'/versions/2.6.6/bin/neovim-ruby-host'
+let g:node_host_prog = $NODENV_ROOT.'/versions/12.13.0/bin/neovim-node-host'
 
 " Finding files - Search down into subfolders
 set path+=**
