@@ -15,7 +15,7 @@ set helplang=ja
 set autowrite
 
 " 行番号
-set number
+set nonumber
 " 挙動をvi互換ではなく、vimのデフォルト設定にする
 set nocompatible
 
