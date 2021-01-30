@@ -146,7 +146,7 @@ function idet
   tmux split-window -h -p 50
 end
 
-function freeeide
+function fide
   tmux split-window -v -p 30
   tmux split-window -h -p 80
   tmux split-window -h -p 50
