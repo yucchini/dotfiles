@@ -226,7 +226,7 @@
 		</dict>
 	</dict>
 	<key>Default Bookmark Guid</key>
-	<string>391B3C3D-8F51-4133-A300-9CD0DC191D05</string>
+	<string>50AE9AF9-200B-48DC-BBE2-E370F94587F7</string>
 	<key>DimBackgroundWindows</key>
 	<true/>
 	<key>DimInactiveSplitPanes</key>
@@ -2451,13 +2451,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.3370361328125</real>
+				<real>0.23921568627450981</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.33522715946669629</real>
+				<real>0.19215686274509805</real>
 				<key>Red Component</key>
-				<real>0.13944602571427822</real>
+				<real>0.086274509803921567</real>
 			</dict>
 			<key>Background Image Mode</key>
 			<integer>0</integer>
@@ -2883,7 +2883,7 @@
 				<real>0.943634033203125</real>
 			</dict>
 			<key>Minimum Contrast</key>
-			<real>0.0</real>
+			<real>0.27486900373690393</real>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
@@ -2937,7 +2937,7 @@
 			<key>Send Code When Idle</key>
 			<false/>
 			<key>Shortcut</key>
-			<string></string>
+			<string>A</string>
 			<key>Show Status Bar</key>
 			<true/>
 			<key>Silence Bell</key>
