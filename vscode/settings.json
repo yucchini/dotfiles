@@ -1,0 +1,185 @@
+{
+  // ---------全体的な設定------------
+  "editor.fontSize": 14,
+  "terminal.external.osxExec": "iTerm.app",
+  "html.format.endWithNewline": true,
+  "workbench.startupEditor": "newUntitledFile",
+  "window.zoomLevel": 0,
+  "explorer.openEditors.visible": 14,
+  // ファイルを保存時に自動フォーマットする
+  // "editor.formatOnSave": true,
+  // 現在の行を強調表示する
+  "editor.renderLineHighlight": "all",
+  "html.format.indentInnerHtml": true,
+  "explorer.confirmDelete": false,
+  "files.autoSave": "afterDelay",
+  "editor.renderWhitespace": "all",
+  "editor.wordWrap": "on",
+  "editor.formatOnPaste": true,
+  "editor.tabSize": 2,
+  "editor.tabCompletion": "on",
+  // ---------------------------------
+
+  // ------------エディタのテーマ設定----------------
+  "workbench.colorCustomizations": {
+    // "editor.background": "#343D46",
+    "editor.background": "#2e363f",
+    // "editor.background": "#293038",
+    "editor.foreground": "#D4D4D4",
+    "editor.lineHighlightBorder": "#383B3D",
+
+    // 一番左のサイドバー（Extensionやファイルなどのページを選択できる部分）
+    "activityBar.background": "#25282E",
+    // "activityBar.background": "#252d2e",
+    "activityBarBadge.background": "#383B3D", // 通知の色
+
+    // SideBar(ディレクトリやファイルが並ぶ部分)
+    "sideBar.background": "#25282E",
+    // "sideBar.background": "#252d2e",
+    "sideBarTitle.foreground": "#BBBBBB",
+    // "sideBarSectionHeader.background": "#21252A",
+    "sideBarSectionHeader.background": "#18191D",
+
+    // Terminal
+    "terminal.background": "#18191D",
+
+    // ターミナルの真上のバー
+    "panel.background": "#18191D",
+
+    // Status bar（下のprettierとかが表示されている部分）
+    "statusBar.background": "#25282E",
+
+    // Tab(開いているファイルを表示する部分)
+    "tab.inactiveBackground": "#25282E"
+  },
+  "editor.tokenColorCustomizations": {
+    // コメントアウトのカラー設定
+    "comments": "#89c997"
+    // "comments": "#66cdaa",
+    // "comments": "#54917f",
+    // "comments": "#288c66",
+  },
+  "explorer.confirmDragAndDrop": false,
+  // -----------------------------------------------
+
+  // -----------------HTML-------------------
+
+  // Auto-Close-Tag
+  "auto-rename-tag.activationOnLanguage": [
+    "html",
+    "erb",
+    "xml",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "jsx"
+  ],
+  // 自動で閉じタグを補完してくれる
+  "auto-close-tag.activationOnLanguage": [
+    "xml",
+    "php",
+    "blade",
+    "ejs",
+    "jinja",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "plaintext",
+    "markdown",
+    "vue",
+    "liquid",
+    "erb",
+    "lang-cfml",
+    "cfml",
+    "HTML (EEx)",
+    "HTML (Eex)",
+    "plist"
+  ],
+
+  // テンプレート設定
+  "files.associations": {
+    "**/*.html": "html",
+    "**/templates/**/*.html": "django-html",
+    "**/templates/**/*": "django-txt",
+    "**/requirements{/**,*}.{txt,in}": "pip-requirements",
+    "*.erb": "erb"
+  },
+
+  // Emmet
+  "emmet.includeLanguages": {
+    "django-html": "html",
+    "erb": "html"
+  },
+  // ----------------------------------------
+
+  // ----------------- JavaScript ------------------------
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  // ESLint
+  "eslint.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.tslint": true
+  },
+  // TypeScript
+  "typescript.locale": "en",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "prettier.singleQuote": true,
+  // ファイル保存時に最新の行を末尾に挿入する
+  "files.insertFinalNewline": true,
+  "editor.formatOnType": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.jsxBracketSameLine": true,
+
+  // ---------------------------------------------------
+
+  // ---------Ruby---------
+  "[ruby]": {
+    // rubocopを有効にするためPathを通す
+    // "ruby.rubocop.executePath": "/Users/yucchini/.rbenv/shims/",
+    // "ruby.rubocop.executePath": "/Users/yucchini/.anyenv/envs/rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems",
+    // // コードナビゲーションの機能を有効にする
+    // "ruby.intellisense": "rubyLocate",
+    // // 新しいLanguage serverを有効にする
+    // "ruby.userLanguageServer": true,
+    // // コードナビゲーションの機能を有効にする
+    // "solargraph.definitions": true,
+    // // lintを有効にする設定 .solargraph.ymlでreportersに設定したtoolが使用される
+    // "solargraph.diagnostics": true,
+    // // コードの自動修正を有効にする設定
+    // "solargraph.formatting": true,
+  },
+  "ruby.format": "rubocop",
+  "ruby.lint": {
+    "rubocop": true
+  },
+  "ruby.rubocop.onSave": true,
+  // -----------------------------------------------------
+  "editor.defaultFormatter": "bung87.rails",
+
+  // ----------Python-----------
+
+  // --------------Drawio------------------------
+  "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWw7YmFzaWM7YXJyb3dzMjtmbG93Y2hhcnQ7Ym9vdHN0cmFwO2VyO3VtbDthd3MzO2F3czRiO2F3czQ7Z2NwMjticG1uXCIsXCJjdXN0b21MaWJyYXJpZXNcIjpbXCJMLnNjcmF0Y2hwYWRcIl0sXCJwbHVnaW5zXCI6W10sXCJyZWNlbnRDb2xvcnNcIjpbXCJGRkI1NzBcIixcIkZGRTU5OVwiLFwiMDAwMDAwXCIsXCJGRkZGRkZcIl0sXCJmb3JtYXRXaWR0aFwiOjI0MCxcImNyZWF0ZVRhcmdldFwiOmZhbHNlLFwicGFnZUZvcm1hdFwiOntcInhcIjowLFwieVwiOjAsXCJ3aWR0aFwiOjgyNyxcImhlaWdodFwiOjExNjl9LFwic2VhcmNoXCI6dHJ1ZSxcInNob3dTdGFydFNjcmVlblwiOnRydWUsXCJncmlkQ29sb3JcIjpcIiNkMGQwZDBcIixcImRhcmtHcmlkQ29sb3JcIjpcIiM2ZTZlNmVcIixcImF1dG9zYXZlXCI6dHJ1ZSxcInJlc2l6ZUltYWdlc1wiOm51bGwsXCJvcGVuQ291bnRlclwiOjAsXCJ2ZXJzaW9uXCI6MTgsXCJ1bml0XCI6MSxcImlzUnVsZXJPblwiOmZhbHNlLFwidWlcIjpcIlwifSJ9",
+  "hediet.vscode-drawio.theme": "Kennedy",
+  "material-icon-theme.activeIconPack": "react",
+  "workbench.iconTheme": "material-icon-theme",
+  "extensions.ignoreRecommendations": false,
+  "scssFormatter.singleQuote": true,
+  "html.format.indentHandlebars": true,
+  "dash.exactDocset": true,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "npm.enableScriptExplorer": true,
+  "comments.openPanel": "neverOpen",
+  "python.languageServer": "Pylance",
+  "liveServer.settings.CustomBrowser": "chrome"
+  // ----------------------------------------------
+}

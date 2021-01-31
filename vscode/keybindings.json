@@ -1,0 +1,210 @@
+[
+  {
+    "key": "shift+cmd+[Equal]",
+    "command": "workbench.action.splitEditor"
+  },
+  {
+    "key": "ctrl+cmd+s",
+    "command": "workbench.action.splitEditorRight"
+  },
+  {
+    "key": "ctrl+cmd+a",
+    "command": "workbench.action.splitEditorOrthogonal"
+  },
+  {
+    "key": "cmd+.",
+    "command": "explorer.newFile"
+  },
+  {
+    "key": "shift+cmd+.",
+    "command": "explorer.newFolder"
+  },
+  {
+    "key": "shift+cmd+[BracketLeft]",
+    "command": "editor.debug.action.runToCursor"
+  },
+  {
+    "key": "cmd+g cmd+g",
+    "command": "git-graph.view"
+  },
+  {
+    "key": "cmd+. cmd+.",
+    "command": "editor.action.quickFix",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+.",
+    "command": "-editor.action.quickFix",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+u",
+    "command": "editor.action.transformToUppercase"
+  },
+  {
+    "key": "ctrl+u",
+    "command": "editor.action.transformToLowercase"
+  },
+  {
+    "key": "cmd+g cmd+h",
+    "command": "git.viewFileHistory"
+  },
+  {
+    "key": "alt+cmd+left",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+cmd+left",
+    "command": "-workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+[BracketLeft]",
+    "command": "workbench.action.previousEditor"
+  },
+  {
+    "key": "alt+cmd+left",
+    "command": "-workbench.action.previousEditor"
+  },
+  {
+    "key": "cmd+[",
+    "command": "workbench.action.nextEditor"
+  },
+  {
+    "key": "alt+cmd+right",
+    "command": "-workbench.action.nextEditor"
+  },
+  {
+    "key": "cmd+enter backspace",
+    "command": "editor.action.outdentLines",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+[",
+    "command": "-editor.action.outdentLines",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+r cmd+r",
+    "command": "code-runner.run"
+  },
+  {
+    "key": "ctrl+alt+n",
+    "command": "-code-runner.run"
+  },
+  {
+    "key": "cmd+r cmd+r",
+    "command": "mysql.runQuery",
+    "when": "editorLangId == 'sql'"
+  },
+  {
+    "key": "ctrl+alt+e",
+    "command": "-mysql.runQuery",
+    "when": "editorLangId == 'sql'"
+  },
+  {
+    "key": "cmd+l cmd+p",
+    "command": "workbench.action.closePanel"
+  },
+  {
+    "key": "cmd+f cmd+f",
+    "command": "search.action.openInEditor",
+    "when": "hasSearchResult && searchViewletFocus"
+  },
+  {
+    "key": "cmd+enter",
+    "command": "-search.action.openInEditor",
+    "when": "hasSearchResult && searchViewletFocus"
+  },
+  {
+    "key": "cmd+enter",
+    "command": "editor.action.insertLineAfter",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+enter",
+    "command": "-editor.action.insertLineAfter",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "up backspace",
+    "command": "notebook.cell.insertCodeCellBelow",
+    "when": "notebookEditorFocused && !inputFocus && activeEditor == 'workbench.editor.notebook'"
+  },
+  {
+    "key": "cmd+enter",
+    "command": "-notebook.cell.insertCodeCellBelow",
+    "when": "notebookEditorFocused && !inputFocus && activeEditor == 'workbench.editor.notebook'"
+  },
+  {
+    "key": "cmd+k cmd+o",
+    "command": "extension.liveServer.goOnline",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+l cmd+o",
+    "command": "-extension.liveServer.goOnline",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+o cmd+k",
+    "command": "extension.liveServer.goOffline",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+l cmd+c",
+    "command": "-extension.liveServer.goOffline",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+y",
+    "command": "workbench.debug.action.toggleRepl"
+  },
+  {
+    "key": "shift+cmd+y",
+    "command": "-workbench.debug.action.toggleRepl"
+  },
+  {
+    "key": "shift+cmd+d",
+    "command": "workbench.view.debug"
+  },
+  {
+    "key": "shift+cmd+d",
+    "command": "-workbench.view.debug"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "workbench.view.scm",
+    "when": "gitlens:enabled && config.gitlens.keymap == 'chorded'"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "-workbench.view.scm",
+    "when": "gitlens:enabled && config.gitlens.keymap == 'chorded'"
+  },
+  {
+    "key": "ctrl+cmd+g",
+    "command": "workbench.action.terminal.findPrevious",
+    "when": "terminalFindFocused || terminalFocus"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "-workbench.action.terminal.findPrevious",
+    "when": "terminalFindFocused || terminalFocus"
+  },
+  {
+    "key": "ctrl+cmd+g",
+    "command": "editor.action.previousMatchFindAction",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "-editor.action.previousMatchFindAction",
+    "when": "editorFocus"
+  },
+  {
+    "key": "cmd+k ctrl+alt+cmd+[IntlYen]",
+    "command": "-workbench.action.splitEditorOrthogonal"
+  }
+]
