@@ -8,8 +8,7 @@ if !1 | finish | endif
 " Leader - 使いまわせるprefix key
 let mapleader = ','
 
-" ヘルプの言語を日本語優先にする
-set helplang=ja
+set helplang=en
 
 " 他のバッファに移動する時に自動保存
 set autowrite
