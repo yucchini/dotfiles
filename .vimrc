@@ -453,34 +453,6 @@ let g:solarized_termcolors=256
 syntax enable
 
 " 一行が長いファイルをsyntaxを制御することで軽くする
-" set synmaxcol=256
+set synmaxcol=256
 
 set exrc
-
-" " プラグインディレクトリ配下の.vimをすべてsourceする {{{
-" function! SourceDir(...) abort
-"   let l:path = getcwd()
-"   if a:0 > 1
-"     let l:path = a:1
-"   endif
-
-"   if !isdirectory(l:path)
-"     return
-"   endif
-
-"   exe 'set rtp^=' . l:path
-"   if isdirectory(l:path . '/plugin')
-"     exe 'runtime plugin/*.vim'
-"   endif
-
-"   if isdirectory(l:path . '/autoload')
-"     exe 'runtime autoload/*.vim'
-"   endif
-
-"   if isdirectory(l:path . '/syntax')
-"     exe 'runtime syntax/*.vim'
-"   endif
-" endfunction
-
-" command! -nargs=* Source call SourceDir(<f-args>)
-" " }}}

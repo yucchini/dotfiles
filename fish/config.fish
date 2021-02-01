@@ -28,7 +28,7 @@ if status --is-interactive
   set -x PATH $HOME/.anyenv/envs/rbenv/bin $HOME/.anyenv/envs/rbenv/shims $PATH
 
   # direnv
-  direnv hook fish | source
+  # direnv hook fish | source
 
   # Rust
   # set -x PATH $PATH $HOME/.cargo/bin
