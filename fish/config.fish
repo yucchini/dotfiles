@@ -6,7 +6,6 @@ set -xg LC_ALL en_US.UTF-8
 set -xg LANG en_US.UTF-8
 
 set -x PATH $PATH $HOME
-set -x TERM xterm-256color
 
 if status --is-interactive
   # anyenv
