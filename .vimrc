@@ -453,6 +453,7 @@ let g:solarized_termcolors=256
 syntax enable
 
 " 一行が長いファイルをsyntaxを制御することで軽くする
-set synmaxcol=256
+" これを有効にすると1行が長すぎる行があった場合、その行以降がhighlightされない
+" set synmaxcol=256
 
 set exrc
