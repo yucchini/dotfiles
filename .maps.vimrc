@@ -10,6 +10,11 @@ nnoremap - <C-x>
 " バッファの再読み込み
 nnoremap <Leader>e :tabdo edit<CR>
 
+" set number
+nnoremap <Leader>s :set number<CR>
+" set nonumber
+nnoremap <Leader>ns :set nonumber<CR>
+
 " redo
 nnoremap <S-u> <C-r>
 
