@@ -24,7 +24,7 @@ if [ -d ~/dotfiles/freee ]; then
 fi
 
 if [[ $IS_FISH_START == YES ]]; then
-  # exec fish
+  exec fish
 else
   # # fishを読み込まない時はtmuxの起動確認と秘密鍵の読み込み
   # if [[ ! -n $TMUX && $- == *l* ]]; then
