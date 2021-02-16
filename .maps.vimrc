@@ -120,7 +120,7 @@ nnoremap <Leader>as :AutoSaveToggle<CR>
 nmap <Leader>st :Gstatus<CR>
 nmap <Leader>ad :Gwrite<CR>
 nmap <Leader>cm :Gcommit<CR>
-nmap <Leader>bl :Gblame<CR>
+nmap <Leader>bl :Git blame<CR>
 nmap <Leader>diff :Gdiff<CR>
 nmap <Leader>coutr :Gread<CR>
 
