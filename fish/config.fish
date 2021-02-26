@@ -264,7 +264,8 @@ alias rdrop='bin/rails db:drop'
 alias rroll='bin/rails db:rollback'
 alias rcr='bin/rails db:create'
 alias rmi='bin/rails db:migrate'
-alias resque='QUEUE=* bundle exec rake resque:work'
+alias tmi='bundle exec rake tasks:migrate'
+alias resque='env "QUEUE=*" VVERBOSE=true bundle exec rake resque:work'
 
 # Django
 alias prun='python manage.py runserver 0.0.0.0:8000'
