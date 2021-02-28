@@ -10,6 +10,7 @@
 - tmux
 - tig
 - pyenv-virtualenv
+- bit
 - neovim
   - gem
   - npm

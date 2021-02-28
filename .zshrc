@@ -18,6 +18,9 @@ export CLICOLOR=1
 export LSCOLORS="GxFxCxDxBxegedabagaced"
 export IS_FISH_START=YES
 
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/bit bit
+
 if [ -d ~/dotfiles/freee ]; then
   echo 'source freee.zsh!'
   source ~/dotfiles/freee/freee.zsh
