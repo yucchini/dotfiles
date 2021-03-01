@@ -44,6 +44,7 @@ vmap <Leader>f <Plug>NERDCommenterToggle
 " コメントアウトしてインサートモード
 nmap <Leader>r <Plug>NERDCommenterAppend
 " ブロックコメントアウト
+nmap <Leader>b <Plug>NERDCommenterSexy
 vmap <Leader>b <Plug>NERDCommenterSexy
 
 " vimrcを開く
@@ -120,7 +121,7 @@ nnoremap <Leader>as :AutoSaveToggle<CR>
 nmap <Leader>st :Gstatus<CR>
 nmap <Leader>ad :Gwrite<CR>
 nmap <Leader>cm :Gcommit<CR>
-nmap <Leader>bl :Git blame<CR>
+nmap <Leader>gl :Git blame<CR>
 nmap <Leader>diff :Gdiff<CR>
 nmap <Leader>coutr :Gread<CR>
 
