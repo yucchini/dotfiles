@@ -108,6 +108,9 @@ repo = 'tpope/vim-rails'
 [[plugins]]
 repo = 'chrisbra/Colorizer'
 
+[[plugins]]
+repo = 'tpope/vim-surround'
+
 # [[plugins]]
 # repo = 'nvim-treesitter/nvim-treesitter'
 
