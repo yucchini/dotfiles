@@ -218,7 +218,7 @@ alias sclonem='git clone --branch master --depth 1'
 alias coutd='git checkout develop'
 alias coutm='git checkout master'
 alias fepul='git fetch upstream pull/$argv[1]/head:$argv[2]'
-alias ce='gitmoji -c'
+alias ce="/usr/local/bin/gitmoji -c"
 alias gopen='git open'
 
 # tmux
@@ -325,6 +325,8 @@ alias rmr='rm -r'
 alias python3='python3.8'
 alias shell='echo $SHELL'
 alias p='pwd'
+alias cdub='cd ~/program/projects/uki-blog'
+alias cdud='cd ~/program/projects/uki-dev'
 
 if [ -d ~/dotfiles/freee ]
 	echo 'source freee.config.fish!'
