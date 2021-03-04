@@ -169,6 +169,10 @@ if not functions -q fisher
   fish -c fisher
 end
 
+function unset
+  set --erase $argv
+end
+
 # fzf settings
 set -U FZF_LEGACY_KEYBINDINGS 0
 
