@@ -3341,6 +3341,8 @@
 	<false/>
 	<key>TmuxUsesDedicatedProfile</key>
 	<true/>
+	<key>TolerateUnrecognizedTmuxCommands</key>
+	<true/>
 	<key>UseBorder</key>
 	<false/>
 	<key>UseLionStyleFullscreen</key>
