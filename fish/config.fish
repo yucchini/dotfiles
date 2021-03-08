@@ -138,6 +138,7 @@ function idefm
 	tmux split-window -h -p 50
 end
 
+# 下に4つのpaneをつくる
 function idef
   tmux split-window -v -p 21
   tmux split-window -h -p 75
@@ -145,16 +146,44 @@ function idef
   tmux split-window -h -p 50
 end
 
+# 下に2つのpaneを作る
 function idet
   tmux split-window -v -p 21
   tmux split-window -h -p 50
 end
 
+# freee用の下に5つのpane
 function fide
   tmux split-window -v -p 30
   tmux split-window -h -p 80
   tmux split-window -h -p 50
   tmux split-window -h -p 40
+  tmux split-window -v -p 50
+end
+
+# 右側の縦に3つのpaneをつくる
+function ides
+  tmux split-window -h -p 21
+  tmux split-window -v -p 66
+  tmux split-window -v -p 50
+end
+
+# rails console用のwindowで使う
+function cide
+  tmux split-window -h -p 50
+  tmux split-window -v -p 50
+  tmux select-pane -t :.+
+  tmux select-pane -t :.+
+  tmux split-window -h -p 50
+end
+
+# 左側の縦に3つのpaneをつくる
+function sideide
+  tmux split-window -h -p 80
+  tmux select-pane -t :.+
+  tmux split-window -v -p 30
+  tmux select-pane -t :.+
+  tmux select-pane -t :.+
   tmux split-window -v -p 50
 end
 
