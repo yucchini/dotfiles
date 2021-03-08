@@ -154,12 +154,19 @@ function fide
   tmux split-window -v -p 50
 end
 
-function update_nvim
+function update_nvim_mac
   cd
   rm -rf ~/nvim-osx64
   curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
   tar xzf ~/nvim-macos.tar.gz
   rm -f ~/nvim-macos.tar.gz
+end
+
+function update_nvim_ubuntu
+  sudo apt remove neovim
+  sudo add-apt-repository ppa:neovim-ppa/unstable
+  sudo apt-get update
+  sudo apt install neovim/focal
 end
 
 # Install fisher
