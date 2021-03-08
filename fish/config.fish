@@ -161,13 +161,6 @@ function fide
   tmux split-window -v -p 50
 end
 
-# 右側の縦に3つのpaneをつくる
-function ides
-  tmux split-window -h -p 21
-  tmux split-window -v -p 66
-  tmux split-window -v -p 50
-end
-
 # rails console用のwindowで使う
 function cide
   tmux split-window -h -p 50
@@ -177,8 +170,15 @@ function cide
   tmux split-window -h -p 50
 end
 
+# 右側の縦に3つのpaneをつくる
+function ride
+  tmux split-window -h -p 21
+  tmux split-window -v -p 66
+  tmux split-window -v -p 50
+end
+
 # 左側の縦に3つのpaneをつくる
-function sideide
+function lide
   tmux split-window -h -p 80
   tmux select-pane -t :.+
   tmux split-window -v -p 30
