@@ -36,8 +36,12 @@ if status --is-interactive
   set -x PATH $PATH "$GOENV_ROOT/bin"
   set -x GO111MODULE on
 
-  # neovim
-  set -x PATH $HOME/nvim-osx64/bin $PATH
+  if test (uname) = 'Darwin'
+    # neovim
+    set -x PATH $HOME/nvim-osx64/bin $PATH
+  else if test (uname) = 'Linux'
+    eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+  end
 
   command goenv rehash 2>/dev/null
   function goenv
@@ -264,7 +268,6 @@ alias dnprune='docker network prune' # 未使用ネットワーク一括削除
 alias b='bundle'
 alias be='bundle exec'
 alias rd='bin/rails d'
-alias rg='bin/rails g'
 alias rs='bin/rails s -b 0.0.0.0'
 alias rc='bin/rails c'
 alias rr='bin/rails routes'
