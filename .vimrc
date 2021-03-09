@@ -372,7 +372,7 @@ let g:zenspace#default_mode = 'on'
 
 " coc-eslint
 autocmd BufNewFile,BufReadPre,BufEnter
-  \ *.{flow}
+  \ *.{flow,config.js,config.copy.js,config.lib.js,config.style.js,config.proxy.js}
   \   call coc#config('eslint.enable', v:false)
 autocmd BufLeave
   \ *.{js,jsx,ts,tsx}
