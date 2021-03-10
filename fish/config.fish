@@ -225,6 +225,8 @@ end
 
 function cmm
   git add .
+  git status
+  git diff --staged
   git commit -m "$argv"
 end
 
