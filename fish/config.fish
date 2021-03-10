@@ -228,11 +228,14 @@ function cmm
   git commit -m "$argv"
 end
 
+function cm
+  git commit -m "$argv"
+end
+
 # ===Alias===
 # Git
 alias git='hub'
 alias g='git'
-alias cm='git commit -m'
 alias aad='git add .'
 alias ad='git add'
 alias aad='git add .'
