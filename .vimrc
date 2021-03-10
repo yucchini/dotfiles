@@ -15,11 +15,7 @@ set autowrite
 
 " 行番号
 set nonumber
-" 挙動をvi互換ではなく、vimのデフォルト設定にする
-set nocompatible
 
-" 文字コード
-set encoding=utf-8
 set fileencodings=utf-8,sjis,euc-jp,latin
 
 " タブを常に表示
@@ -29,10 +25,7 @@ set showtabline=2
 set belloff=all
 
 set title
-set background=dark
 set nobackup
-" 入力中のコマンドを表示する
-set showcmd
 set cmdheight=1
 set laststatus=2
 " swapファイルを使わない
@@ -63,12 +56,6 @@ inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
 " 検索
 "-------------------------------------------------------------------------------
 
-" インクリメントサーチを有効にする
-set incsearch
-
-" ハイライトサーチを有効にする
-set hlsearch
-
 " 検索時大文字小文字を区別しない
 set ignorecase
 
@@ -97,14 +84,8 @@ set mat=2
 " インデント
 "-------------------------------------------------------------------------------
 
-" ファイル形式別プラグインとインデントを有効にする
-filetype plugin indent on
-
 " 自動インデントの空白の数
 set shiftwidth=2
-
-" tabでshiftwidthの数だけインデントする
-set smarttab
 
 " タブでも常に空白を挿入
 set tabstop=2
@@ -112,13 +93,9 @@ set tabstop=2
 " Tabの文字分入力されたとき、tabに変換せずスペースのままになる
 set expandtab
 
-" 改行時に前の行のインデントを継続する
-set autoindent
-
 " 改行時自動インデント
 set ai "Auto indent
 set si "Smart indent
-set backspace=start,eol,indent
 
 " 拡張子ごとのインデント設定
 augroup fileTypeIndent
@@ -207,8 +184,6 @@ autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 "  Utils
 " ----------------------
 
-" 外部でファイルの変更があった場合、自動的に読み直す
-set autoread
 augroup vimrc-misc
   au!
   au WinEnter,FocusGained * checktime
@@ -319,7 +294,7 @@ let g:jsx_ext_required = 0
 
 " Tern
 " Disable auto preview window
-set completeopt-=preview
+" set completeopt-=preview
 
 " localvimrc
 let g:localvimrc_ask = 0
