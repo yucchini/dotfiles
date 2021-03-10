@@ -223,6 +223,11 @@ if test -z $TMUX
   # end
 end
 
+function cmm
+  git add .
+  git commit -m "$argv"
+end
+
 # ===Alias===
 # Git
 alias git='hub'
