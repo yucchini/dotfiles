@@ -234,6 +234,18 @@ function cm
   git commit -m "$argv"
 end
 
+# neovimのpython2と3の環境でpip-packagesのupdate
+function update_pyneovim
+  pyenv activate neovim2
+  pip install --upgrade pip
+  pip install --upgrade pynvim
+  pyenv deactivate neovim2
+  pyenv activate neovim3
+  pip install --upgrade pip
+  pip install --upgrade pynvim
+  pyenv deactivate neovim3
+end
+
 # ===Alias===
 # Git
 alias git='hub'
