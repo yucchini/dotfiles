@@ -392,6 +392,7 @@ alias shell='echo $SHELL'
 alias p='pwd'
 alias cdub='cd ~/program/projects/uki-blog'
 alias cdud='cd ~/program/projects/uki-dev'
+alias i='install'
 
 if [ -d ~/dotfiles/freee ]
 	echo 'source freee.config.fish!'
