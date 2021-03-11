@@ -9,7 +9,7 @@ set -x PATH $PATH $HOME
 
 if status --is-interactive
   # anyenv
-  set -x PATH $PATH $HOME/.anyenv/bin
+  set -x PATH $HOME/.anyenv/bin $PATH
   anyenv init - fish | source
 
   # nodenv
