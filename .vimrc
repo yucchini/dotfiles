@@ -62,8 +62,10 @@ set ignorecase
 " 検索時に大文字を入力した場合ignorecaseが無効になる
 set smartcase
 
-" incremental substitution
-set inccommand=split
+if has('nvim')
+  " incremental substitution
+  set inccommand=split
+endif
 
 " work well in tmux
 set termguicolors
