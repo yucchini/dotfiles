@@ -96,8 +96,11 @@ set tabstop=2
 set expandtab
 
 " 改行時自動インデント
-set ai "Auto indent
-set si "Smart indent
+" set ai "Auto indent
+" set si "Smart indent
+
+" ファイル形式別プラグインとインデントを有効にする
+filetype plugin indent on
 
 " 拡張子ごとのインデント設定
 augroup fileTypeIndent
