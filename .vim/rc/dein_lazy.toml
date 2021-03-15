@@ -23,28 +23,12 @@ repo = 'yuezk/vim-js'
 on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
 
 [[plugins]]
-repo = 'maxmellon/vim-jsx-pretty'
-on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
-
-[[plugins]]
-repo = 'mlaursen/vim-react-snippets'
-on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
-
-[[plugins]]
-repo = 'SirVer/ultisnips'
-on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
-
-[[plugins]]
 repo = 'jparise/vim-graphql'
 on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
 
 [[plugins]]
 repo = 'styled-components/vim-styled-components'
 on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
-
-# [[plugins]]
-# repo = 'tpope/vim-endwise'
-# on_ft = ['ruby']
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
