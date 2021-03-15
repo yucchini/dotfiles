@@ -23,6 +23,10 @@ repo = 'yuezk/vim-js'
 on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
 
 [[plugins]]
+repo = 'maxmellon/vim-jsx-pretty'
+on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
+
+[[plugins]]
 repo = 'jparise/vim-graphql'
 on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
 

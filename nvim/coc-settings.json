@@ -9,9 +9,7 @@
     "typescript",
     "typescriptreact"
   ],
-  "eslint.enable": true,
   "eslint.autoFixOnSave": true,
-  "eslint.autoFix": true,
   "eslint.options": {
     "$or": [
       { "configFile": "./.eslintrc.json" },
@@ -26,7 +24,7 @@
   "tsserver.npm": "npm",
   "languageserver": {
     "flow": {
-      "command": "./node_modules/.bin/flow",
+      "command": "${workspaceFolder}/node_modules/.bin/flow",
       "args": ["lsp"],
       "filetypes": ["javascript", "javascriptreact", "javascript.jsx"],
       "initializationOptions": {},
