@@ -140,7 +140,8 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-eslint',
   \ 'coc-solargraph',
-  \ 'coc-css'
+  \ 'coc-css',
+  \ 'coc-styled-components'
   \ ]
 
 " Prettier
