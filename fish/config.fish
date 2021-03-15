@@ -65,7 +65,7 @@ set GHQ_SELECTOR peco
 set -g theme_date_format "+%Y-%m-%d %H:%M:%S"
 set -g fish_prompt_pwd_dir_length 0
 # 現在使用しているshell
-set using_shell (ps -p %self | tail +2 | awk '{print $NF}')
+# set using_shell (ps -p %self | tail +2 | awk '{print $NF}')
 set -g fish_user_paths "/usr/local/opt/openssl@1.1/bin" $fish_user_paths
 
 # function ssh
