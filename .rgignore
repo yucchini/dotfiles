@@ -16,3 +16,7 @@ dict/
 .bundle
 .github/
 bin/
+public/
+norinium/
+integration_test/
+images/
