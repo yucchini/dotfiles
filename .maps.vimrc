@@ -116,6 +116,16 @@ nnoremap <Leader>cl :ColorHighlight<CR>
 nnoremap <Leader>as :AutoSaveToggle<CR>
 
 "-------------------------------------------------------------------------------
+" vim-surround
+"-------------------------------------------------------------------------------
+nnoremap <Leader>ds ds'
+nnoremap <Leader>dss ds"
+nnoremap <Leader>di di'
+nnoremap <Leader>dii di"
+nnoremap <Leader>ys ysiw'
+nnoremap <Leader>yss ysiw"
+
+"-------------------------------------------------------------------------------
 " Git
 "-------------------------------------------------------------------------------
 nmap <Leader>st :Gstatus<CR>
