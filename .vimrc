@@ -150,7 +150,7 @@ au BufNewFile,BufRead *.ts setf typescript
 au BufNewFile,BufRead *.md set filetype=markdown
 " Flow
 au BufNewFile,BufRead *.flow set filetype=javascript
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+" autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 " fish
 au BufNewFile,BufRead fish_funced set filetype=fish
 
