@@ -93,9 +93,6 @@ repo = 'yucchini/vim-zenspace'
 repo = 'jiangmiao/auto-pairs'
 
 [[plugins]]
-repo = 'tpope/vim-rails'
-
-[[plugins]]
 repo = 'chrisbra/Colorizer'
 
 [[plugins]]
