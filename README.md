@@ -11,6 +11,7 @@
 - tig
 - pyenv-virtualenv
 - bit
+- jq
 - neovim
   - gem
   - npm
