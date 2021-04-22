@@ -308,15 +308,15 @@ alias ret='tmux source ~/.tmux.conf'
 
 # Docker
 alias d='docker'
-alias dc='docker-compose'
-alias dce='docker-compose exec'
-alias dcp='docker-compose'
+alias dc='docker compose'
+alias dce='docker compose exec'
+alias dcp='docker compose'
 alias dps='docker ps'
 alias dis='docker images'
-alias dcup='docker-compose up'
-alias dcdown='docker-compose down'
-alias dcbuild='docker-compose build'
-alias dcrun='docker-compose run'
+alias dcup='docker compose up'
+alias dcdown='docker compose down'
+alias dcbuild='docker compose build'
+alias dcrun='docker compose run'
 alias dprune='docker system prune' # 停止コンテナ、タグ無しイメージ、未使用ボリューム、未使用ネットワーク一括削除
 alias diprune='docker image prune' # 未使用イメージ一括削除
 alias dvprune='docker volume prune' # 未使用ボリューム一括削除
