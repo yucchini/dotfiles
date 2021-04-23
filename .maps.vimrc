@@ -21,7 +21,7 @@ nnoremap <S-u> <C-r>
 " 外部コマンドの入力
 nnoremap <Leader>ca :!
 
-" 置換
+" 置換(ファイル内で対象のものを全て置換したいときはサイトに/gつける)
 nnoremap <Leader>c :%s//
 
 " vimコマンドのエイリアス
