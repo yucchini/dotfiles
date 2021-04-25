@@ -16,6 +16,8 @@ set autowrite
 " 行番号
 set nonumber
 
+" 既存のファイルを開くとき、vimが使用する文字コードを判定する順番
+" 先頭から順に試される
 set fileencodings=utf-8,sjis,euc-jp,latin
 
 " タブを常に表示
