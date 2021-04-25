@@ -402,8 +402,8 @@ let loaded_netrwPlugin = 1
 " DevIcons
 "-------------------------------------------------------------------------------
 
-set guifont=Sauce\ Code\ Pro\ Light\ Nerd\ Font\ Complete\ Windows\ Compatible:h11
-let g:webdevicons_enable_vimfiler = 1
+" set guifont=Sauce\ Code\ Pro\ Light\ Nerd\ Font\ Complete\ Windows\ Compatible:h11
+" let g:webdevicons_enable_vimfiler = 1
 
 "-------------------------------------------------------------------------------
 " imports
