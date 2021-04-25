@@ -413,7 +413,7 @@ if has("unix")
   let s:uname = system("uname -s")
   " Do Mac stuff
   if s:uname == "Darwin\n"
-    source ~/dotfiles/.osx.vimrc
+    set clipboard+=unnamedplus
   endif
 endif
 
