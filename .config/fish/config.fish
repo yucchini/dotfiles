@@ -301,6 +301,7 @@ alias coutma='git checkout main'
 alias fepul='git fetch upstream pull/$argv[1]/head:$argv[2]'
 alias ce="/usr/local/bin/gitmoji -c"
 alias gopen='git open'
+alias lz='lazygit'
 
 # tmux
 alias t='tmux'
