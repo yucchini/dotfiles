@@ -6,6 +6,7 @@ set -xg LC_ALL en_US.UTF-8
 set -xg LANG en_US.UTF-8
 
 set -x PATH $PATH $HOME
+set -x DOTFILES_PATH $HOME/dotfiles
 
 if status --is-interactive
   # anyenv
@@ -383,8 +384,8 @@ alias zshc='nvim ~/.zshrc'
 alias fishc='nvim ~/.config/fish/config.fish'
 alias tmuxc='nvim ~/.tmux.conf'
 alias vimc='nvim ~/.vimrc'
-alias vimkey='nvim ~/.maps.vimrc'
-alias cdd='cd ~/dotfiles/'
+alias maps='nvim $DOTFILES_PATH/nvim/vimrc/.maps.vimrc'
+alias cdd='cd $DOTFILES_PATH'
 alias vim='nvim'
 alias vi='nvim'
 alias uvimac='update_nvim_mac'
@@ -418,4 +419,4 @@ if [ -d ~/dotfiles/freee ]
 end
 
 # 毎回やるの面倒なので起動時にssh-add -K
-sa
+# sa
