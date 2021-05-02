@@ -219,7 +219,7 @@ endif
 
 " undoの保存先
 if has('persistent_undo')
-  let undo_path = expand('~/.vim/undo')
+  let undo_path = expand('~/.config/nvim/undo')
   " ディレクトリが存在しない場合は作成
   if !isdirectory(undo_path)
     call mkdir(undo_path, 'p')
@@ -374,7 +374,7 @@ if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
   " .toml file
-  let g:rc_dir = expand('~/.vim/rc')
+  let g:rc_dir = expand('~/.config/nvim/rc')
   let s:toml = g:rc_dir . '/dein.toml'
   let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
   " read toml and cache
@@ -419,8 +419,8 @@ if has("unix")
   endif
 endif
 
-source ~/dotfiles/vimrc/.maps.vimrc
-source ~/dotfiles/vimrc/.lightline.vimrc
+source ~/dotfiles/nvim/vimrc/.maps.vimrc
+source ~/dotfiles/nvim/vimrc/.lightline.vimrc
 
 "-------------------------------------------------------------------------------
 " Color scheme
