@@ -3,8 +3,6 @@
 [user]
 	name = uki
 	email = yucchini.yuki1014@gmail.com
-[commit]
-	template = ~/dotfiles/.gitmessages
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -20,7 +18,7 @@
 [hub]
   protocol = https
 [github]
-	user = yucchini
+	user = uki1014
 [alias]
   a = "!git status --short | peco | awk '{print $2}' | xargs git add"
   d = diff
