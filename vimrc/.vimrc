@@ -419,8 +419,8 @@ if has("unix")
   endif
 endif
 
-source ~/dotfiles/.maps.vimrc
-source ~/dotfiles/.lightline.vimrc
+source ~/dotfiles/vimrc/.maps.vimrc
+source ~/dotfiles/vimrc/.lightline.vimrc
 
 "-------------------------------------------------------------------------------
 " Color scheme
