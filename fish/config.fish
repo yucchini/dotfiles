@@ -209,6 +209,14 @@ if not functions -q fisher
   fish -c fisher
 end
 
+function fl
+  fzf --preview 'bat --style=numbers --color=always --theme="Solarized (light)" --line-range :500 {}'
+end
+
+function cat
+  bat --style=numbers --color=always --theme="Solarized (light)" --line-range :500 $argv
+end
+
 function unset
   set --erase $argv
 end

@@ -10,6 +10,8 @@
 - lazygit
 - pyenv-virtualenv
 - jq
+- fzf
+- bat
 - neovim
   - gem
   - npm
