@@ -412,6 +412,7 @@ alias python3='python3.8'
 alias shell='echo $SHELL'
 alias p='pwd'
 alias i='install'
+alias ukios='cd ~/program/projects/uki_os'
 
 if [ -d ~/dotfiles/freee ]
 	echo 'source freee.config.fish!'
