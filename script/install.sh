@@ -54,7 +54,7 @@ if [ ! -d ${DOT_DIRECTORY} ]; then
 fi
 
 cd ${DOT_DIRECTORY}
-source ./setup_symlink.sh
+link_files()
 source ./lib/neovim.sh
 source ./lib/brew.sh
 
@@ -102,6 +102,10 @@ function initialize() {
   set +e
 
   echo "$(tput setaf 2)Initialize complete!. ✔︎$(tput sgr0)"
+}
+
+function link_files() {
+  source ./setup_symlink.sh
 }
 
 command=$1
