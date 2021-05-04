@@ -22,6 +22,7 @@
   "prettier.eslintIntegration": true,
   "tsserver.enableJavascript": false,
   "tsserver.npm": "npm",
+  "docker.enable": true,
   "languageserver": {
     "flow": {
       "command": "${workspaceFolder}/node_modules/.bin/flow",
