@@ -24,6 +24,7 @@ target_brew_list=(
   git
   tree
   direnv
+  watch
 )
 
 if ! has "brew"; then
