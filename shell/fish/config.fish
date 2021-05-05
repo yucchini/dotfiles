@@ -417,6 +417,7 @@ alias p='pwd'
 alias i='install'
 alias ukios='cd ~/program/projects/uki_os'
 alias drunuo='docker run -it --rm --privileged -e DISPLAY=(hostname):0 -v ~/.Xauthority:/root/.Xauthority -v $HOME/program/projects/uki_os/os:/root/os/ uki-os'
+alias xlaunch='xhost + 127.0.0.1'
 
 if [ -d ~/dotfiles/freee ]
 	echo 'source freee.config.fish!'
