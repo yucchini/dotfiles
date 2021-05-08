@@ -420,7 +420,7 @@ alias drunuo='docker run -it --rm --privileged -e DISPLAY=(hostname):0 -v ~/.Xau
 alias xlaunch='xhost + 127.0.0.1'
 
 if [ -d ~/dotfiles/freee ]
-	echo 'source freee.config.fish!'
+	# echo 'source freee.config.fish!'
   source ~/dotfiles/freee/freee.config.fish
 end
 
