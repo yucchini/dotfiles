@@ -1,5 +1,7 @@
 [core]
 	excludesfile = ~/.gitignore_global
+  editor = nvim
+  quotepath = false
 [user]
 	name = uki
 	email = yucchini.yuki1014@gmail.com
