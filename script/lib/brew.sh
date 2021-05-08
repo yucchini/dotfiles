@@ -25,6 +25,7 @@ target_brew_list=(
   tree
   direnv
   watch
+  gh
 )
 
 if ! has "brew"; then
