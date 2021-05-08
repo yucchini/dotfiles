@@ -115,6 +115,14 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " coc-cssでscssファイルにおいて@をkeywordとして登録する
 autocmd FileType scss setl iskeyword+=@-@
 
+" coc-eslint
+autocmd BufNewFile,BufReadPre,BufEnter
+  \ *.{flow,config.js,config.copy.js,config.lib.js,config.style.js,config.proxy.js}
+  \   call coc#config('eslint.enable', v:false)
+autocmd BufLeave
+  \ *.{js,jsx,ts,tsx}
+  \   call coc#config('eslint.enable', v:true)
+
 " Using CocList
 " Show all diagnostics
 "nnoremap <silent> ;a  :<C-u>CocList diagnostics<cr>

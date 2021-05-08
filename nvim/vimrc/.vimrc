@@ -350,13 +350,12 @@ endif
 " thinca/vim-zenspace
 let g:zenspace#default_mode = 'on'
 
-" coc-eslint
-autocmd BufNewFile,BufReadPre,BufEnter
-  \ *.{flow,config.js,config.copy.js,config.lib.js,config.style.js,config.proxy.js}
-  \   call coc#config('eslint.enable', v:false)
-autocmd BufLeave
-  \ *.{js,jsx,ts,tsx}
-  \   call coc#config('eslint.enable', v:true)
+" Previm
+let g:previm_open_cmd = 'open -a Google\ Chrome'
+augroup PrevimSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
 
 "-------------------------------------------------------------------------------
 " Dein

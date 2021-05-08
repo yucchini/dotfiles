@@ -111,9 +111,9 @@ nnoremap <Leader>gr :GoRun<CR>
 nnoremap <Leader>cl :ColorHighlight<CR>
 
 "-------------------------------------------------------------------------------
-" vim-auto-save
+" Previm
 "-------------------------------------------------------------------------------
-nnoremap <Leader>as :AutoSaveToggle<CR>
+nnoremap <Leader>a :PrevimOpen<CR>
 
 "-------------------------------------------------------------------------------
 " vim-surround
