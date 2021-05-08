@@ -13,7 +13,10 @@
   "eslint.options": {
     "$or": [
       { "configFile": "./.eslintrc.json" },
-      { "configFile": "./.eslintrc.js" }
+      { "configFile": "./.eslintrc.js" },
+      { "configFile": "./.eslintrc" },
+      { "configFile": "./.eslintrc.yml" },
+      { "configFile": "./.eslintrc.yaml" }
     ]
   },
   "prettier.singleQuote": true,
@@ -22,7 +25,6 @@
   "prettier.eslintIntegration": true,
   "tsserver.enableJavascript": false,
   "tsserver.npm": "npm",
-  "docker.enable": true,
   "languageserver": {
     "flow": {
       "command": "${workspaceFolder}/node_modules/.bin/flow",
@@ -34,7 +36,7 @@
       "rootPatterns": [".flowconfig"]
     },
     "dockerfile": {
-      "command": "docker-langserver",
+      "command": "docker",
       "filetypes": ["dockerfile"],
       "args": ["--stdio"]
     },
