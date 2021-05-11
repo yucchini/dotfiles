@@ -395,7 +395,6 @@ alias uvimac='update_nvim_mac'
 alias uviubu='update_nvim_ubuntu'
 # カレントディレクトリを指定した場合はDefxを起動させるために下記のファイルを同時に読み込む
 alias v='nvim . -S ~/.config/nvim/plugins/defx.start.rc.vim'
-alias ls='ls'
 alias la='ls -a'
 alias lsl='ls -1'
 alias note='cd ~/note'
