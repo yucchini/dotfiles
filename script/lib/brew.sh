@@ -26,6 +26,7 @@ target_brew_list=(
   direnv
   watch
   gh
+  htop
 )
 
 if ! has "brew"; then
