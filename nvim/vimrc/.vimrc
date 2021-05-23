@@ -158,7 +158,7 @@ au BufNewFile,BufRead fish_funced set filetype=fish
 
 augroup ReactFiletypes
   autocmd!
-  autocmd BufRead,BufNewFile *.jsx setf filetype=javascriptreact
+  autocmd BufRead,BufNewFile *.jsx setf filetype=javascript
   autocmd BufRead,BufNewFile *.tsx setf filetype=typescriptreact
 augroup END
 
