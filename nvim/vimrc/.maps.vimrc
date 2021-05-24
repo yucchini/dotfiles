@@ -140,6 +140,10 @@ nmap <Leader>coutr :Gread<CR>
 nmap gl <Plug>(GitGutterNextHunk)
 nmap gh <Plug>(GitGutterPrevHunk)
 
+" open-browser-github.vim
+nmap <Leader>g :OpenGithubFile<CR>
+vmap <Leader>g :OpenGithubFile<CR>
+
 "-------------------------------------------------------------------------------
 " Tabs
 "-------------------------------------------------------------------------------

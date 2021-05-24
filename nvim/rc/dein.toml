@@ -96,6 +96,12 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'previm/previm'
 
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'tyru/open-browser-github.vim'
+
 # [[plugins]]
 # repo = 'nvim-treesitter/nvim-treesitter'
 
