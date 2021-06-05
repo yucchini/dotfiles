@@ -145,11 +145,17 @@ autocmd BufLeave
 let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-tsserver',
+  \ 'coc-flow',
   \ 'coc-prettier',
   \ 'coc-eslint',
   \ 'coc-solargraph',
   \ 'coc-css',
-  \ 'coc-styled-components'
+  \ 'coc-sh',
+  \ 'coc-tabnine',
+  \ 'coc-cssmodules',
+  \ 'coc-styled-components',
+  \ 'coc-yaml',
+  \ 'coc-vimlsp',
   \ ]
 
 " Prettier
