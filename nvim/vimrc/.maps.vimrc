@@ -149,10 +149,8 @@ vmap <Leader>g :OpenGithubFile<CR>
 "-------------------------------------------------------------------------------
 " Open current directory
 nmap te :tabedit<CR>sf
-" nmap <S-h> :tabprev<Return>
-" nmap <S-l> :tabnext<Return>
-nmap <Tab> :tabnext<Return>
-nmap <S-Tab> :tabprev<Return>
+nmap fl :tabnext<Return>
+nmap fj :tabprev<Return>
 " Close current tab
 nmap cl :tabclose<CR>
 
