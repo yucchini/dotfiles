@@ -1,12 +1,10 @@
-# set -xg LC_CTYPE ja_JP.UTF-8
-# set -xg LC_ALL ja_JP.UTF-8
-# set -xg LANG ja_JP.UTF-8
 set -xg LC_CTYPE en_US.UTF-8
 set -xg LC_ALL en_US.UTF-8
 set -xg LANG en_US.UTF-8
 
 set -x PATH $PATH $HOME
 set -x DOTFILES_PATH $HOME/dotfiles
+set -x EDITOR nvim
 
 if status --is-interactive
   # anyenv
@@ -25,48 +23,28 @@ if status --is-interactive
   # rbenv（tmuxを使用している場合はtmuxがシステムデフォルトのrubyを見に行ってしまうのであえてPATHを指定する）
   set -x PATH $HOME/.anyenv/envs/rbenv/bin $HOME/.anyenv/envs/rbenv/shims $PATH
 
-  # direnv
-  # direnv hook fish | source
-
-  # Rust
-  # set -x PATH $PATH $HOME/.cargo/bin
-
-  # Go
+  # goenv
+  set -x PATH $HOME/.anyenv/envs/goenv/bin $HOME/.anyenv/envs/goenv/shims $PATH
   set -x GOPATH "$HOME/go"
+  # set -x GO111MODULE on
+  set -x GO111MODULE off
   set -x GOENV_ROOT "$HOME/.anyenv/envs/goenv"
-  set -x PATH $PATH "$GOENV_ROOT/bin"
-  set -x GO111MODULE on
 
+  # neovim
   if test (uname) = 'Darwin'
-    # neovim
     set -x PATH $HOME/nvim-osx64/bin $PATH
   else if test (uname) = 'Linux'
     eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
   end
 
-  command goenv rehash 2>/dev/null
-  function goenv
-    set command $argv[1]
-    set -e argv[1]
+  # direnv
+  eval (direnv hook fish)
 
-    switch "$command"
-    case rehash shell
-      source (goenv "sh-$command" $argv|psub)
-    case '*'
-      command goenv "$command" $argv
-    end
-  end
-
-  # いろいろ入れておくところ
-  # set -x PATH $PATH $HOME/dotfiles/.bin
-  # set -x PATH $PATH $HOME/bin
 end
 
 set GHQ_SELECTOR peco
 set -g theme_date_format "+%Y-%m-%d %H:%M:%S"
 set -g fish_prompt_pwd_dir_length 0
-# 現在使用しているshell
-# set using_shell (ps -p %self | tail +2 | awk '{print $NF}')
 set -g fish_user_paths "/usr/local/opt/openssl@1.1/bin" $fish_user_paths
 
 # function ssh
@@ -257,7 +235,7 @@ end
 
 # ===Alias===
 # Git
-alias git='hub'
+alias git='/usr/local/bin/hub'
 alias g='git'
 alias aad='git add .'
 alias ad='git add'
