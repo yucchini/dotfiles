@@ -144,8 +144,9 @@ end
 function cide
   tmux split-window -h -p 50
   tmux split-window -v -p 50
-  tmux select-pane -t :.+
-  tmux select-pane -t :.+
+  tmux split-window -h -p 50
+  tmux select-pane -t :.-
+  tmux select-pane -t :.-
   tmux split-window -h -p 50
 end
 
