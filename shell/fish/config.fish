@@ -80,41 +80,10 @@ function fish_user_key_bindings
   bind \cs 'peco_cd'
 end
 
-function attach_tmux_session_if_needed
-  set ID (tmux list-sessions)
-  if test -z "$ID"
-    tmux new-session
-    return
-  end
-
-  set new_session "Create New Session"
-  set ID (echo $ID\n$new_session | peco --on-cancel=error | cut -d: -f1)
-  if test "$ID" = "$new_session"
-    tmux new-session
-  else if test -n "$ID"
-    tmux attach-session -t "$ID"
-  end
-end
-
 function ide
   tmux split-window -v -p 21
   tmux split-window -h -p 66
   tmux split-window -h -p 50
-end
-
-# macの画面で使う用
-function idem
-  tmux split-window -v -p 30
-  tmux split-window -h -p 66
-  tmux split-window -h -p 50
-end
-
-# macの画面で使う用
-function idefm
-  tmux split-window -v -p 30
-	tmux split-window -h -p 75
-	tmux split-window -h -p 66
-	tmux split-window -h -p 50
 end
 
 # 下に4つのpaneをつくる
@@ -131,16 +100,7 @@ function idet
   tmux split-window -h -p 50
 end
 
-# freee用の下に5つのpane
-function fide
-  tmux split-window -v -p 30
-  tmux split-window -h -p 80
-  tmux split-window -h -p 50
-  tmux split-window -h -p 40
-  tmux split-window -v -p 50
-end
-
-# rails console用のwindowで使う
+# rails/npm/resque/gitなどeditor以外のpane
 function cide
   tmux split-window -h -p 50
   tmux split-window -v -p 50
@@ -150,36 +110,19 @@ function cide
   tmux split-window -h -p 50
 end
 
-# 右側の縦に3つのpaneをつくる
-function ride
-  tmux split-window -h -p 21
-  tmux split-window -v -p 66
-  tmux split-window -v -p 50
-end
-
-# 左側の縦に3つのpaneをつくる
-function lide
-  tmux split-window -h -p 80
-  tmux select-pane -t :.+
-  tmux split-window -v -p 30
-  tmux select-pane -t :.+
-  tmux select-pane -t :.+
-  tmux split-window -v -p 50
-end
-
-function update_nvim_mac
-  cd
-  rm -rf ~/nvim-osx64
-  curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
-  tar xzf ~/nvim-macos.tar.gz
-  rm -f ~/nvim-macos.tar.gz
-end
-
-function update_nvim_ubuntu
-  sudo apt remove neovim
-  sudo add-apt-repository ppa:neovim-ppa/unstable
-  sudo apt-get update
-  sudo apt install neovim/focal
+function update_nvim
+  if test (uname) = 'Darwin'
+    cd
+    rm -rf ~/nvim-osx64
+    curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
+    tar xzf ~/nvim-macos.tar.gz
+    rm -f ~/nvim-macos.tar.gz
+  else if test (uname) = 'Linux'
+    sudo apt remove neovim
+    sudo add-apt-repository ppa:neovim-ppa/unstable
+    sudo apt-get update
+    sudo apt install neovim/focal
+  end
 end
 
 # Install fisher
@@ -204,12 +147,28 @@ end
 # fzf settings
 set -U FZF_LEGACY_KEYBINDINGS 0
 
+# function attach_tmux_session_if_needed
+#   set ID (tmux list-sessions)
+#   if test -z "$ID"
+#     tmux new-session
+#     return
+#   end
+
+#   set new_session "Create New Session"
+#   set ID (echo $ID\n$new_session | peco --on-cancel=error | cut -d: -f1)
+#   if test "$ID" = "$new_session"
+#     tmux new-session
+#   else if test -n "$ID"
+#     tmux attach-session -t "$ID"
+#   end
+# end
+
 # fish起動時にtmuxを起動
-if test -z $TMUX
-  # if test $using_shell = '-fish'
-  attach_tmux_session_if_needed
-  # end
-end
+# if test -z $TMUX
+#   # if test $using_shell = '-fish'
+#   attach_tmux_session_if_needed
+#   # end
+# end
 
 function cmm
   git add .
@@ -283,6 +242,7 @@ alias fepul='git fetch upstream pull/$argv[1]/head:$argv[2]'
 alias ce="/usr/local/bin/gitmoji -c"
 alias gopen='git open'
 alias lz='lazygit'
+alias sync='hub sync'
 
 # tmux
 alias t='tmux'
@@ -330,13 +290,6 @@ alias rmi='bin/rails db:migrate'
 alias tmi='bundle exec rake tasks:migrate'
 alias resque='env "QUEUE=*" VVERBOSE=true bundle exec rake environment resque:work'
 
-# Django
-alias prun='python manage.py runserver 0.0.0.0:8000'
-alias pmmi='python manage.py makemigrations'
-alias pmi='python manage.py migrate'
-alias pcsu='python manage.py createsuperuser'
-alias psh='python manage.py shell'
-
 # Npm
 alias nr='npm run'
 alias nw='npm run watch'
@@ -371,8 +324,6 @@ alias maps='nvim $DOTFILES_PATH/nvim/vimrc/.maps.vimrc'
 alias cdd='cd $DOTFILES_PATH'
 alias vim='nvim'
 alias vi='nvim'
-alias uvimac='update_nvim_mac'
-alias uviubu='update_nvim_ubuntu'
 # カレントディレクトリを指定した場合はDefxを起動させるために下記のファイルを同時に読み込む
 alias v='nvim . -S ~/.config/nvim/plugins/defx.start.rc.vim'
 alias ls='ls -a1'
@@ -400,7 +351,6 @@ alias xlaunch='xhost + 127.0.0.1'
 alias kl='kill -9'
 
 if [ -d ~/dotfiles/freee ]
-	# echo 'source freee.config.fish!'
   source ~/dotfiles/freee/freee.config.fish
 end
 
