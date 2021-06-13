@@ -5,6 +5,7 @@ set -xg LANG en_US.UTF-8
 set -x PATH $PATH $HOME
 set -x DOTFILES_PATH $HOME/dotfiles
 set -x EDITOR nvim
+set -x DOCKER_BUILDKIT 1
 
 if status --is-interactive
   # anyenv
