@@ -15,6 +15,7 @@ target_dotfiles=(
   .rgignore
   .gitconfig
   .gitignore_global
+  .hyper.js
 )
 # $HOME/.configにおきたいdotfiles
 target_config_dir=(
