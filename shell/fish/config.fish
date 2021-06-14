@@ -13,23 +13,23 @@ if status --is-interactive
   anyenv init - fish | source
 
   # nodenv
-  set -x PATH $HOME/.anyenv/envs/nodenv/bin $HOME/.anyenv/envs/nodenv/shims $PATH
+  set -x PATH $NODENV_ROOT/bin $NODENV_ROOT/shims $PATH
 
   # pyenv
-  set -x PATH $HOME/.anyenv/envs/pyenv/bin $HOME/.anyenv/envs/pyenv/shims $PATH
+  set -x PATH $PYENV_ROOT/bin $HOME/.anyenv/envs/pyenv/shims $PATH
+  status is-login; and pyenv init --path fish | source
+  pyenv init - fish | source
   # pyenv-virtualenv
-  pyenv init - | source
   pyenv virtualenv-init - | source
 
   # rbenv（tmuxを使用している場合はtmuxがシステムデフォルトのrubyを見に行ってしまうのであえてPATHを指定する）
-  set -x PATH $HOME/.anyenv/envs/rbenv/bin $HOME/.anyenv/envs/rbenv/shims $PATH
+  set -x PATH $RBENV_ROOT/bin $RBENV_ROOT/shims $PATH
 
   # goenv
-  set -x PATH $HOME/.anyenv/envs/goenv/bin $HOME/.anyenv/envs/goenv/shims $PATH
+  set -x PATH $GOENV_ROOT/bin $GOENV_ROOT/shims $PATH
   set -x GOPATH "$HOME/go"
   # set -x GO111MODULE on
   set -x GO111MODULE off
-  set -x GOENV_ROOT "$HOME/.anyenv/envs/goenv"
 
   # neovim
   if test (uname) = 'Darwin'
@@ -148,28 +148,28 @@ end
 # fzf settings
 set -U FZF_LEGACY_KEYBINDINGS 0
 
-# function attach_tmux_session_if_needed
-#   set ID (tmux list-sessions)
-#   if test -z "$ID"
-#     tmux new-session
-#     return
-#   end
+function attach_tmux_session_if_needed
+  set ID (tmux list-sessions)
+  if test -z "$ID"
+    tmux new-session
+    return
+  end
 
-#   set new_session "Create New Session"
-#   set ID (echo $ID\n$new_session | peco --on-cancel=error | cut -d: -f1)
-#   if test "$ID" = "$new_session"
-#     tmux new-session
-#   else if test -n "$ID"
-#     tmux attach-session -t "$ID"
-#   end
-# end
+  set new_session "Create New Session"
+  set ID (echo $ID\n$new_session | peco --on-cancel=error | cut -d: -f1)
+  if test "$ID" = "$new_session"
+    tmux new-session
+  else if test -n "$ID"
+    tmux attach-session -t "$ID"
+  end
+end
 
 # fish起動時にtmuxを起動
-# if test -z $TMUX
-#   # if test $using_shell = '-fish'
-#   attach_tmux_session_if_needed
-#   # end
-# end
+if test -z $TMUX
+  # if test $using_shell = '-fish'
+  attach_tmux_session_if_needed
+  # end
+end
 
 function cmm
   git add .
