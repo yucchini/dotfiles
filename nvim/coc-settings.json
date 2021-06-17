@@ -33,6 +33,7 @@
       "initializationOptions": {},
       "requireRootPattern": true,
       "settings": {},
+      "trace.server": "verbose",
       "rootPatterns": [".flowconfig"]
     },
     "dockerfile": {

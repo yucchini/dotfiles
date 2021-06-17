@@ -62,14 +62,6 @@ nnoremap <Leader>u :call dein#update()<CR>
 " UpdateRemotePlugins
 nnoremap <Leader>ur :UpdateRemotePlugins<CR>
 
-" coc.nvimでfloatingが消えない時に消すkeymap
-nmap <Esc> :call coc#float#close_all() <CR>
-
-" call recache
-nnoremap <Leader>re :call dein#recache_runtimepath()<CR>
-" call coci
-nnoremap <Leader>co :call coc#util#install()<CR>
-
 " backspaceキーで削除
 nnoremap dw vb"_d
 
@@ -99,6 +91,17 @@ vnoremap <silent> # :<C-U>
   \gvy?<C-R><C-R>=substitute(
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
+
+"-------------------------------------------------------------------------------
+" coc.nvim
+"-------------------------------------------------------------------------------
+" coc.nvimでfloatingが消えない時に消すkeymap
+nmap <Esc> :call coc#float#close_all() <CR>
+" call recache
+nnoremap <Leader>re :call dein#recache_runtimepath()<CR>
+" call coci
+nnoremap <Leader>co :call coc#util#install()<CR>
+nnoremap <Leader>col :CocOpenLog<CR>
 
 "-------------------------------------------------------------------------------
 " vim-go
