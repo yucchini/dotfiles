@@ -155,7 +155,6 @@ let g:coc_global_extensions = [
   \ 'coc-cssmodules',
   \ 'coc-styled-components',
   \ 'coc-yaml',
-  \ 'coc-vimlsp',
   \ ]
 
 " Prettier
