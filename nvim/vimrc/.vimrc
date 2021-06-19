@@ -158,7 +158,7 @@ au BufNewFile,BufRead fish_funced set filetype=fish
 
 augroup ReactFiletypes
   autocmd!
-  autocmd BufRead,BufNewFile *.jsx setf filetype=javascript
+  autocmd BufRead,BufNewFile *.jsx setf filetype=javascriptreact
   autocmd BufRead,BufNewFile *.tsx setf filetype=typescriptreact
 augroup END
 
@@ -248,7 +248,6 @@ set scrolloff=100
 if !has('nvim')
   set cursorlineopt=number
 endif
-" set cursorcolumn
 
 " Set cursor line color on visual mode
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
@@ -313,9 +312,8 @@ if !empty(globpath(&rtp, 'autoload/coc.vim'))
 	endfunction
 endif
 
-" vimの外でファイルを編集した場合にもすぐに反映させる
-" autocmd BufWritePost * call defx#redraw()
-" autocmd BufEnter * call defx#redraw()
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
 
 " --- NERD commenter ---
 " デフォルトのキーマッピングをオフ
@@ -330,27 +328,10 @@ let g:NERDCustomDelimiters = { 'fish': { 'left': '#' } }
 " vim-graphql
 au BufNewFile,BufRead *.prisma setfiletype graphql
 
-" vim-auto-save
-" let g:auto_save = 1
-" let g:auto_save_events = ['InsertLeave', 'TextChanged', 'CursorHold']
-" 自動保存が保存時間を変更しないようにする
-" let g:auto_save_no_updatetime = 1
-" インサートモード中は自動保存しない
-" let g:auto_save_in_insert_mode = 0
-" 自動保存の通知を非表示
-" let g:auto_save_silent = 1
-
-" コミット編集時にはOFFにする
-if expand("%:p") =~ 'COMMIT_EDITMSG'
-  let g:auto_save = 0
-else
-  let g:auto_save = 1
-endif
-
 " thinca/vim-zenspace
 let g:zenspace#default_mode = 'on'
 
-" Previm
+" Previm（Markdown preview）
 let g:previm_open_cmd = 'open -a Google\ Chrome'
 augroup PrevimSettings
     autocmd!
@@ -400,13 +381,6 @@ endif
 let loaded_netrwPlugin = 1
 
 "-------------------------------------------------------------------------------
-" DevIcons
-"-------------------------------------------------------------------------------
-
-" set guifont=Sauce\ Code\ Pro\ Light\ Nerd\ Font\ Complete\ Windows\ Compatible:h11
-" let g:webdevicons_enable_vimfiler = 1
-
-"-------------------------------------------------------------------------------
 " imports
 "-------------------------------------------------------------------------------
 
@@ -420,6 +394,24 @@ endif
 
 source ~/dotfiles/nvim/vimrc/.maps.vimrc
 source ~/dotfiles/nvim/vimrc/.lightline.vimrc
+
+"-------------------------------------------------------------------------------
+" lua config
+"-------------------------------------------------------------------------------
+lua vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false, underline = false })
+
+lua << EOF
+    local on_attach = function (client, bufnr)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'M', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'ld', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true})
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', {noremap = true, silent = true})
+        require('completion').on_attach(client)
+    end
+    require('lspconfig').vimls.setup({on_attach = on_attach})
+    require('lspconfig').tsserver.setup({on_attach = on_attach})
+    require('lspconfig').intelephense.setup({on_attach = on_attach})
+    require('lspconfig').jsonls.setup({ settings = { json = { schemas = { { fileMatch = {'tsconfig.json'}, url = 'http://json.schemastore.org/tsconfig' }, { fileMatch = {'.eslintrc.json'}, url = 'http://json.schemastore.org/eslintrc' } } } } })
+EOF
 
 "-------------------------------------------------------------------------------
 " Color scheme

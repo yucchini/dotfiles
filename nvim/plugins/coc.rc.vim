@@ -142,10 +142,10 @@ autocmd BufLeave
 "nnoremap <silent> ;p  :<C-u>CocListResume<CR>
 
 " Extensions
+  " \ 'coc-flow',
 let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-tsserver',
-  \ 'coc-flow',
   \ 'coc-prettier',
   \ 'coc-eslint',
   \ 'coc-solargraph',

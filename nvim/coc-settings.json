@@ -26,16 +26,6 @@
   "tsserver.enableJavascript": false,
   "tsserver.npm": "npm",
   "languageserver": {
-    "flow": {
-      "command": "${workspaceFolder}/node_modules/.bin/flow",
-      "args": ["lsp"],
-      "filetypes": ["javascript", "javascriptreact", "javascript.jsx"],
-      "initializationOptions": {},
-      "requireRootPattern": true,
-      "settings": {},
-      "trace.server": "verbose",
-      "rootPatterns": [".flowconfig"]
-    },
     "dockerfile": {
       "command": "docker",
       "filetypes": ["dockerfile"],
