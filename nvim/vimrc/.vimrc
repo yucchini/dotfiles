@@ -97,10 +97,6 @@ set tabstop=2
 " Tabの文字分入力されたとき、tabに変換せずスペースのままになる
 set expandtab
 
-" 改行時自動インデント
-" set ai "Auto indent
-" set si "Smart indent
-
 " ファイル形式別プラグインとインデントを有効にする
 filetype plugin indent on
 
@@ -158,7 +154,7 @@ au BufNewFile,BufRead fish_funced set filetype=fish
 
 augroup ReactFiletypes
   autocmd!
-  autocmd BufRead,BufNewFile *.jsx setf filetype=javascript
+  autocmd BufRead,BufNewFile *.jsx setf filetype=javascriptreact
   autocmd BufRead,BufNewFile *.tsx setf filetype=typescriptreact
 augroup END
 
@@ -248,7 +244,6 @@ set scrolloff=100
 if !has('nvim')
   set cursorlineopt=number
 endif
-" set cursorcolumn
 
 " Set cursor line color on visual mode
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
@@ -299,10 +294,6 @@ set updatetime=250
 " JSX
 let g:jsx_ext_required = 0
 
-" Tern
-" Disable auto preview window
-" set completeopt-=preview
-
 " localvimrc
 let g:localvimrc_ask = 0
 
@@ -312,10 +303,6 @@ if !empty(globpath(&rtp, 'autoload/coc.vim'))
     let g:coc_user_config['coc.preferences.jumpCommand'] = ':SplitIfNotOpen4COC'
 	endfunction
 endif
-
-" vimの外でファイルを編集した場合にもすぐに反映させる
-" autocmd BufWritePost * call defx#redraw()
-" autocmd BufEnter * call defx#redraw()
 
 " --- NERD commenter ---
 " デフォルトのキーマッピングをオフ
@@ -330,27 +317,10 @@ let g:NERDCustomDelimiters = { 'fish': { 'left': '#' } }
 " vim-graphql
 au BufNewFile,BufRead *.prisma setfiletype graphql
 
-" vim-auto-save
-" let g:auto_save = 1
-" let g:auto_save_events = ['InsertLeave', 'TextChanged', 'CursorHold']
-" 自動保存が保存時間を変更しないようにする
-" let g:auto_save_no_updatetime = 1
-" インサートモード中は自動保存しない
-" let g:auto_save_in_insert_mode = 0
-" 自動保存の通知を非表示
-" let g:auto_save_silent = 1
-
-" コミット編集時にはOFFにする
-if expand("%:p") =~ 'COMMIT_EDITMSG'
-  let g:auto_save = 0
-else
-  let g:auto_save = 1
-endif
-
 " thinca/vim-zenspace
 let g:zenspace#default_mode = 'on'
 
-" Previm
+" Previm(markdownのpreview)
 let g:previm_open_cmd = 'open -a Google\ Chrome'
 augroup PrevimSettings
     autocmd!
@@ -398,13 +368,6 @@ endif
 
 " ビルトインのファイラnetrwをoff
 let loaded_netrwPlugin = 1
-
-"-------------------------------------------------------------------------------
-" DevIcons
-"-------------------------------------------------------------------------------
-
-" set guifont=Sauce\ Code\ Pro\ Light\ Nerd\ Font\ Complete\ Windows\ Compatible:h11
-" let g:webdevicons_enable_vimfiler = 1
 
 "-------------------------------------------------------------------------------
 " imports

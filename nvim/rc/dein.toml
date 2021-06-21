@@ -61,7 +61,7 @@ repo = 'preservim/nerdcommenter'
 repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
-repo = 'yucchini/vim-zenspace'
+repo = 'uki1014/vim-zenspace'
 
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
