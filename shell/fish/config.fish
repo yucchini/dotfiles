@@ -249,6 +249,7 @@ alias ce="/usr/local/bin/gitmoji -c"
 alias gopen='git open'
 alias lz='lazygit'
 alias sync='hub sync'
+alias ggrep='git grep $argv[1] -- ':!mysql/' . '
 
 # tmux
 alias t='tmux'
