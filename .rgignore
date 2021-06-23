@@ -22,3 +22,4 @@ integration_test/
 images/
 data/
 dist/
+mysql
