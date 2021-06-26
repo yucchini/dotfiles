@@ -7,7 +7,6 @@ dot_dir=$(dirname ${script_dir})
 dot_config_dir="$HOME/.config"
 # $HOMEにおきたいdotfiles
 target_dotfiles=(
-  .vimrc
   .zshrc
   .bashrc
   .tmux.conf
@@ -17,7 +16,7 @@ target_dotfiles=(
   .gitignore_global
   .hyper.js
 )
-# $HOME/.configにおきたいdotfiles
+# $HOME/.configにおきたいdotfiles dirctory
 target_config_dir=(
   fish
   bat
