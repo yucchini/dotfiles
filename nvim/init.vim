@@ -1,4 +1,4 @@
-source ~/.vimrc
+source ~/dotfiles/nvim/vimrc/.vimrc
 
 " true color
 if exists("&termguicolors") && exists("&winblend")
