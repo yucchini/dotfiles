@@ -1,40 +1,40 @@
 set -xg LC_CTYPE en_US.UTF-8
 set -xg LC_ALL en_US.UTF-8
 set -xg LANG en_US.UTF-8
-
-set -x PATH $PATH $HOME
-set -x DOTFILES_PATH $HOME/dotfiles
-set -x EDITOR nvim
-set -x DOCKER_BUILDKIT 1
+set -xg PATH $PATH $HOME
+set -xg DOTFILES_PATH $HOME/dotfiles
+set -xg EDITOR nvim
+set -xg TERM xterm-256color
+set -xg DOCKER_BUILDKIT 1
 
 if status --is-interactive
   # anyenv
-  set -x ANYENV_ROOT ~/.anyenv
+  set -xg ANYENV_ROOT ~/.anyenv
   # set -x PATH $HOME/.anyenv/bin $PATH
   # anyenv init - fish | source
 
   # nodenv
-  set -x NODENV_ROOT $ANYENV_ROOT/envs/nodenv
-  set -x PATH $NODENV_ROOT/bin $NODENV_ROOT/shims $PATH
+  set -xg NODENV_ROOT $ANYENV_ROOT/envs/nodenv
+  set -xg PATH $NODENV_ROOT/bin $NODENV_ROOT/shims $PATH
 
   # rbenv（tmuxを使用している場合はtmuxがシステムデフォルトのrubyを見に行ってしまうのであえてPATHを指定する）
-  set -x RBENV_ROOT $ANYENV_ROOT/envs/rbenv
-  set -x PATH $RBENV_ROOT/bin $RBENV_ROOT/shims $PATH
+  set -xg RBENV_ROOT $ANYENV_ROOT/envs/rbenv
+  set -xg PATH $RBENV_ROOT/bin $RBENV_ROOT/shims $PATH
 
   # pyenv
-  set -x PYENV_ROOT $ANYENV_ROOT/envs/pyenv
-  set -x PATH $PYENV_ROOT/bin $HOME/.anyenv/envs/pyenv/shims $PATH
+  set -xg PYENV_ROOT $ANYENV_ROOT/envs/pyenv
+  set -xg PATH $PYENV_ROOT/bin $HOME/.anyenv/envs/pyenv/shims $PATH
   status is-login; and pyenv init --path fish | source
   pyenv init - fish | source
   # pyenv-virtualenv
   pyenv virtualenv-init - | source
 
   # goenv
-  set -x GOENV_ROOT $ANYENV_ROOT/envs/goenv
-  set -x PATH $GOENV_ROOT/bin $GOENV_ROOT/shims $PATH
-  set -x GOPATH "$HOME/go"
+  set -xg GOENV_ROOT $ANYENV_ROOT/envs/goenv
+  set -xg PATH $GOENV_ROOT/bin $GOENV_ROOT/shims $PATH
+  set -xg GOPATH "$HOME/go"
   # set -x GO111MODULE on
-  set -x GO111MODULE off
+  set -xg GO111MODULE off
 
   # neovim
   if test (uname) = 'Darwin'
