@@ -388,23 +388,20 @@ source ~/dotfiles/nvim/.lightline.vim
 " Color scheme
 "-------------------------------------------------------------------------------
 
-" colorscheme NeoSolarized
-let g:solarized_termcolors=256
-
-" シンタックスを有効にする
-syntax enable
-
-" 一行が長いファイルをsyntaxを制御することで軽くする
-" これを有効にすると1行が長すぎる行があった場合、その行以降がhighlightされない
-" set synmaxcol=256
-
-" true color
 if exists("&termguicolors") && exists("&winblend")
+  syntax enable
+  set background=dark
+  colorscheme NeoSolarized
   let g:neosolarized_termtrans=1
-  runtime ./colors/solarized_true.vim
   set termguicolors
   set winblend=0
   set wildoptions=pum
   set pumblend=5
+  let g:solarized_termcolors=256
+  runtime ./colors/solarized_true.vim
+
+  " 一行が長いファイルをsyntaxを制御することで軽くする
+  " これを有効にすると1行が長すぎる行があった場合、その行以降がhighlightされない
+  " set synmaxcol=256
 endif
 
