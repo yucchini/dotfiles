@@ -26,6 +26,7 @@ set updatetime=250
 
 " 行番号
 set nonumber
+set signcolumn=yes
 
 " always show signcolumns
 set signcolumn=yes

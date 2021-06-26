@@ -54,12 +54,36 @@ hook_add = """
 source ~/.config/nvim/plugins/denite.rc.vim
 """
 
+# [[plugins]]
+# repo = "neoclide/coc.nvim"
+# merged = 0
+# rev = "release"
+# hook_add = """
+# source ~/.config/nvim/plugins/coc.rc.vim
+# """
+
 [[plugins]]
-repo = "neoclide/coc.nvim"
-merged = 0
-rev = "release"
+repo = 'neovim/nvim-lspconfig'
 hook_add = """
-source ~/.config/nvim/plugins/coc.rc.vim
+source ~/.config/nvim/plugins/lspconfig.rc.vim
+"""
+
+[[plugins]]
+repo = 'nvim-lua/completion-nvim'
+hook_add = """
+source ~/.config/nvim/plugins/completion.rc.vim
+"""
+
+[[plugins]]
+repo = 'nvim-lua/popup.nvim'
+
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+hook_add = """
+source ~/.config/nvim/plugins/telescope.rc.vim
 """
 
 ##################

@@ -43,4 +43,3 @@ if len(s:removed_plugins) > 0
   call dein#recache_runtimepath()
 endif
 
-
