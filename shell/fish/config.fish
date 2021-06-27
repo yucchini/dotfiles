@@ -42,6 +42,7 @@ if status --is-interactive
     set -x PATH $HOME/nvim-osx64/bin $PATH
   else if test (uname) = 'Linux'
     eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    set -x PATH $HOME/nvim.appimage $PATH
   end
 
   # direnv
