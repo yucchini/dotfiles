@@ -203,7 +203,7 @@ end
 
 # ===Alias===
 # Git
-alias git='/usr/local/bin/hub'
+alias git='(which hub)'
 alias g='git'
 alias aad='git add .'
 alias ad='git add'
