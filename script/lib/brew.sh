@@ -30,6 +30,7 @@ target_brew_list=(
   gh
   htop
   fish
+  reattach-to-user-namespace
 )
 
 if ! has "brew"; then
