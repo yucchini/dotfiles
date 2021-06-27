@@ -53,7 +53,7 @@ function setup_tools() {
   ~/dotfiles/script/lib/brew.sh
 
   # Setup default shell
-  [ ${SHELL} != "/usr/local/bin/fish"  ] && sudo chsh -s $(which fish)
+  [ ${SHELL} != "$(which fish)"  ] && sudo chsh -s $(which fish)
 
   # Setup Neovim nightly
   ~/dotfiles/script/lib/neovim.sh
