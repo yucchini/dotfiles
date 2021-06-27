@@ -29,6 +29,7 @@ target_brew_list=(
   watch
   gh
   htop
+  fish
 )
 
 if ! has "brew"; then
@@ -38,7 +39,10 @@ else
   echo "Homebrew has been already installed."
 fi
 
+echo "brew update..."
 brew update
+
+echo "brew upgrade..."
 brew upgrade
 
 for target in ${target_brew_list[@]}; do
