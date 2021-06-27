@@ -21,7 +21,7 @@ if has "nodenv"; then
     echo "node: $NODEJS_LATEST_LTS_VERSION has been already installed."
   else
     nodenv install $NODEJS_LATEST_LTS_VERSION
-    nodenv global $NODEJS_LATEST_LTS_VERSIO
+    nodenv global $NODEJS_LATEST_LTS_VERSION
     nodenv rehash
   fi
 
