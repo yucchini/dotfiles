@@ -1,6 +1,10 @@
 #!/bin/bash
 
-NODEJS_LATEST_LTS_VERSION=14.16.1
+# 実行したコマンドを表示
+# set -x
+set -ue
+
+NODEJS_LATEST_LTS_VERSION=12.13.0
 
 has() {
   type "$1" > /dev/null 2>&1

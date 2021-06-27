@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# 実行したコマンドを表示
+# set -x
 set -ue
 
 has() {
@@ -46,4 +48,3 @@ for target in ${target_brew_list[@]}; do
     echo "$target has been already installed."
   fi
 done
-

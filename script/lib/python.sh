@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# 実行したコマンドを表示
+# set -x
+set -ue
+
 PYTHON2_LATEST_LTS_VERSION=2.7.16
 PYTHON3_LATEST_LTS_VERSION=3.8.0
 

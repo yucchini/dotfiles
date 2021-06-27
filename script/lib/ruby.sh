@@ -1,6 +1,10 @@
 #!/bin/bash
 
-RUBY_LATEST_LTS_VERSION=2.7.2
+# 実行したコマンドを表示
+# set -x
+set -ue
+
+RUBY_LATEST_LTS_VERSION=2.6.6
 
 has() {
   type "$1" > /dev/null 2>&1
@@ -8,6 +12,7 @@ has() {
 
 target_global_ruby_packages=(
   neovim
+  solargraph
 )
 
 if has "rbenv"; then
