@@ -6,7 +6,7 @@ set -ue
 OS="$(uname -s)"
 DOT_DIRECTORY="${HOME}/dotfiles"
 DOT_TARBALL="https://github.com/uki1014/dotfiles/tarball/master"
-DOT_REMOTE_URL="git@github.com:uki1014/dotfiles.git"
+DOT_REMOTE_URL="https://github.com/uki1014/dotfiles.git"
 
 function has() {
   type "$1" > /dev/null 2>&1
@@ -29,10 +29,13 @@ function check_dotfiles() {
   if [ ! -d ${DOT_DIRECTORY} ]; then
     echo "Downloading dotfiles..."
     
+    mkdir dotfiles
+
     if has "git"; then
-      git clone ${DOT_REMOTE_URL} ~/
+      # git cloneするディレクトリは空である必要があるので先にdotfilesディレクトリを作成し、
+      # そのディレクトリの中に中身だけをcloneする
+      git clone ${DOT_REMOTE_URL} ${DOT_DIRECTORY}
     else
-      mkdir ${DOT_DIRECTORY}
       curl -fsSLo ${HOME}/dotfiles.tar.gz ${DOT_TARBALL}
       tar -zxf ${HOME}/dotfiles.tar.gz --strip-components 1 -C ${DOT_DIRECTORY}
       rm -f ${HOME}/dotfiles.tar.gz
