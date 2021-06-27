@@ -126,10 +126,10 @@ function update_nvim
     tar xzf ~/nvim-macos.tar.gz
     rm -f ~/nvim-macos.tar.gz
   else if test (uname) = 'Linux'
-    sudo apt remove neovim
-    sudo add-apt-repository ppa:neovim-ppa/unstable
-    sudo apt-get update
-    sudo apt install neovim/focal
+    cd
+    rm ~/nvim.appimage
+    curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+    chmod u+x nvim.appimage
   end
 end
 
