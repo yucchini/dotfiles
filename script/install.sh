@@ -66,10 +66,9 @@ function initialize() {
       rm -f ~/nvim-macos.tar.gz
       ;;
     "linux-gnu" )
-      sudo apt remove neovim
-      sudo add-apt-repository ppa:neovim-ppa/unstable
-      sudo apt-get update
-      sudo apt install neovim/focal
+      curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+      chmod u+x nvim.appimage
+      ./nvim.appimage
       ;;
     "*" )
       echo $(tput setaf 1)Working only OSX / Ubuntu!!$(tput sgr0)
@@ -80,6 +79,7 @@ function initialize() {
 
   if [ ! -d ${HOME}/.anyenv ]; then
     git clone https://github.com/anyenv/anyenv ~/.anyenv
+    ~/.anyenv/bin/anyenv init
     anyenv install goenv
     anyenv install rbenv
     anyenv install pyenv
