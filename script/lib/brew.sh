@@ -31,6 +31,7 @@ target_brew_list=(
   htop
   fish
   reattach-to-user-namespace
+  shared-mime-info
 )
 
 if ! has "brew"; then
