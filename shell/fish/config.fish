@@ -6,6 +6,7 @@ set -xg DOTFILES_PATH $HOME/dotfiles
 set -xg EDITOR nvim
 set -xg TERM xterm-256color
 set -xg DOCKER_BUILDKIT 1
+set -xg OSTYPE darwin20
 
 if status --is-interactive
   # anyenv
