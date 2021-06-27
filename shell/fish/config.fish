@@ -11,7 +11,7 @@ set -xg OSTYPE darwin20
 if status --is-interactive
   # anyenv
   set -xg ANYENV_ROOT ~/.anyenv
-  # set -x PATH $HOME/.anyenv/bin $PATH
+  set -x PATH $HOME/.anyenv/bin $PATH
   # anyenv init - fish | source
 
   # nodenv
@@ -28,7 +28,7 @@ if status --is-interactive
   status is-login; and pyenv init --path fish | source
   pyenv init - fish | source
   # pyenv-virtualenv
-  pyenv virtualenv-init - | source
+  pyenv virtualenv-init - fish | source
 
   # goenv
   set -xg GOENV_ROOT $ANYENV_ROOT/envs/goenv
@@ -42,7 +42,6 @@ if status --is-interactive
     set -x PATH $HOME/nvim-osx64/bin $PATH
   else if test (uname) = 'Linux'
     eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-    set -x nvim $HOME/nvim.appimage
   end
 
   # direnv
@@ -130,6 +129,7 @@ function update_nvim
     rm ~/nvim.appimage
     curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
     chmod u+x nvim.appimage
+    mv ~/nvim.appimage /usr/local/bin
   end
 end
 
@@ -203,7 +203,7 @@ end
 
 # ===Alias===
 # Git
-alias git='(which hub)'
+alias git='hub'
 alias g='git'
 alias aad='git add .'
 alias ad='git add'

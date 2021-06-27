@@ -64,7 +64,7 @@ if has "pyenv"; then
     echo "activate neovim3"
     pyenv activate neovim3
   else
-    pyenv virtualenv 3.8 neovim3
+    pyenv virtualenv 3.8.0 neovim3
     echo "activate neovim3"
     pyenv activate neovim3
   fi
