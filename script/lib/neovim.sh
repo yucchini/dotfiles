@@ -12,13 +12,17 @@ if ! has "nvim"; then
   # Setup neovim nightly
   case ${OSTYPE} in
     "darwin*" )
-      curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
-      tar xzf ~/nvim-macos.tar.gz
-      rm -f ~/nvim-macos.tar.gz
+      if [ ! -f ~/nvim-macos ]; then
+        curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
+        tar xzf ~/nvim-macos.tar.gz
+        rm -f ~/nvim-macos.tar.gz
+      fi
       ;;
     "linux-gnu" )
-      curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-      chmod u+x nvim.appimage
+      if [ ! -f ~/nvim.appimage ]; then
+        curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+        chmod u+x nvim.appimage
+      fi
       ;;
     "*" )
       echo $(tput setaf 1)Working only OSX / Ubuntu!!$(tput sgr0)

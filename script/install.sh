@@ -52,11 +52,11 @@ function setup_tools() {
   # Setup Homebrew
   ~/dotfiles/script/lib/brew.sh
 
-  # Setup Neovim nightly
-  ~/dotfiles/script/lib/neovim.sh
-
   # Setup default shell
   [ ${SHELL} != "/usr/local/bin/fish"  ] && chsh -s $(which fish)
+
+  # Setup Neovim nightly
+  ~/dotfiles/script/lib/neovim.sh
 
   # Setup anyenv
   ~/dotfiles/script/lib/anyenv.sh
