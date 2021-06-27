@@ -19,7 +19,6 @@ if ! has "nvim"; then
     "linux-gnu" )
       curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
       chmod u+x nvim.appimage
-      ./nvim.appimage
       ;;
     "*" )
       echo $(tput setaf 1)Working only OSX / Ubuntu!!$(tput sgr0)
