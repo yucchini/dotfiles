@@ -11,7 +11,7 @@ set -xg OSTYPE darwin20
 if status --is-interactive
   # anyenv
   set -xg ANYENV_ROOT ~/.anyenv
-  set -x PATH $HOME/.anyenv/bin $PATH
+  set -xg PATH $HOME/.anyenv/bin $PATH
   # anyenv init - fish | source
 
   # nodenv
@@ -24,7 +24,7 @@ if status --is-interactive
 
   # pyenv
   set -xg PYENV_ROOT $ANYENV_ROOT/envs/pyenv
-  set -xg PATH $PYENV_ROOT/bin $HOME/.anyenv/envs/pyenv/shims $PATH
+  set -xg PATH $PYENV_ROOT/bin $PYENV_ROOT/shims $PATH
   status is-login; and pyenv init --path fish | source
   pyenv init - fish | source
   # pyenv-virtualenv
