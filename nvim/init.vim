@@ -41,10 +41,10 @@ set backupskip=/tmp/*,/private/tmp/*
 set undolevels=1000
 
 " クリップボードを共有
-if has("mac")
+if system("uname -s") == "Darwin"
   set clipboard+=unnamed
 else
-  set clipboard^=unnamedplus
+  set clipboard+=unnamedplus
 endif
 
 " 補完表示時のEnterで改行をしない
@@ -372,14 +372,6 @@ let loaded_netrwPlugin = 1
 "-------------------------------------------------------------------------------
 " imports
 "-------------------------------------------------------------------------------
-
-if has("unix")
-  let s:uname = system("uname -s")
-  " Do Mac stuff
-  if s:uname == "Darwin\n"
-    set clipboard+=unnamedplus
-  endif
-endif
 
 source ~/dotfiles/nvim/.maps.vim
 source ~/dotfiles/nvim/.lightline.vim
