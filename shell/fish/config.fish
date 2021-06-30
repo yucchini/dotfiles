@@ -173,10 +173,15 @@ function attach_tmux_session_if_needed
 end
 
 # fish起動時にtmuxを起動
-if test -z $TMUX && test (uname) != 'Linux'
-  # if test $using_shell = '-fish'
-  attach_tmux_session_if_needed
-  # end
+# if test -z $TMUX && test (uname) != 'Linux'
+#   # if test $using_shell = '-fish'
+#   attach_tmux_session_if_needed
+#   # end
+# end
+
+# 初回シェル時のみ tmux実行
+if test $SHLVL = 1
+  tmux new-session
 end
 
 function cmm
