@@ -78,3 +78,8 @@ if has "pyenv"; then
 else
   echo "Python is not installed."
 fi
+
+if ! has "pyenv-virtualenv"; then
+  echo "Installing pyenv-virtualenv..."
+  git clone git@github.com:pyenv/pyenv-virtualenv.git ${PYENV_ROOT}/plugins/pyenv-virtualenv
+fi
