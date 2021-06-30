@@ -8,6 +8,7 @@ has() {
   type "$1" > /dev/null 2>&1
 }
 
+# CUI tools
 target_brew_list=(
   ag
   ripgrep
@@ -17,7 +18,6 @@ target_brew_list=(
   tig
   hub
   lazygit
-  pyenv-virtualenv
   jq
   fzf
   bat
@@ -33,6 +33,32 @@ target_brew_list=(
   reattach-to-user-namespace
   shared-mime-info
 )
+
+# GUI tools
+target_brew_cask_list=(
+  chromedriver
+  docker
+  xquartz
+  google-chrome
+  spotify
+  tableplus
+  fork
+  deepl
+  typora
+  teensy
+  virtualbox
+  visual-studio-code
+  karabiner-elements
+  postman
+  homebrew/cask-versions/iterm2-nightly
+  hyper
+)
+
+# AppStore経由
+# - Trello
+# - Todoist
+# - JIRA
+# - Slack
 
 if ! has "brew"; then
   echo "Installing Homebrew..."
@@ -50,6 +76,14 @@ brew upgrade
 for target in ${target_brew_list[@]}; do
   if ! has "$target"; then
     brew install $target
+  else
+    echo "$target has been already installed."
+  fi
+done
+
+for target in ${target_brew_cask_list[@]}; do
+  if ! has "$target"; then
+    brew install --cask $target
   else
     echo "$target has been already installed."
   fi
