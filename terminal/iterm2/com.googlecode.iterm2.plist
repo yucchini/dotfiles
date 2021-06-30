@@ -230,7 +230,7 @@
 	<key>Default Bookmark Guid</key>
 	<string>50AE9AF9-200B-48DC-BBE2-E370F94587F7</string>
 	<key>DimBackgroundWindows</key>
-	<false/>
+	<true/>
 	<key>DimInactiveSplitPanes</key>
 	<true/>
 	<key>DimOnlyText</key>
@@ -3376,7 +3376,7 @@
 	<key>SoundForEsc</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.40450188386524821</real>
+	<real>0.22490783431892308</real>
 	<key>StatusBarPosition</key>
 	<integer>0</integer>
 	<key>StretchTabsToFillBar</key>
