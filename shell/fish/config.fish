@@ -37,12 +37,15 @@ if status --is-interactive
   # set -x GO111MODULE on
   set -xg GO111MODULE off
 
-  # neovim
+  # macOSとLinuxそれぞれの設定
   if test (uname) = 'Darwin'
     set -x PATH $HOME/nvim-osx64/bin $PATH
+    alias sa='ssh-add -K'
   else if test (uname) = 'Linux'
+    # eval (ssh-agent -c)
     eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     source ~/.asdf/asdf.fish
+    alias sa='ssh-add'
   end
 
   # direnv
@@ -327,7 +330,6 @@ alias ysb='yarn run storybook'
 alias yc='yarn run clean'
 
 # Util
-alias sa='ssh-add -K'
 alias re='exec $SHELL -l'
 alias ressh='sudo launchctl stop com.openssh.sshd'
 alias bashc='nvim ~/.bashrc'
