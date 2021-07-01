@@ -42,7 +42,7 @@ if status --is-interactive
     set -x PATH $HOME/nvim-osx64/bin $PATH
     alias sa='ssh-add -K'
   else if test (uname) = 'Linux'
-    # eval (ssh-agent -c)
+    eval (ssh-agent -c)
     eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     source ~/.asdf/asdf.fish
     alias sa='ssh-add'
@@ -183,9 +183,9 @@ end
 # end
 
 # 初回シェル時のみ tmux実行
-if test $SHLVL = 1
-  tmux new-session
-end
+# if test $SHLVL = 1
+#   tmux new-session
+# end
 
 function cmm
   git add .
