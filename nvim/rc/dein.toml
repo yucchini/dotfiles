@@ -64,11 +64,8 @@ repo = 'tyru/open-browser.vim'
 [[plugins]]
 repo = 'tyru/open-browser-github.vim'
 
+[[plugins]]
+repo = 'kdheepak/lazygit.nvim'
+
 # [[plugins]]
 # repo = 'nvim-treesitter/nvim-treesitter'
-
-# [[plugins]]
-# repo = 'dense-analysis/ale'
-
-# [[plugins]]
-# repo = 'mattn/emmet-vim'
