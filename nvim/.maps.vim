@@ -32,15 +32,6 @@ nnoremap ;a :qa<CR>
 " 改行してnormal mode
 noremap <Space><CR> o<ESC>
 
-" コメントアウト
-nmap <Leader>f <Plug>NERDCommenterToggle
-vmap <Leader>f <Plug>NERDCommenterToggle
-" コメントアウトしてインサートモード
-nmap <Leader>r <Plug>NERDCommenterAppend
-" ブロックコメントアウト
-nmap <Leader>b <Plug>NERDCommenterSexy
-vmap <Leader>b <Plug>NERDCommenterSexy
-
 " vimrcを開く
 nnoremap <Leader>. :new ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>vi :source ~/.config/nvim/init.vim<CR>

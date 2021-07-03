@@ -94,6 +94,15 @@ let NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 " fishのコメントアウトが対応していなかったので追加
 let g:NERDCustomDelimiters = { 'fish': { 'left': '#' } }
+
+" コメントアウト
+nmap <Leader>f <Plug>NERDCommenterToggle
+vmap <Leader>f <Plug>NERDCommenterToggle
+" コメントアウトしてインサートモード
+nmap <Leader>r <Plug>NERDCommenterAppend
+" ブロックコメントアウト
+nmap <Leader>b <Plug>NERDCommenterSexy
+vmap <Leader>b <Plug>NERDCommenterSexy
 """
 
 [[plugins]]
