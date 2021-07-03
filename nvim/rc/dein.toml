@@ -60,13 +60,46 @@ hook_add = """
 source ~/.config/nvim/lua/plugins/telescope.rc.lua
 """
 
+##################
+# LSP
+##################
 [[plugins]]
 repo = "neoclide/coc.nvim"
 merged = 0
 rev = "release"
 hook_add = """
-source ~/.config/nvim/plugins/coc.rc.vim
+source ~/.config/nvim/lua/plugins/lspconfig.rc.lua
 """
+#os.execute('npm install -g flow-bin typescript typescript-language-server diagnostic-languageserver eslint_d')
+
+##################
+# Completion
+##################
+#[[plugins]]
+#repo = 'nvim-lua/completion-nvim'
+#hook_add = """
+#source ~/.config/nvim/plugins/completion.rc.vim
+#"""
+
+[[plugins]]
+repo = 'hrsh7th/nvim-compe'
+hook_add = """
+source ~/.config/nvim/lua/plugins/nvim-compe.rc.lua
+"""
+
+[[plugins]]
+repo = 'glepnir/lspsaga.nvim'
+hook_add = """
+source ~/.config/nvim/lua/plugins/lspsaga.rc.lua
+"""
+
+# [[plugins]]
+# repo = "neoclide/coc.nvim"
+# merged = 0
+# rev = "release"
+# hook_add = """
+# source ~/.config/nvim/plugins/coc.rc.vim
+# """
 
 ##################
 # Utils
