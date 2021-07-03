@@ -16,6 +16,9 @@ set autowrite
 " 行番号
 set nonumber
 
+" always show signcolumns
+set signcolumn=yes
+
 " 既存のファイルを開くとき、vimが使用する文字コードを判定する順番
 " 先頭から順に試される
 set fileencodings=utf-8,sjis,euc-jp,latin
