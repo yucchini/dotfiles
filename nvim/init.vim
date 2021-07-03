@@ -265,8 +265,8 @@ augroup END
 "-------------------------------------------------------------------------------
 " source other config files 
 "-------------------------------------------------------------------------------
-source ~/dotfiles/nvim/plugins/dein.rc.vim
-source ~/dotfiles/nvim/.maps.vim
+source ~/dotfiles/nvim/lua/plugins/dein.rc.lua
+source ~/dotfiles/nvim/lua/maps.lua
 
 "-------------------------------------------------------------------------------
 " Color scheme
