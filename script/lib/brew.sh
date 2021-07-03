@@ -32,6 +32,8 @@ target_brew_list=(
   fish
   reattach-to-user-namespace
   shared-mime-info
+  tree-sitter
+  luajit
 )
 
 # GUI tools
