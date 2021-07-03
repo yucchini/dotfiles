@@ -1,7 +1,6 @@
-lua << EOF
 vim.lsp.set_log_level("debug")
-local nvim_lsp = require('lspconfig')
-local protocol = require('vim.lsp.protocol')
+local nvim_lsp = require'lspconfig'
+local protocol = require'vim.lsp.protocol'
 
 --local custom_on_init = function(client)
 --  print('Langage Server Protocol started!')
@@ -21,7 +20,7 @@ local on_attach = function(client, bufnr)
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
-  local opts = { noremap=true, silent=true }
+  local opts = { noremap=true }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -169,4 +168,3 @@ nvim_lsp.diagnosticls.setup {
     }
   }
 }
-EOF
