@@ -48,10 +48,22 @@ repo = 'kristijanhusak/defx-git'
 ##################
 # Fuzzy Finder
 ##################
+#[[plugins]]
+#repo = 'Shougo/denite.nvim'
+#hook_add = """
+#source ~/.config/nvim/plugins/denite.rc.vim
+#"""
+
 [[plugins]]
-repo = 'Shougo/denite.nvim'
+repo = 'nvim-lua/popup.nvim'
+
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
 hook_add = """
-source ~/.config/nvim/plugins/denite.rc.vim
+source ~/.config/nvim/plugins/telescope.rc.vim
 """
 
 # [[plugins]]
@@ -65,25 +77,13 @@ source ~/.config/nvim/plugins/denite.rc.vim
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
 hook_add = """
-source ~/.config/nvim/plugins/lspconfig.rc.vim
+source ~/.config/nvim/lua/plugins/lspconfig.rc.lua
 """
 
 [[plugins]]
 repo = 'nvim-lua/completion-nvim'
 hook_add = """
 source ~/.config/nvim/plugins/completion.rc.vim
-"""
-
-[[plugins]]
-repo = 'nvim-lua/popup.nvim'
-
-[[plugins]]
-repo = 'nvim-lua/plenary.nvim'
-
-[[plugins]]
-repo = 'nvim-telescope/telescope.nvim'
-hook_add = """
-source ~/.config/nvim/plugins/telescope.rc.vim
 """
 
 ##################
