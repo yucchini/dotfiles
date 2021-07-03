@@ -72,3 +72,6 @@ repo = 'thaerkh/vim-workspace'
 
 # [[plugins]]
 # repo = 'nvim-treesitter/nvim-treesitter'
+# hook_add = """
+# source ~/.config/nvim/plugins/treesitter.rc.vim
+# """

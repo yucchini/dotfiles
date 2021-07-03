@@ -1,15 +1,3 @@
-" if hidden is not set, TextEdit might fail.
-set hidden
-
-" jsonc syntax highlighting
-autocmd FileType json syntax match Comment +\/\/.\+$+
-
-" You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
-
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
@@ -89,10 +77,6 @@ xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
-" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-"nmap <silent> <C-d> <Plug>(coc-range-select)
-"xmap <silent> <C-d> <Plug>(coc-range-select)
-
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
@@ -105,10 +89,6 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" coc-pairsでいい感じに改行も一緒にしてくれるように
-" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-" \ 'coc-pairs',
-
 " coc-cssでscssファイルにおいて@をkeywordとして登録する
 autocmd FileType scss setl iskeyword+=@-@
 
@@ -120,27 +100,8 @@ autocmd BufLeave
   \ *.{js,jsx,ts,tsx}
   \   call coc#config('eslint.enable', v:true)
 
-" Using CocList
-" Show all diagnostics
-"nnoremap <silent> ;a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-"nnoremap <silent> ;e  :<C-u>CocList extensions<cr>
-" Show commands
-"nnoremap <silent> ;c  :<C-u>CocList commands<cr>
-" Find symbol of current document
-"nnoremap <silent> ;o  :<C-u>CocList outline<cr>
-" Search workspace symbols
-"nnoremap <silent> ;s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-"nnoremap <silent> ;j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-"nnoremap <silent> ;k  :<C-u>CocPrev<CR>
-" Resume latest coc list
-"nnoremap <silent> ;p  :<C-u>CocListResume<CR>
-
 " Extensions
 let g:coc_global_extensions = [
-  \ 'coc-json',
   \ 'coc-tsserver',
   \ 'coc-flow',
   \ 'coc-prettier',
@@ -151,7 +112,6 @@ let g:coc_global_extensions = [
   \ 'coc-tabnine',
   \ 'coc-cssmodules',
   \ 'coc-styled-components',
-  \ 'coc-yaml',
   \ ]
 
 " Prettier

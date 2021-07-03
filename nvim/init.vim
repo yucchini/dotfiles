@@ -8,6 +8,12 @@ if !1 | finish | endif
 " Leader - 使いまわせるprefix key
 let mapleader = ','
 
+" if hidden is not set, TextEdit might fail.
+set hidden
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
 set helplang=en
 
 " 他のバッファに移動する時に自動保存
@@ -185,6 +191,10 @@ autocmd FileType * setlocal formatoptions-=ro
 
 " jsonファイルでのコメントを可能にする(tsconfigのみ)
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+
+" jsonc syntax highlighting
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
 
 " ----------------------
 "  Utils
