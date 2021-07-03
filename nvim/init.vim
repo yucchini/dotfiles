@@ -327,6 +327,11 @@ augroup PrevimSettings
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
 
+# vim-workspace
+let g:workspace_autocreate = 1
+let g:workspace_undodir='~/.config/nvim/'
+let g:workspace_autosave = 0
+
 "-------------------------------------------------------------------------------
 " Dein
 "-------------------------------------------------------------------------------
@@ -396,4 +401,3 @@ if exists("&termguicolors") && exists("&winblend")
   " これを有効にすると1行が長すぎる行があった場合、その行以降がhighlightされない
   " set synmaxcol=256
 endif
-

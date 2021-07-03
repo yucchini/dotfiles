@@ -2,3 +2,5 @@ freee*/
 .netrwhist
 sessions/
 undo/
+Session.vim
+.undodir/

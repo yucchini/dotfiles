@@ -67,5 +67,8 @@ repo = 'tyru/open-browser-github.vim'
 [[plugins]]
 repo = 'kdheepak/lazygit.nvim'
 
+[[plugins]]
+repo = 'thaerkh/vim-workspace'
+
 # [[plugins]]
 # repo = 'nvim-treesitter/nvim-treesitter'

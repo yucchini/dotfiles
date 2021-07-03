@@ -23,3 +23,5 @@ images/
 data/
 dist/
 mysql/
+Session.vim
+.undodir/
