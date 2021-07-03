@@ -11,6 +11,8 @@ let mapleader = ','
 " if hidden is not set, TextEdit might fail.
 set hidden
 
+set noshowmode
+
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 
@@ -18,6 +20,9 @@ set helplang=en
 
 " 他のバッファに移動する時に自動保存
 set autowrite
+
+" 変更の反映タイミングを早める
+set updatetime=250
 
 " 行番号
 set nonumber
@@ -41,13 +46,15 @@ set cmdheight=1
 set laststatus=2
 " swapファイルを使わない
 set noswapfile
+" ビルトインのファイラnetrwをoff
+let loaded_netrwPlugin = 1
 
 let loaded_matchparen = 1
 set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
 
 " undoできる最大数
-set undolevels=1000
+set undolevels=100
 
 " クリップボードを共有
 if system("uname -s") == "Darwin"
@@ -73,13 +80,10 @@ set ignorecase
 " 検索時に大文字を入力した場合ignorecaseが無効になる
 set smartcase
 
-if has('nvim')
-  " incremental substitution
-  set inccommand=split
-endif
+" 置換をインタラクティブにする
+set inccommand=split
 
 " work well in tmux
-set termguicolors
 set t_8f=^[[38;2;%lu;%lu;%lum
 set t_8b=^[[48;2;%lu;%lu;%lum
 
@@ -127,21 +131,6 @@ augroup fileTypeIndent
   au FileType fish setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType coffee setlocal shiftwidth=2 tabstop=2
 augroup END
-
-" tab: タブの表示を決定する
-" trail: 行末に続くスペースを表す
-" extends:ウィンドウの幅が狭くて右に省略された文字がある場合に表示される
-" preceds: extendsと同じで左に省略された文字がある場合に表示される
-" set list
-" set listchars=tab:>-,trail:·,extends:>,precedes:<,space:·
-" indentLineを非表示にするファイル
-let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'calendar', 'thumbnail', 'tweetvim', 'defx', 'denite']
-let g:indentLine_color_term =239
-let g:indentLine_color_gui = '#708090'
-
-" indentLine
-let g:indentLine_char_list = ['┊', '┊', '┊', '┊']
-
 
 "-------------------------------------------------------------------------------
 " 拡張子系
@@ -253,11 +242,6 @@ set guicursor=a:block
 set scrolloff=100
 " set scrolloff=10
 
-" 描画負担軽減のため、行番号のみハイライト
-if !has('nvim')
-  set cursorlineopt=number
-endif
-
 " Set cursor line color on visual mode
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 
@@ -278,127 +262,15 @@ augroup BgHighlight
   autocmd WinLeave * set nocul
 augroup END
 
-if &term =~ "screen"
-  autocmd BufEnter * if bufname("") !~ "^?[A-Za-z0-9?]*://" | silent! exe '!echo -n "\ek[`hostname`:`basename $PWD`/`basename %`]\e\\"' | endif
-  autocmd VimLeave * silent!  exe '!echo -n "\ek[`hostname`:`basename $PWD`]\e\\"'
-endif
-
 "-------------------------------------------------------------------------------
-" Other plugins
+" source other config files 
 "-------------------------------------------------------------------------------
-
-" vim-go
-let g:go_disable_autoinstall = 1
-
-" vim-json
-let g:vim_json_syntax_conceal = 0
-
-" Status line
-if !exists('*fugitive#statusline')
-  set statusline=%F\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}[L%l/%L,C%03v]
-  set statusline+=%=
-  set statusline+=%{fugitive#statusline()}
-endif
-
-" gitgutter
-" 反映タイミングを早める
-set updatetime=250
-
-" JSX
-let g:jsx_ext_required = 0
-
-" localvimrc
-let g:localvimrc_ask = 0
-
-if !empty(globpath(&rtp, 'autoload/coc.vim'))
-  function! s:coc_configure_and_start() abort
-    let g:coc_user_config = {}
-    let g:coc_user_config['coc.preferences.jumpCommand'] = ':SplitIfNotOpen4COC'
-	endfunction
-endif
-
-" --- NERD commenter ---
-" デフォルトのキーマッピングをオフ
-let g:NERDCreateDefaultMappings = 0
-" コメントアウト時にスペースを1つ挿入
-let NERDSpaceDelims = 1
-" コメント記号を左に揃える
-let g:NERDDefaultAlign = 'left'
-" fishのコメントアウトが対応していなかったので追加
-let g:NERDCustomDelimiters = { 'fish': { 'left': '#' } }
-
-" vim-graphql
-au BufNewFile,BufRead *.prisma setfiletype graphql
-
-" thinca/vim-zenspace
-let g:zenspace#default_mode = 'on'
-
-" Previm(markdownのpreview)
-let g:previm_open_cmd = 'open -a Google\ Chrome'
-augroup PrevimSettings
-    autocmd!
-    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-augroup END
-
-" vim-workspace
-let g:workspace_autocreate = 1
-let g:workspace_undodir=$HOME . '/.config/nvim/.undodir'
-let g:workspace_autosave = 0
-let g:workspace_session_directory = $HOME . '/.config/nvim/sessions/'
-
-"-------------------------------------------------------------------------------
-" Dein
-"-------------------------------------------------------------------------------
-
-let s:dein_dir = expand('~/.cache/dein')
-" deinがなかったら取得する
-if !isdirectory(s:dein_dir)
-  execute '!curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh' s:dein_dir
-  execute '!sh ./installer.sh ~/.cache/dein'
-endif
-
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
-
-  " .toml file
-  let g:rc_dir = expand('~/.config/nvim/rc')
-  let s:toml = g:rc_dir . '/dein.toml'
-  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
-  " read toml and cache
-  call dein#load_toml(s:toml,      {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
-
-  call dein#end()
-  call dein#save_state()
-endif
-
-" plugin installation check
-if dein#check_install()
-  call dein#install()
-endif
-
-" plugin remove check
-let s:removed_plugins = dein#check_clean()
-if len(s:removed_plugins) > 0
-  call map(s:removed_plugins, "delete(v:val, 'rf')")
-  call dein#recache_runtimepath()
-endif
-
-" ビルトインのファイラnetrwをoff
-let loaded_netrwPlugin = 1
-
-"-------------------------------------------------------------------------------
-" imports
-"-------------------------------------------------------------------------------
-
+source ~/dotfiles/nvim/plugins/dein.rc.vim
 source ~/dotfiles/nvim/.maps.vim
-source ~/dotfiles/nvim/.lightline.vim
 
 "-------------------------------------------------------------------------------
 " Color scheme
 "-------------------------------------------------------------------------------
-
 if exists("&termguicolors") && exists("&winblend")
   syntax enable
   set background=dark

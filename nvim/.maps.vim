@@ -3,9 +3,9 @@ nnoremap <S-C-p> "0p
 nnoremap <Leader>d "_d
 nnoremap x "_x
 
-" Increment/decrement
-nnoremap + <C-a>
-nnoremap - <C-x>
+" Increment/decrement(memo用)
+" nnoremap <C-a>
+" nnoremap <C-x>
 
 " バッファの再読み込み
 nnoremap <Leader>e :tabdo edit<CR>
@@ -33,10 +33,8 @@ nnoremap ;s :w<CR>
 nnoremap ;d :q!<CR>
 nnoremap ;a :qa<CR>
 
+" 改行してnormal mode
 noremap <Space><CR> o<ESC>
-
-" 選択
-nnoremap <Leader>v <S-v>
 
 " コメントアウト
 nmap <Leader>f <Plug>NERDCommenterToggle
@@ -48,16 +46,8 @@ nmap <Leader>b <Plug>NERDCommenterSexy
 vmap <Leader>b <Plug>NERDCommenterSexy
 
 " vimrcを開く
-nnoremap <Leader>. :new ~/.vimrc<CR>
-nnoremap <Leader>vi :source ~/.vimrc<CR>
-
-" bとwの移動キーの変更
-noremap <S-l> w
-noremap <S-h> b
-
-" call update dein
-nnoremap <Leader>ud :call dein#update('dein.vim')<CR>
-nnoremap <Leader>u :call dein#update()<CR>
+nnoremap <Leader>. :new ~/.config/nvim/init.vim<CR>
+nnoremap <Leader>vi :source ~/.config/nvim/init.vim<CR>
 
 " UpdateRemotePlugins
 nnoremap <Leader>ur :UpdateRemotePlugins<CR>
@@ -93,66 +83,6 @@ vnoremap <silent> # :<C-U>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 "-------------------------------------------------------------------------------
-" coc.nvim
-"-------------------------------------------------------------------------------
-" coc.nvimでfloatingが消えない時に消すkeymap
-nmap <Esc> :call coc#float#close_all() <CR>
-" call recache
-nnoremap <Leader>re :call dein#recache_runtimepath()<CR>
-" call coci
-nnoremap <Leader>co :call coc#util#install()<CR>
-nnoremap <Leader>col :CocOpenLog<CR>
-
-"-------------------------------------------------------------------------------
-" lazygit
-"-------------------------------------------------------------------------------
-nnoremap <silent> <Leader>z :LazyGit<CR>
-
-"-------------------------------------------------------------------------------
-" vim-go
-"-------------------------------------------------------------------------------
-nnoremap <Leader>gr :GoRun<CR>
-
-"-------------------------------------------------------------------------------
-" Colorizer
-"-------------------------------------------------------------------------------
-nnoremap <Leader>cl :ColorHighlight<CR>
-
-"-------------------------------------------------------------------------------
-" Previm
-"-------------------------------------------------------------------------------
-nnoremap <Leader>a :PrevimOpen<CR>
-
-"-------------------------------------------------------------------------------
-" vim-surround
-"-------------------------------------------------------------------------------
-nnoremap <Leader>ds ds'
-nnoremap <Leader>dss ds"
-nnoremap <Leader>di di'
-nnoremap <Leader>dii di"
-nnoremap <Leader>ys ysiw'
-nnoremap <Leader>yss ysiw"
-
-"-------------------------------------------------------------------------------
-" Git
-"-------------------------------------------------------------------------------
-nmap <Leader>st :Gstatus<CR>
-nmap <Leader>ad :Gwrite<CR>
-nmap <Leader>cm :Gcommit<CR>
-nmap <Leader>gl :Git blame<CR>
-nmap <Leader>diff :Gdiff<CR>
-nmap <Leader>coutr :Gread<CR>
-
-" Gitgutter
-" 変更点の部分にジャンプ
-nmap gl <Plug>(GitGutterNextHunk)
-nmap gh <Plug>(GitGutterPrevHunk)
-
-" open-browser-github.vim
-nmap <Leader>g :OpenGithubFile<CR>
-vmap <Leader>g :OpenGithubFile<CR>
-
-"-------------------------------------------------------------------------------
 " Tabs
 "-------------------------------------------------------------------------------
 " Open current directory
@@ -179,10 +109,3 @@ nmap <Leader>h <C-w><
 nmap <Leader>l <C-w>>
 nmap <Leader>k <C-w>+
 nmap <Leader>j <C-w>-
-
-"-------------------------------------------------------------------------------
-" Plugins
-"-------------------------------------------------------------------------------
-
-"-- fugitive
-cnoreabbrev gopen Gbrowse

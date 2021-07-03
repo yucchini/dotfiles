@@ -1,6 +1,9 @@
 [[plugins]]
 repo = 'elzr/vim-json'
 on_ft = ['json']
+hook_post_source = """
+let g:vim_json_syntax_conceal = 0
+"""
 
 [[plugins]]
 repo = 'stephpy/vim-yaml'
@@ -29,6 +32,9 @@ on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
 [[plugins]]
 repo = 'jparise/vim-graphql'
 on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
+hook_post_source = """
+au BufNewFile,BufRead *.prisma setfiletype graphql
+"""
 
 [[plugins]]
 repo = 'styled-components/vim-styled-components'
@@ -45,6 +51,10 @@ on_ft = ['jsonc']
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = ['go']
+hook_post_source = """
+let g:go_disable_autoinstall = 1
+nnoremap <Leader>gr :GoRun<CR>
+"""
 
 [[plugins]]
 repo = 'tpope/vim-rails'

@@ -1,12 +1,40 @@
+##################
+# Plugin Manager
+##################
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+##################
+# Git / GitHub
+##################
 [[plugins]]
-repo = 'tpope/vim-fugitive'
+repo = 'uki1014/vim-to-github'
+hook_post_source = """
+nmap <Leader>g :ToGithub<CR>
+"""
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+hook_add = """
+source ~/.config/nvim/plugins/lightline.rc.vim
+"""
 
+[[plugins]]
+repo = 'kdheepak/lazygit.nvim'
+hook_post_source = """
+nnoremap <silent> <Leader>z :LazyGit<CR>
+"""
+
+[[plugins]]
+repo = 'APZelos/blamer.nvim'
+hook_post_source = """
+let g:blamer_date_format = '%y/%m/%d %H:%M'
+nmap <Leader>gl :BlamerToggle<CR>
+"""
+
+##################
+# Filer
+##################
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 depends = ['defx-git']
@@ -17,6 +45,9 @@ source ~/.config/nvim/plugins/defx.rc.vim
 [[plugins]]
 repo = 'kristijanhusak/defx-git'
 
+##################
+# Fuzzy Finder
+##################
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = """
@@ -31,47 +62,88 @@ hook_add = """
 source ~/.config/nvim/plugins/coc.rc.vim
 """
 
+##################
+# Utils
+##################
 [[plugins]]
 repo = 'alvan/vim-closetag'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
+hook_post_source = """
+" tab: タブの表示を決定する
+" trail: 行末に続くスペースを表す
+" extends:ウィンドウの幅が狭くて右に省略された文字がある場合に表示される
+" preceds: extendsと同じで左に省略された文字がある場合に表示される
+" set list
+" set listchars=tab:>-,trail:·,extends:>,precedes:<,space:·
+let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'calendar', 'thumbnail', 'tweetvim', 'defx', 'denite']
+let g:indentLine_color_term =239
+let g:indentLine_color_gui = '#708090'
+let g:indentLine_char_list = ['┊', '┊', '┊', '┊']
+"""
 
 [[plugins]]
 repo = 'preservim/nerdcommenter'
-
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
+hook_post_source = """
+" デフォルトのキーマッピングをオフ
+let g:NERDCreateDefaultMappings = 0
+" コメントアウト時にスペースを1つ挿入
+let NERDSpaceDelims = 1
+" コメント記号を左に揃える
+let g:NERDDefaultAlign = 'left'
+" fishのコメントアウトが対応していなかったので追加
+let g:NERDCustomDelimiters = { 'fish': { 'left': '#' } }
+"""
 
 [[plugins]]
 repo = 'uki1014/vim-zenspace'
+hook_post_source = """
+let g:zenspace#default_mode = 'on'
+"""
 
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
 
 [[plugins]]
-repo = 'chrisbra/Colorizer'
+repo = 'norcalli/nvim-colorizer.lua'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
+hook_post_source = """
+nnoremap <Leader>ds ds'
+nnoremap <Leader>dss ds"
+nnoremap <Leader>di di'
+nnoremap <Leader>dii di"
+nnoremap <Leader>ys ysiw'
+nnoremap <Leader>yss ysiw"
+"""
 
 [[plugins]]
 repo = 'previm/previm'
-
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-
-[[plugins]]
-repo = 'tyru/open-browser-github.vim'
-
-[[plugins]]
-repo = 'kdheepak/lazygit.nvim'
+hook_post_source = """
+let g:previm_open_cmd = 'open -a Google\ Chrome'
+augroup PrevimSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
+nnoremap <Leader>a :PrevimOpen<CR>
+"""
 
 [[plugins]]
 repo = 'thaerkh/vim-workspace'
+hook_post_source = """
+let g:workspace_autocreate = 1
+let g:workspace_undodir=$HOME . '/.config/nvim/.undodir'
+let g:workspace_autosave = 0
+let g:workspace_session_directory = $HOME . '/.config/nvim/sessions/'
+"""
 
 # [[plugins]]
 # repo = 'nvim-treesitter/nvim-treesitter'
 # hook_add = """
 # source ~/.config/nvim/plugins/treesitter.rc.vim
 # """
+
+# [[plugins]]
+# repo = 'jamestthompson3/nvim-remote-containers'

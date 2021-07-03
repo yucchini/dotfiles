@@ -1,3 +1,16 @@
+" coc.nvimでfloatingが消えない時に消すkeymap
+" nmap <Esc> :call coc#float#close_all() <CR>
+" call coci
+nnoremap <Leader>co :call coc#util#install()<CR>
+nnoremap <Leader>col :CocOpenLog<CR>
+
+if !empty(globpath(&rtp, 'autoload/coc.vim'))
+  function! s:coc_configure_and_start() abort
+    let g:coc_user_config = {}
+    let g:coc_user_config['coc.preferences.jumpCommand'] = ':SplitIfNotOpen4COC'
+	endfunction
+endif
+
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
