@@ -330,10 +330,11 @@ augroup PrevimSettings
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
 
-# vim-workspace
+" vim-workspace
 let g:workspace_autocreate = 1
-let g:workspace_undodir='~/.config/nvim/'
+let g:workspace_undodir=$HOME . '/.config/nvim/.undodir'
 let g:workspace_autosave = 0
+let g:workspace_session_directory = $HOME . '/.config/nvim/sessions/'
 
 "-------------------------------------------------------------------------------
 " Dein
