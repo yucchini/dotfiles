@@ -24,10 +24,6 @@ nnoremap <Leader>ca :!
 " 置換(ファイル内で対象のものを全て置換したいときはサイトに/gつける)
 nnoremap <Leader>c :%s//
 
-" vimコマンドのエイリアス
-cnoreabbrev coci coc#util#install()
-cnoreabbrev recache dein#recache_runtimepath()
-
 " ファイル保存と終了
 nnoremap ;s :w<CR>
 nnoremap ;d :q!<CR>
