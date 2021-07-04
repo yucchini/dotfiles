@@ -53,7 +53,7 @@ vim.api.nvim_set_keymap('n', '\\', '\be', { noremap = false })
 vim.api.nvim_set_keymap('n', '-', ':noh<CR>', { noremap = true, silent = true })
 
 -- syntax highlight再読み込み
-vim.api.nvim_set_keymap('n', '<F9>', ':syntax sync fromstart<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<F9>', ':syntax sync fromstart<CR>', { noremap = true })
 
 -- Tabs
 vim.api.nvim_set_keymap('n', 'te', ':tabedit<Return>sf', { silent = true })
