@@ -1,5 +1,6 @@
 -- dein keymaps
-vim.api.nvim_set_keymap('n', '<Leader>ud', ':call dein#update("dein.vim")<CR>', { noremap = true })
+--vim.api.nvim_set_keymap('n', '<Leader>ud', ':call dein#update("dein.vim")<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>ud', ':DeinUpdate<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>u', ':call dein#update()<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>re', ':call dein#recache_runtimepath()<CR>', { noremap = true })
 

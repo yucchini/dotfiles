@@ -4,6 +4,9 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+[[plugins]]
+repo = 'wsdjeg/dein-ui.vim'
+
 ##################
 # Git / GitHub
 ##################
@@ -36,14 +39,14 @@ nmap <Leader>gl :BlamerToggle<CR>
 # Filer
 ##################
 [[plugins]]
+repo = 'kristijanhusak/defx-git'
+
+[[plugins]]
 repo = 'Shougo/defx.nvim'
 depends = ['defx-git']
 hook_add = """
 source ~/.config/nvim/plugins/defx.rc.vim
 """
-
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
 
 ##################
 # Fuzzy Finder
@@ -83,7 +86,7 @@ hook_add = """
 " preceds: extendsと同じで左に省略された文字がある場合に表示される
 " set list
 " set listchars=tab:>-,trail:·,extends:>,precedes:<,space:·
-let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'calendar', 'thumbnail', 'tweetvim', 'defx', 'denite']
+let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'calendar', 'thumbnail', 'tweetvim', 'defx']
 let g:indentLine_color_term =239
 let g:indentLine_color_gui = '#708090'
 let g:indentLine_char_list = ['┊', '┊', '┊', '┊']

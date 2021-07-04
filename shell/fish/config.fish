@@ -133,7 +133,7 @@ function update_nvim
     rm ~/nvim.appimage
     curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
     chmod u+x nvim.appimage
-    mv ~/nvim.appimage /usr/local/bin
+    sudo mv ~/nvim.appimage /usr/local/bin
   end
 end
 
