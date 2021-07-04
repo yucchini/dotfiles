@@ -9,7 +9,8 @@ vim.api.nvim_set_keymap('n', 'x', '"_x', { noremap = true })
 ]]
 
 -- bufferの再読み込み
-vim.api.nvim_set_keymap('n', '<Leader>e', ':tabdo edit<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>e', ':edit<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>te', ':tabdo edit<CR>', { noremap = true })
 
 -- set number
 vim.api.nvim_set_keymap('n', '<Leader>s', ':set number<CR>', { noremap = true })
