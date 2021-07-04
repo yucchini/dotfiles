@@ -52,16 +52,22 @@ source ~/.config/nvim/plugins/defx.rc.vim
 # Fuzzy Finder
 ##################
 [[plugins]]
-repo = 'nvim-lua/popup.nvim'
-
-[[plugins]]
-repo = 'nvim-lua/plenary.nvim'
-
-[[plugins]]
-repo = 'nvim-telescope/telescope.nvim'
+repo = 'Shougo/denite.nvim'
 hook_add = """
-source ~/.config/nvim/lua/plugins/telescope.rc.lua
+source ~/.config/nvim/plugins/denite.rc.vim
 """
+
+#[[plugins]]
+#repo = 'nvim-lua/popup.nvim'
+
+#[[plugins]]
+#repo = 'nvim-lua/plenary.nvim'
+
+#[[plugins]]
+#repo = 'nvim-telescope/telescope.nvim'
+#hook_add = """
+#source ~/.config/nvim/lua/plugins/telescope.rc.lua
+#"""
 
 [[plugins]]
 repo = "neoclide/coc.nvim"
