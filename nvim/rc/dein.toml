@@ -60,12 +60,34 @@ hook_add = """
 source ~/.config/nvim/lua/plugins/telescope.rc.lua
 """
 
+##################
+# LSP
+##################
 [[plugins]]
-repo = "neoclide/coc.nvim"
-merged = 0
-rev = "release"
+repo = 'neovim/nvim-lspconfig'
 hook_add = """
-source ~/.config/nvim/plugins/coc.rc.vim
+source ~/.config/nvim/lua/plugins/lspconfig.rc.lua
+"""
+
+##################
+# Completion
+##################
+#[[plugins]]
+#repo = 'nvim-lua/completion-nvim'
+#hook_add = """
+#source ~/.config/nvim/plugins/completion.rc.vim
+#"""
+
+[[plugins]]
+hook_add = """
+repo = 'hrsh7th/nvim-compe'
+source ~/.config/nvim/lua/plugins/lspconfig.rc.lua
+"""
+
+[[plugins]]
+repo = 'glepnir/lspsaga.nvim'
+hook_add = """
+source ~/.config/nvim/lua/plugins/lspsaga.rc.lua
 """
 
 ##################

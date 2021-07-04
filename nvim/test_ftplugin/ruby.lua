@@ -1,0 +1,26 @@
+require('lspconfig').solargraph.setup {
+  --cmd = { DATA_PATH .. '/lspinstall/ruby/solargraph/solargraph', '--stdio' }
+  --on_attach = require('lsp').common_on_attach
+  --filetypes = {
+  --  'rb',
+  --  'erb',
+  --  'rakefile',
+  --  'Gemfile',
+  --  'Gemfile.lock',
+  --  'ru'
+  --}
+  --handlers = {
+  --  ['textDocument/publishDiagnostics'] = vim.lsp.with(
+  --    vim.lsp.diagnostic.on_publish_diagnostics,
+  --    {
+  --      virtual_text = {
+  --        spacing = 0,
+  --        prefix = 
+  --      },
+  --      signs = true,
+  --      underline = true,
+  --      update_in_insert = true
+  --    }
+  --  )
+  --}
+}
