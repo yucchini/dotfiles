@@ -57,7 +57,6 @@ repo = 'nvim-lua/plenary.nvim'
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
 hook_add = """
-source ~/.config/nvim/lua/plugins/telescope.rc.lua
 """
 
 ##################
@@ -69,6 +68,7 @@ merged = 0
 rev = "release"
 hook_add = """
 source ~/.config/nvim/lua/plugins/lspconfig.rc.lua
+source ~/.config/nvim/lua/plugins/telescope.rc.lua
 """
 #os.execute('npm install -g flow-bin typescript typescript-language-server diagnostic-languageserver eslint_d')
 
