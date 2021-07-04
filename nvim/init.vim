@@ -26,6 +26,7 @@ set updatetime=250
 
 " 行番号
 set nonumber
+set signcolumn=yes
 
 " always show signcolumns
 set signcolumn=yes
@@ -240,7 +241,6 @@ set guicursor=a:block
 
 " カーソルが常に中央に来るようにする
 set scrolloff=100
-" set scrolloff=10
 
 " Set cursor line color on visual mode
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40

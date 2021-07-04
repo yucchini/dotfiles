@@ -9,7 +9,7 @@ repo = 'Shougo/dein.vim'
 ##################
 [[plugins]]
 repo = 'uki1014/vim-to-github'
-hook_post_source = """
+hook_add = """
 nmap <Leader>g :ToGithub<CR>
 """
 
@@ -21,13 +21,13 @@ source ~/.config/nvim/plugins/lightline.rc.vim
 
 [[plugins]]
 repo = 'kdheepak/lazygit.nvim'
-hook_post_source = """
+hook_add = """
 nnoremap <silent> <Leader>z :LazyGit<CR>
 """
 
 [[plugins]]
 repo = 'APZelos/blamer.nvim'
-hook_post_source = """
+hook_add = """
 let g:blamer_date_format = '%y/%m/%d %H:%M'
 nmap <Leader>gl :BlamerToggle<CR>
 """
@@ -49,9 +49,15 @@ repo = 'kristijanhusak/defx-git'
 # Fuzzy Finder
 ##################
 [[plugins]]
-repo = 'Shougo/denite.nvim'
+repo = 'nvim-lua/popup.nvim'
+
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
 hook_add = """
-source ~/.config/nvim/plugins/denite.rc.vim
+source ~/.config/nvim/lua/plugins/telescope.rc.lua
 """
 
 [[plugins]]
@@ -70,7 +76,7 @@ repo = 'alvan/vim-closetag'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
-hook_post_source = """
+hook_add = """
 " tab: タブの表示を決定する
 " trail: 行末に続くスペースを表す
 " extends:ウィンドウの幅が狭くて右に省略された文字がある場合に表示される
@@ -85,7 +91,7 @@ let g:indentLine_char_list = ['┊', '┊', '┊', '┊']
 
 [[plugins]]
 repo = 'preservim/nerdcommenter'
-hook_post_source = """
+hook_add = """
 " デフォルトのキーマッピングをオフ
 let g:NERDCreateDefaultMappings = 0
 " コメントアウト時にスペースを1つ挿入
@@ -107,7 +113,7 @@ vmap <Leader>b <Plug>NERDCommenterSexy
 
 [[plugins]]
 repo = 'uki1014/vim-zenspace'
-hook_post_source = """
+hook_add = """
 let g:zenspace#default_mode = 'on'
 """
 
@@ -119,7 +125,7 @@ repo = 'norcalli/nvim-colorizer.lua'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
-hook_post_source = """
+hook_add = """
 nnoremap <Leader>ds ds'
 nnoremap <Leader>dss ds"
 nnoremap <Leader>di di'
@@ -130,7 +136,7 @@ nnoremap <Leader>yss ysiw"
 
 [[plugins]]
 repo = 'previm/previm'
-hook_post_source = """
+hook_add = """
 let g:previm_open_cmd = 'open -a Google\ Chrome'
 augroup PrevimSettings
     autocmd!
@@ -141,7 +147,7 @@ nnoremap <Leader>a :PrevimOpen<CR>
 
 [[plugins]]
 repo = 'thaerkh/vim-workspace'
-hook_post_source = """
+hook_add = """
 let g:workspace_autocreate = 1
 let g:workspace_undodir=$HOME . '/.config/nvim/.undodir'
 let g:workspace_autosave = 0
