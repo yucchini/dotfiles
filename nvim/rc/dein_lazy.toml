@@ -1,7 +1,7 @@
 [[plugins]]
 repo = 'elzr/vim-json'
 on_ft = ['json']
-hook_post_source = """
+hook_add = """
 let g:vim_json_syntax_conceal = 0
 """
 
@@ -32,7 +32,7 @@ on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
 [[plugins]]
 repo = 'jparise/vim-graphql'
 on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
-hook_post_source = """
+hook_add = """
 au BufNewFile,BufRead *.prisma setfiletype graphql
 """
 
@@ -51,7 +51,7 @@ on_ft = ['jsonc']
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = ['go']
-hook_post_source = """
+hook_add = """
 let g:go_disable_autoinstall = 1
 nnoremap <Leader>gr :GoRun<CR>
 """
