@@ -29,10 +29,10 @@ nnoremap <silent> <Leader>z :LazyGit<CR>
 """
 
 [[plugins]]
-repo = 'APZelos/blamer.nvim'
+repo = 'rhysd/git-messenger.vim'
 hook_add = """
-let g:blamer_date_format = '%y/%m/%d %H:%M'
-nmap <Leader>gl :BlamerToggle<CR>
+nmap <Leader>gl :GitMessenger<CR>
+let g:git_messenger_date_format = '%Y/%m/%d %H:%M'
 """
 
 ##################
