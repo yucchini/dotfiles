@@ -35,6 +35,9 @@ nmap <Leader>gl :GitMessenger<CR>
 let g:git_messenger_date_format = '%Y/%m/%d %H:%M'
 """
 
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
 ##################
 # Filer
 ##################
