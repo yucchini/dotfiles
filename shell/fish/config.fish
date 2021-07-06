@@ -269,6 +269,7 @@ alias tls='tmux ls' # セッションの一覧表示
 alias tlsc='tmux lsc' # 接続クライアントの一覧表示
 alias ta='tmux a'
 alias tat='tmux attach -t' # セッションを再開
+alias td='tmux detach'
 alias tk='tmux kill-session'
 alias tkt='tmux kill-session -t'
 alias tks='tmux kill-server' # tmux全体を終了
