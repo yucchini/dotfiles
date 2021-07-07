@@ -54,6 +54,7 @@ target_brew_cask_list=(
   postman
   homebrew/cask-versions/iterm2-nightly
   hyper
+  alfred
 )
 
 # AppStore経由
