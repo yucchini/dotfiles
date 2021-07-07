@@ -42,10 +42,14 @@ if status --is-interactive
     set -x PATH $HOME/nvim-osx64/bin $PATH
     alias sa='ssh-add -K ~/.ssh/id_rsa'
   else if test (uname) = 'Linux'
-    eval (ssh-agent -c)
     eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     source ~/.asdf/asdf.fish
     alias sa='ssh-add'
+
+    if test $SHLVL = 1
+      eval (ssh-agent -c)
+      ssh-add
+    end
   end
 
   # direnv
