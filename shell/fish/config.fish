@@ -211,6 +211,13 @@ function update_pyneovim
 end
 
 # ===Alias===
+# Ubuntu
+# package情報キャッシュの削除
+alias ubuntu_cache_delete='sudo rm -rf /var/lib/apt/lists/*'
+# GPG-agentの再起動
+alias regpg='gpg-connect-agent reloadagent /bye'
+alias gpgc='v ~/.gnupg/gpg-agent.conf'
+
 # Git
 alias git='hub'
 alias g='git'
