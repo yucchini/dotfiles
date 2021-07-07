@@ -263,7 +263,7 @@ augroup BgHighlight
 augroup END
 
 "-------------------------------------------------------------------------------
-" source other config files 
+" source other config files
 "-------------------------------------------------------------------------------
 source ~/dotfiles/nvim/lua/plugins/dein.rc.lua
 source ~/dotfiles/nvim/lua/maps.lua
