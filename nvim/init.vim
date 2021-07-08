@@ -1,9 +1,5 @@
-" init autocmd
-autocmd!
 " vimrcでマルチバイト文字を使用しているため設定
 scriptencoding utf-8
-" stop loading config if it's on tiny or small
-if !1 | finish | endif
 
 " Leader - 使いまわせるprefix key
 let mapleader = ','
@@ -28,9 +24,6 @@ set updatetime=250
 set nonumber
 set signcolumn=yes
 
-" always show signcolumns
-set signcolumn=yes
-
 " 既存のファイルを開くとき、vimが使用する文字コードを判定する順番
 " 先頭から順に試される
 set fileencodings=utf-8,sjis,euc-jp,latin
@@ -52,7 +45,6 @@ let loaded_netrwPlugin = 1
 
 let loaded_matchparen = 1
 set shell=fish
-set backupskip=/tmp/*,/private/tmp/*
 
 " undoできる最大数
 set undolevels=100
@@ -64,9 +56,9 @@ else
   set clipboard+=unnamedplus
 endif
 
+set completeopt=menuone,noinsert
 " 補完表示時のEnterで改行をしない
 inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
-set completeopt=menuone,noinsert
 inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
 inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
 
@@ -156,8 +148,6 @@ augroup ReactFiletypes
   autocmd BufRead,BufNewFile *.jsx setf filetype=javascriptreact
   autocmd BufRead,BufNewFile *.tsx setf filetype=typescriptreact
 augroup END
-
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue,*.js,*.jsx,*.ts,*.tsx'
 
 let g:python_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'
 let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim3/bin/python'
@@ -266,7 +256,7 @@ augroup END
 " source other config files
 "-------------------------------------------------------------------------------
 source ~/dotfiles/nvim/lua/plugins/dein.rc.lua
-source ~/dotfiles/nvim/lua/maps.lua
+source ~/dotfiles/nvim/lua/keymap.lua
 
 "-------------------------------------------------------------------------------
 " Color scheme
