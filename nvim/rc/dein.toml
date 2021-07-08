@@ -85,6 +85,9 @@ source ~/.config/nvim/plugins/coc.rc.vim
 ##################
 [[plugins]]
 repo = 'alvan/vim-closetag'
+hook_add = """
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue,*.js,*.jsx,*.ts,*.tsx'
+"""
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
