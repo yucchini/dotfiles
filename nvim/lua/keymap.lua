@@ -1,3 +1,5 @@
+vim.g.mapleader = ','
+
 vim.api.nvim_set_keymap('n', '<S-C-p>ud', '"0p', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>d', '"_d', { noremap = true })
 vim.api.nvim_set_keymap('n', 'x', '"_x', { noremap = true })
