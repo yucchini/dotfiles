@@ -1,38 +1,45 @@
-" Define mappings
+lua << EOF
+local opt = { noremap = true, silent = true }
+vim.api.nvim_set_keymap('n', ';r', ':<C-u>Dgrep<CR>', opt)
+vim.api.nvim_set_keymap('n', ';f', ':<C-u>Denite file/rec<CR>', opt)
+vim.api.nvim_set_keymap('n', ';;', ':<C-u>Denite command command_history<CR>', opt)
+vim.api.nvim_set_keymap('n', ';e', ':<C-u>Denite -resume<CR>', opt)
+
+--vim.cmd('augroup denite_filter')
+--vim.cmd('autocmd FileType denite call s:denite_my_settings()')
+--  function denite_my_settings()
+--    local opt_noremap = { noremap = true, silent = true, expr = true }
+--    vim.api.nvim_buf_set_keymap(0, 'n', '<CR>', 'denite#do_map("do_action")', opt_noremap)
+--    vim.api.nvim_buf_set_keymap(0, 'n', 'l', 'denite#do_map("do_action", "vsplit")', opt_noremap)
+--    vim.api.nvim_buf_set_keymap(0, 'n', '<Space>', 'denite#do_map("do_action", "split")', opt_noremap)
+--    vim.api.nvim_buf_set_keymap(0, 'n', 'd', 'denite#do_map("do_action", "delete")', opt_noremap)
+--    vim.api.nvim_buf_set_keymap(0, 'n', 'p', 'denite#do_map("do_action", "preview")', opt_noremap)
+--   vim.api.nvim_buf_set_keymap(0, 'n', 'q', 'denite#do_map("quit")', opt_noremap)
+--    vim.api.nvim_buf_set_keymap(0, 'n', 'i', 'denite#do_map("open_filter_buffer")', opt_noremap)
+--    vim.api.nvim_buf_set_keymap(0, 'n', 't', 'denite#do_map("toggle_select")', opt_noremap)
+--    vim.api.nvim_buf_set_keymap(0, 'i', '<C-n>', '<Plug>(denite_filter_quit)<DOWN>', { silent = true })
+--    vim.api.nvim_buf_set_keymap(0, 'i', '<C-p>', '<Plug>(denite_filter_quit)<UP>', { silent = true })
+--    vim.api.nvim_buf_set_keymap(0, 'i', '<CR>', '<Plug>(denite_filter_quit)<CR>', { silent = true })
+--  end
+--vim.cmd('augroup END')
+EOF
+
 augroup denite_filter
   autocmd FileType denite call s:denite_my_settings()
   function! s:denite_my_settings() abort
-    nnoremap <silent><buffer><expr> <CR>
-    \ denite#do_map('do_action')
-    nnoremap <silent><buffer><expr> l
-    \ denite#do_map('do_action', 'vsplit')
-    nnoremap <silent><buffer><expr> <Space>
-    \ denite#do_map('do_action', 'split')
-    nnoremap <silent><buffer><expr> d
-    \ denite#do_map('do_action', 'delete')
-    nnoremap <silent><buffer><expr> p
-    \ denite#do_map('do_action', 'preview')
-    nnoremap <silent><buffer><expr> q
-    \ denite#do_map('quit')
-    nnoremap <silent><buffer><expr> i
-    \ denite#do_map('open_filter_buffer')
-    nnoremap <silent><buffer><expr> t
-    \ denite#do_map('toggle_select').'j'
+    nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
+    nnoremap <silent><buffer><expr> l denite#do_map('do_action', 'vsplit')
+    nnoremap <silent><buffer><expr> <Space> denite#do_map('do_action', 'split')
+    nnoremap <silent><buffer><expr> d denite#do_map('do_action', 'delete')
+    nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
+    nnoremap <silent><buffer><expr> q denite#do_map('quit')
+    nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
+    nnoremap <silent><buffer><expr> t denite#do_map('toggle_select').'j'
     imap <silent><buffer> <C-n> <Plug>(denite_filter_quit)<DOWN>
     imap <silent><buffer> <C-p> <Plug>(denite_filter_quit)<UP>
     imap <silent><buffer> <CR> <Plug>(denite_filter_quit)<CR>
   endfunction
 augroup END
-
-nnoremap [denite] <Nop>
-nmap sF [denite]
-"nnoremap <silent> SF :<C-u>DeniteBufferDir
-"      \ -direction=topleft file file:new<CR>
-
-nnoremap <silent> [denite]<C-g> :<C-u>Denite -buffer-name=search -no-empty grep<CR>
-nnoremap <silent> [denite]<C-r> :<C-u>Denite -resume<CR>
-nnoremap <silent> [denite]<C-n> :<C-u>Denite -resume -cursor-pos=+1 -immediately<CR>
-nnoremap <silent> [denite]<C-p> :<C-u>Denite -resume -cursor-pos=-1 -immediately<CR>
 
 " use floating
 let s:denite_win_width_percent = 0.8
@@ -77,36 +84,8 @@ call denite#custom#var('grep', {
            \ 'final_opts': [],
            \ })
 
-" -----ag-----
-" そもそも ag のレベルで検索対象からはずす
-" call denite#custom#var('file/rec', 'command', [
-"       \ 'ag',
-"       \ '--follow',
-"       \ '--hidden',
-"       \ '--nocolor',
-"       \ '--nogroup',
-"       \ '-g',
-"       \ ''
-"       \ ])
-
-" Ag command on grep source
-" call denite#custom#var('grep', {
-"     \ 'command': ['ag'],
-"     \ 'default_opts': ['-i', '--vimgrep', '--hidden'],
-"     \ 'recursive_opts': [],
-"     \ 'pattern_opt': [],
-"     \ 'separator': ['--'],
-"     \ 'final_opts': [],
-"     \ })
-
 " matcher/ignore_globs 以外のお好みの matcher を指定する
 call denite#custom#source('file/rec', 'matchers', ['matcher/substring'])
-
-" 他のソース向けに ignore_globs 自体は初期化
-" call denite#custom#filter('matcher/ignore_globs', 'ignore_globs', s:ignore_globs)
-
-" let s:ignore_globs = [ '.git/', '.ropeproject/', '__pycache__/', 'undo/',
-"     \ 'venv/', 'node_modules/', '*.min.*', 'fonts/', 'tmp/', '.cache/', 'vendor/', 'log/', '__snapshots__/']
 
 " grep
 command! -nargs=? Dgrep call s:Dgrep(<f-args>)
@@ -114,17 +93,8 @@ function s:Dgrep(...)
   if a:0 > 0
     execute(':Denite -buffer-name=grep-buffer-denite grep -path='.a:1)
   else
-    " 現在いるファイルのディレクトリ
-    " let l:path = expand('%:p:h')
-
-    " カーソルがある部分のディレクトリを取得してるぽい
-    " if has_key(defx#get_candidate(), 'action__path')
-    "   let l:path = fnamemodify(defx#get_candidate()['action__path'], ':p:h')
-    " endif
-    " execute(':Denite -buffer-name=grep-buffer-denite -no-empty '.join(s:denite_option_array, ' ').' grep -path='.l:path)
     " Projectのルートを基準にgrep
     execute(':DeniteProjectDir -buffer-name=grep-buffer-denite -no-empty '.join(s:denite_option_array, ' ').' grep')
-    " execute(':DeniteBufferDir -buffer-name=grep-buffer-denite -no-empty '.join(s:denite_option_array, ' ').' grep')
   endif
 endfunction
 " show Denite grep results
@@ -136,9 +106,3 @@ command! Dprev execute(':Denite -resume -buffer-name=grep-buffer-denite -cursor-
 " keymap
 call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
 call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
-
-nnoremap <silent> ;r :<C-u>Dgrep<CR>
-nnoremap <silent> ;f :<C-u>Denite file/rec<CR>
-nnoremap <silent> ;; :<C-u>Denite command command_history<CR>
-nnoremap <silent> ;e :<C-u>Denite -resume<CR>
-
