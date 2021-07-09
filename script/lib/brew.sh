@@ -10,26 +10,26 @@ has() {
 
 # CUI tools
 target_brew_list=(
-  ag
-  ripgrep
-  peco
-  ghq
-  tmux
-  tig
-  hub
-  lazygit
-  jq
-  fzf
-  bat
-  git-flow
-  gitmoji
-  git
-  tree
-  direnv
-  watch
-  gh
-  htop
-  fish
+  #ag
+  #ripgrep
+  #peco
+  #ghq
+  #tmux
+  #tig
+  #hub
+  #lazygit
+  #jq
+  #fzf
+  #bat
+  #git-flow
+  #gitmoji
+  #git
+  #tree
+  #direnv
+  #watch
+  #gh
+  #htop
+  #fish
   reattach-to-user-namespace
   shared-mime-info
   tree-sitter
@@ -84,10 +84,15 @@ for target in ${target_brew_list[@]}; do
   fi
 done
 
-for target in ${target_brew_cask_list[@]}; do
-  if ! has "$target"; then
-    brew install --cask $target
-  else
-    echo "$target has been already installed."
-  fi
-done
+if [ ${OSTYPE} == "darwin" ]; then
+  echo 'darwin'
+  for target in ${target_brew_cask_list[@]}; do
+    if ! has "$target"; then
+      brew install --cask $target
+    else
+      echo "$target has been already installed."
+    fi
+  done
+else
+  echo 'Linuxにはcask installしません'
+fi

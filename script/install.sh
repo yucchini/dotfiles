@@ -28,7 +28,7 @@ EOF
 function check_dotfiles() {
   if [ ! -d ${DOT_DIRECTORY} ]; then
     echo "Downloading dotfiles..."
-    
+
     mkdir dotfiles
 
     if has "git"; then
