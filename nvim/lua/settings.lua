@@ -9,7 +9,7 @@ vim.opt.helplang = 'en'
 vim.opt.autowrite = true
 vim.opt.updatetime = 250
 vim.opt.nonumber = true
-vim.opt.signcolumn = yes
+vim.opt.signcolumn = 'yes'
 vim.opt.noshowmode = true
 vim.opt.fileencoding  = 'utf-8'
 vim.opt.showtabline = 2
@@ -20,16 +20,23 @@ vim.opt.laststatus = 2
 vim.opt.noswapfile = true
 vim.opt.shell = 'fish'
 vim.opt.undolevels = 100
-
+vim.opt.completeopt = 'menuone,noinsert'
 
 -- 検索
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.inccommand = 'split'
 
+-- clipboard
+if vim.fn.system('uname -s') == 'Darwin' then
+  vim.opt.clipboard:append 'unnamed'
+else
+  vim.opt.clipboard:append 'unnamedplus'
+end
+
 -- 文字色・描画
-vim.opt.t_8f = '\<Esc>[38;2;%lu;%lu;%lum'
-vim.opt.t_8b = '\<Esc>[48;2;%lu;%lu;%lum'
+vim.opt.t_8f = '^[38;2;%lu;%lu;%lum'
+vim.opt.t_8b = '^[48;2;%lu;%lu;%lum'
 vim.opt.t_BE = ''
 vim.opt.lazyredraw = true
 vim.opt.showmatch = true
@@ -55,7 +62,7 @@ vim.opt.path:append '**'
 vim.opt.wildignore:append '*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store/*,*/node_modules/*'
 -- Enable json comment(only tsconfig)
 vim.cmd('autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc')
-vim.cmd('autocmd FileType json syntax match Comment +\/\/.\+$+')
+--vim.cmd('autocmd FileType json syntax match Comment +\/\/.\+$+')
 
 
 if vim.fn.has('conceal') then
