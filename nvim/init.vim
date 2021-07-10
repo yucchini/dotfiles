@@ -110,26 +110,15 @@ filetype plugin indent on
 augroup fileTypeIndent
   au!
   au FileType go setlocal tabstop=4 shiftwidth=4
-  au FileType vim setlocal tabstop=2 softtabstop=2
-  au FileType ruby setlocal shiftwidth=2 tabstop=2
-  au FileType php setlocal tabstop=2 softtabstop=2
   au FileType python setlocal tabstop=4 shiftwidth=4
-  au FileType html setlocal tabstop=2 softtabstop=2
-  au FileType javascript setlocal tabstop=2 softtabstop=2
-  au FileType typescript setlocal tabstop=2 softtabstop=2
-  au FileType vue  setlocal tabstop=2 softtabstop=2
-  au FileType yaml setlocal tabstop=2 softtabstop=2
-  au FileType json setlocal tabstop=2 softtabstop=2
-  au FileType sh setlocal tabstop=2 softtabstop=2
-  au FileType fish setlocal tabstop=2 softtabstop=2
-  au FileType coffee setlocal shiftwidth=2 tabstop=2
 augroup END
+
 
 "-------------------------------------------------------------------------------
 " 拡張子系
 "-------------------------------------------------------------------------------
 
-set suffixesadd=.js,.es,.jsx,.ts,.tsx,.json,.css,.less,.sass,.styl,.php,.py,.md
+set suffixesadd=.js,.es,.jsx,.ts,.tsx,.json,.css,.less,.sass,.style,.php,.py,.md,.java,.rb,.vim,.lua,.vimrc,.conf,.go
 
 " JavaScript
 au BufNewFile,BufRead *.es6 setf javascript
@@ -157,8 +146,6 @@ let g:node_host_prog = $NODENV_ROOT.'/versions/12.20.1/bin/neovim-node-host'
 " Finding files - Search down into subfolders
 set path+=**
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store/*,*/node_modules/*
-" Turn off paste mode when leaving insert
-autocmd InsertLeave * set nopaste
 
 " For conceal markers.
 if has('conceal')
@@ -244,12 +231,6 @@ augroup cursorlineRestore
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
         \   exe "normal! g'\"" |
         \ endif
-augroup END
-
-augroup BgHighlight
-  autocmd!
-  autocmd WinEnter * set cul
-  autocmd WinLeave * set nocul
 augroup END
 
 "-------------------------------------------------------------------------------
