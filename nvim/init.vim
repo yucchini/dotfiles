@@ -110,18 +110,18 @@ filetype plugin indent on
 augroup fileTypeIndent
   au!
   au FileType go setlocal tabstop=4 shiftwidth=4
-  au FileType vim setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType vim setlocal tabstop=2 softtabstop=2
   au FileType ruby setlocal shiftwidth=2 tabstop=2
-  au FileType php setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType php setlocal tabstop=2 softtabstop=2
   au FileType python setlocal tabstop=4 shiftwidth=4
-  au FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  au FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  au FileType typescript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  au FileType vue  setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  au FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  au FileType json setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  au FileType sh setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  au FileType fish setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType html setlocal tabstop=2 softtabstop=2
+  au FileType javascript setlocal tabstop=2 softtabstop=2
+  au FileType typescript setlocal tabstop=2 softtabstop=2
+  au FileType vue  setlocal tabstop=2 softtabstop=2
+  au FileType yaml setlocal tabstop=2 softtabstop=2
+  au FileType json setlocal tabstop=2 softtabstop=2
+  au FileType sh setlocal tabstop=2 softtabstop=2
+  au FileType fish setlocal tabstop=2 softtabstop=2
   au FileType coffee setlocal shiftwidth=2 tabstop=2
 augroup END
 
