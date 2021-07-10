@@ -10,26 +10,26 @@ has() {
 
 # CUI tools
 target_brew_list=(
-  #ag
-  #ripgrep
-  #peco
-  #ghq
-  #tmux
-  #tig
-  #hub
-  #lazygit
-  #jq
-  #fzf
-  #bat
-  #git-flow
-  #gitmoji
-  #git
-  #tree
-  #direnv
-  #watch
-  #gh
-  #htop
-  #fish
+  ag
+  ripgrep
+  peco
+  ghq
+  tmux
+  tig
+  hub
+  lazygit
+  jq
+  fzf
+  bat
+  git-flow
+  gitmoji
+  git
+  tree
+  direnv
+  watch
+  gh
+  htop
+  fish
   reattach-to-user-namespace
   shared-mime-info
   tree-sitter
