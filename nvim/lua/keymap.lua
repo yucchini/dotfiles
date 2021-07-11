@@ -15,12 +15,15 @@ vim.api.nvim_set_keymap('n', '<Leader>e', ':edit<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>te', ':tabdo edit<CR>', { noremap = true })
 
 -- set number
-vim.api.nvim_set_keymap('n', '<Leader>s', ':set number<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>s', ':set number<CR>', { noremap = true, silent = true })
 -- set nonumber
-vim.api.nvim_set_keymap('n', '<Leader>ns', ':set nonumber<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>ns', ':set nonumber<CR>', { noremap = true, silent = true })
 
 -- redo
 vim.api.nvim_set_keymap('n', '<S-u>', '<C-r>', { noremap = true })
+
+-- 現在開いているファイルのパスをcopyする
+vim.api.nvim_set_keymap('n', '<Leader>b', ':let @+ = expand("%")<CR>', { noremap = true, silent = true })
 
 -- 外部コマンド
 vim.api.nvim_set_keymap('n', '<Leader>ca', ':!', { noremap = true })
@@ -34,7 +37,7 @@ vim.api.nvim_set_keymap('n', ';d', ':q!<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', ';a', ':qa<CR>', { noremap = true })
 
 -- 改行してnormal mode
-vim.api.nvim_set_keymap('n', '<Space><CR>', 'o<ESC>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Space><CR>', 'o<ESC>', { noremap = true, silent = true })
 
 -- open init.lua
 vim.api.nvim_set_keymap('n', '<Leader>.', ':new ~/.config/nvim/init.vim<CR>', { noremap = true })
@@ -44,10 +47,10 @@ vim.api.nvim_set_keymap('n', '<Leader>vi', ':source~/.config/nvim/init.vim<CR>',
 vim.api.nvim_set_keymap('n', '<Leader>ur', ':UpdateRemotePlugins<CR>', { noremap = true })
 
 -- backspaceキーで削除
-vim.api.nvim_set_keymap('n', 'dw', 'vb"_d', { noremap = true })
+vim.api.nvim_set_keymap('n', 'dw', 'vb"_d', { noremap = true, silent = true })
 
 -- Select All
-vim.api.nvim_set_keymap('n', 'aa', 'gg<S-v>G', { noremap = false })
+vim.api.nvim_set_keymap('n', 'aa', 'gg<S-v>G', { noremap = false, silent = true })
 
 -- Open BufExplorer
 vim.api.nvim_set_keymap('n', '\\', '\be', { noremap = false })
