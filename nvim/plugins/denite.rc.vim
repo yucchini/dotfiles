@@ -1,7 +1,7 @@
 lua << EOF
 local opt = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', ';r', ':<C-u>Dgrep<CR>', opt)
-vim.api.nvim_set_keymap('n', ';f', ':<C-u>Denite file/rec<CR>', opt)
+vim.api.nvim_set_keymap('n', ';f', ':<C-u>Denite file/rec -start-filter<CR>', opt)
 vim.api.nvim_set_keymap('n', ';;', ':<C-u>Denite command command_history<CR>', opt)
 vim.api.nvim_set_keymap('n', ';e', ':<C-u>Denite -resume<CR>', opt)
 
@@ -52,7 +52,6 @@ let s:denite_default_options = {
     \ 'winrow': float2nr((&lines - (&lines * s:denite_win_height_percent)) / 2),
     \ 'highlight_filter_background': 'DeniteFilter',
     \ 'prompt': '$ ',
-    \ 'start_filter': v:true,
     \ }
 let s:denite_option_array = []
 for [key, value] in items(s:denite_default_options)
