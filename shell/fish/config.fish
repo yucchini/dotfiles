@@ -49,8 +49,8 @@ if status --is-interactive
   set -xg GOENV_ROOT $ANYENV_ROOT/envs/goenv
   set -xg PATH $GOENV_ROOT/bin $GOENV_ROOT/shims $PATH
   set -xg GOPATH "$HOME/go"
-  # set -x GO111MODULE on
-  set -xg GO111MODULE off
+   set -x GO111MODULE on
+  #set -xg GO111MODULE off
 
   # direnv
   eval (direnv hook fish)
