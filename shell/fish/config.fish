@@ -9,6 +9,21 @@ set -xg DOCKER_BUILDKIT 1
 set -xg OSTYPE darwin20
 
 if status --is-interactive
+  # macOSとLinuxそれぞれの設定
+  if test (uname) = 'Darwin'
+    set -x PATH $HOME/nvim-osx64/bin $PATH
+    alias sa='ssh-add -K ~/.ssh/id_rsa'
+  else if test (uname) = 'Linux'
+    eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    source ~/.asdf/asdf.fish
+    alias sa='ssh-add'
+
+    if test $SHLVL = 1
+      eval (ssh-agent -c)
+      ssh-add
+    end
+  end
+
   # anyenv
   set -xg ANYENV_ROOT ~/.anyenv
   set -xg PATH $HOME/.anyenv/bin $PATH
@@ -36,21 +51,6 @@ if status --is-interactive
   set -xg GOPATH "$HOME/go"
   # set -x GO111MODULE on
   set -xg GO111MODULE off
-
-  # macOSとLinuxそれぞれの設定
-  if test (uname) = 'Darwin'
-    set -x PATH $HOME/nvim-osx64/bin $PATH
-    alias sa='ssh-add -K ~/.ssh/id_rsa'
-  else if test (uname) = 'Linux'
-    eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-    source ~/.asdf/asdf.fish
-    alias sa='ssh-add'
-
-    if test $SHLVL = 1
-      eval (ssh-agent -c)
-      ssh-add
-    end
-  end
 
   # direnv
   eval (direnv hook fish)
