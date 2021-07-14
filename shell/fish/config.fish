@@ -11,7 +11,7 @@ set -xg OSTYPE darwin20
 if status --is-interactive
   # macOSとLinuxそれぞれの設定
   if test (uname) = 'Darwin'
-    set -x PATH $HOME/nvim-osx64/bin $PATH
+    set -xg PATH $HOME/nvim-osx64/bin $PATH
     alias sa='ssh-add -K ~/.ssh/id_rsa'
   else if test (uname) = 'Linux'
     eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
