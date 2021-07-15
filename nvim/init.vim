@@ -124,19 +124,19 @@ set suffixesadd=.js,.es,.jsx,.ts,.tsx,.json,.css,.less,.sass,.style,.php,.py,.md
 au BufNewFile,BufRead *.es6 setf javascript
 " TypeScript
 au BufNewFile,BufRead *.ts setf typescript
+au BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 " Markdown
-au BufNewFile,BufRead *.md set filetype=markdown
+au BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 " Flow
 au BufNewFile,BufRead *.flow set filetype=javascript
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 " fish
 au BufNewFile,BufRead fish_funced set filetype=fish
 
-augroup ReactFiletypes
-  autocmd!
-  autocmd BufRead,BufNewFile *.jsx setf filetype=javascriptreact
-  autocmd BufRead,BufNewFile *.tsx setf filetype=typescriptreact
-augroup END
+" augroup ReactFiletypes
+"   autocmd!
+"   autocmd BufRead,BufNewFile *.jsx setf filetype=javascriptreact
+"   autocmd BufRead,BufNewFile *.tsx setf filetype=typescript.tsx
+" augroup END
 
 let g:python_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'
 let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim3/bin/python'
