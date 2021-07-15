@@ -84,7 +84,7 @@ for target in ${target_brew_list[@]}; do
   fi
 done
 
-if [ ${OSTYPE} == "darwin" ]; then
+if [ "$(uname)"  == "Darwin" ]; then
   echo 'darwin'
   for target in ${target_brew_cask_list[@]}; do
     if ! has "$target"; then
