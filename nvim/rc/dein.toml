@@ -48,7 +48,7 @@ repo = 'kristijanhusak/defx-git'
 repo = 'uki1014/defx.nvim'
 depends = ['defx-git']
 hook_add = """
-source ~/.config/nvim/plugins/defx.rc.vim
+source ~/.config/nvim/lua/plugins/defx.rc.lua
 """
 
 ##################
