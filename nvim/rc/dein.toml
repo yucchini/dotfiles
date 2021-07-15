@@ -45,7 +45,7 @@ repo = 'airblade/vim-gitgutter'
 repo = 'kristijanhusak/defx-git'
 
 [[plugins]]
-repo = 'Shougo/defx.nvim'
+repo = 'uki1014/defx.nvim'
 depends = ['defx-git']
 hook_add = """
 source ~/.config/nvim/plugins/defx.rc.vim
