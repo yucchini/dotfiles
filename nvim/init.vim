@@ -4,51 +4,6 @@ scriptencoding utf-8
 " Leader - 使いまわせるprefix key
 let mapleader = ','
 
-" if hidden is not set, TextEdit might fail.
-set hidden
-
-set noshowmode
-
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-
-set helplang=en
-
-" 他のバッファに移動する時に自動保存
-set autowrite
-
-" 変更の反映タイミングを早める
-set updatetime=250
-
-" 行番号
-set nonumber
-set signcolumn=yes
-
-" 既存のファイルを開くとき、vimが使用する文字コードを判定する順番
-" 先頭から順に試される
-set fileencodings=utf-8,sjis,euc-jp,latin
-
-" タブを常に表示
-set showtabline=2
-
-" ミュート
-set belloff=all
-
-set title
-set nobackup
-set cmdheight=1
-set laststatus=2
-" swapファイルを使わない
-set noswapfile
-" ビルトインのファイラnetrwをoff
-let loaded_netrwPlugin = 1
-
-let loaded_matchparen = 1
-set shell=fish
-
-" undoできる最大数
-set undolevels=100
-
 " クリップボードを共有
 if system("uname -s") == "Darwin"
   set clipboard+=unnamed
@@ -67,15 +22,6 @@ inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
 " 検索
 "-------------------------------------------------------------------------------
 
-" 検索時大文字小文字を区別しない
-set ignorecase
-
-" 検索時に大文字を入力した場合ignorecaseが無効になる
-set smartcase
-
-" 置換をインタラクティブにする
-set inccommand=split
-
 " work well in tmux
 set t_8f=^[[38;2;%lu;%lu;%lum
 set t_8b=^[[48;2;%lu;%lu;%lum
@@ -84,84 +30,16 @@ set t_8b=^[[48;2;%lu;%lu;%lum
 set t_BE=
 
 set nosc noru nosm
-" Don't redraw while executing macros (good performance config)
-set lazyredraw
-set showmatch
-" How many tenths of a second to blink when matching brackets
-set mat=2
-
-"-------------------------------------------------------------------------------
-" インデント
-"-------------------------------------------------------------------------------
-
-" 自動インデントの空白の数
-set shiftwidth=2
-
-" タブでも常に空白を挿入
-set tabstop=2
-
-" Tabの文字分入力されたとき、tabに変換せずスペースのままになる
-set expandtab
-
-" ファイル形式別プラグインとインデントを有効にする
-filetype plugin indent on
-
-" 拡張子ごとのインデント設定
-augroup fileTypeIndent
-  au!
-  au FileType go setlocal tabstop=4 shiftwidth=4
-  au FileType python setlocal tabstop=4 shiftwidth=4
-augroup END
-
 
 "-------------------------------------------------------------------------------
 " 拡張子系
 "-------------------------------------------------------------------------------
-
-set suffixesadd=.js,.es,.jsx,.ts,.tsx,.json,.css,.less,.sass,.style,.php,.py,.md,.java,.rb,.vim,.lua,.vimrc,.conf,.go
-
-" JavaScript
-au BufNewFile,BufRead *.es6 setf javascript
-" TypeScript
-au BufNewFile,BufRead *.ts setf typescript
-au BufNewFile,BufRead *.tsx set filetype=typescript.tsx
-" Markdown
-au BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-" Flow
-au BufNewFile,BufRead *.flow set filetype=javascript
-" fish
-au BufNewFile,BufRead fish_funced set filetype=fish
 
 " augroup ReactFiletypes
 "   autocmd!
 "   autocmd BufRead,BufNewFile *.jsx setf filetype=javascriptreact
 "   autocmd BufRead,BufNewFile *.tsx setf filetype=typescript.tsx
 " augroup END
-
-let g:python_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'
-let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim3/bin/python'
-let g:ruby_host_prog = $RBENV_ROOT.'/versions/2.6.6/bin/neovim-ruby-host'
-let g:node_host_prog = $NODENV_ROOT.'/versions/12.20.1/bin/neovim-node-host'
-
-" Finding files - Search down into subfolders
-set path+=**
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store/*,*/node_modules/*
-
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
-
-" コメントアウト行で改行時にコメントアウトしない
-set formatoptions-=ro
-autocmd FileType * setlocal formatoptions-=ro
-
-" jsonファイルでのコメントを可能にする(tsconfigのみ)
-autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
-
-" jsonc syntax highlighting
-autocmd FileType json syntax match Comment +\/\/.\+$+
-
 
 " ----------------------
 "  Utils
@@ -171,13 +49,6 @@ augroup vimrc-misc
   au!
   au WinEnter,FocusGained * checktime
 augroup END
-
-" コマンドラインモードで<Tab>キーによるファイル名補完を有効にする
-set wildmenu wildmode=list:full
-set nowrap "No Wrap lines
-
-" マウスを使えるようにする
-set mouse=a
 
 " ペーストするときに自動インデントでずれないようにする
 if &term =~ "xterm"
@@ -205,19 +76,14 @@ if has('persistent_undo')
 endif
 
 " コメント中の特定の単語を強調表示する
-autocmd WinEnter,BufRead,BufNew,Syntax * call matchadd('Todo', '\W\zs\(TODO\|FIXME\|CHANGED\|XXX\|BUG\|HACK\|NOTE\|MEMO\|INFO\|IDEA\)')
+au WinEnter,BufRead,BufNew,Syntax * call matchadd('Todo', '\W\zs\(TODO\|FIXME\|CHANGED\|XXX\|BUG\|HACK\|NOTE\|MEMO\|INFO\|IDEA\)')
 
 "-------------------------------------------------------------------------------
 " Cursor line
 "-------------------------------------------------------------------------------
 
-set cursorline
-
 " 全モードでblock cursorを使用
 set guicursor=a:block
-
-" カーソルが常に中央に来るようにする
-set scrolloff=100
 
 " Set cursor line color on visual mode
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
@@ -236,8 +102,9 @@ augroup END
 "-------------------------------------------------------------------------------
 " source other config files
 "-------------------------------------------------------------------------------
-source ~/dotfiles/nvim/lua/plugins/dein.rc.lua
-source ~/dotfiles/nvim/lua/keymap.lua
+source $DOTFILES_PATH/nvim/lua/plugins/dein.rc.lua
+source $DOTFILES_PATH/nvim/lua/keymap.lua
+source $DOTFILES_PATH/nvim/lua/settings.lua
 
 "-------------------------------------------------------------------------------
 " Color scheme
