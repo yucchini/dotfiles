@@ -13,7 +13,7 @@ repo = 'wsdjeg/dein-ui.vim'
 [[plugins]]
 repo = 'uki1014/vim-to-github'
 hook_add = """
-nmap <Leader>g :ToGithub<CR>
+lua vim.api.nvim_set_keymap('n', '<Leader>g', ':ToGithub<CR>', { noremap = true })
 """
 
 [[plugins]]
@@ -25,7 +25,7 @@ source ~/.config/nvim/plugins/lightline.rc.vim
 [[plugins]]
 repo = 'kdheepak/lazygit.nvim'
 hook_add = """
-nnoremap <silent> <Leader>z :LazyGit<CR>
+lua vim.api.nvim_set_keymap('n', '<Leader>z', ':LazyGit<CR>', { noremap = true, silent = true })
 """
 
 [[plugins]]
@@ -140,14 +140,6 @@ repo = 'norcalli/nvim-colorizer.lua'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
-hook_add = """
-nnoremap <Leader>ds ds'
-nnoremap <Leader>dss ds"
-nnoremap <Leader>di di'
-nnoremap <Leader>dii di"
-nnoremap <Leader>ys ysiw'
-nnoremap <Leader>yss ysiw"
-"""
 
 [[plugins]]
 repo = 'previm/previm'
@@ -172,7 +164,7 @@ let g:workspace_session_directory = $HOME . '/.config/nvim/sessions/'
 [[plugins]]
 repo = 'uki1014/vim-trailing-whitespace'
 hook_add = """
-nnoremap <Leader>y :FixWhitespace<CR>
+lua vim.api.nvim_set_keymap('n', '<Leader>y', ':FixWhitespace<CR>', { noremap = true })
 """
 
 # [[plugins]]
