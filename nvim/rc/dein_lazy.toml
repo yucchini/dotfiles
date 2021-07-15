@@ -2,7 +2,7 @@
 repo = 'elzr/vim-json'
 on_ft = ['json']
 hook_add = """
-let g:vim_json_syntax_conceal = 0
+lua vim.g.vim_json_syntax_conceal = '0'
 """
 
 [[plugins]]
@@ -52,15 +52,15 @@ on_ft = ['jsonc']
 repo = 'fatih/vim-go'
 on_ft = ['go']
 hook_add = """
-let g:go_disable_autoinstall = 1
-nnoremap <Leader>gr :GoRun<CR>
+lua vim.g.go_disable_autoinstall = '1'
+lua vim.api.nvim_set_keymap('n', '<Leader>gr', ':GoRun<CR>', { noremap = true })
 """
 
 [[plugins]]
 repo = 'tpope/vim-rails'
 on_ft = ['ruby']
 hook_add = """
-nnoremap <Leader>1 :A<CR>
+lua vim.api.nvim_set_keymap('n', '<Leader>1', ':A<CR>', { noremap = true })
 """
 
 [[plugins]]
