@@ -41,12 +41,15 @@ vim.api.nvim_set_keymap('n', ';s', ':w<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', ';d', ':q!<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', ';a', ':qa<CR>', { noremap = true })
 
+-- messages
+vim.api.nvim_set_keymap('n', ';h', ':messages<CR>', { noremap = true })
+
 -- 改行してnormal mode
 vim.api.nvim_set_keymap('n', '<Space><CR>', 'o<ESC>', { noremap = true, silent = true })
 
 -- open init.lua
-vim.api.nvim_set_keymap('n', '<Leader>.', ':new ~/.config/nvim/init.vim<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<Leader>vi', ':source~/.config/nvim/init.vim<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>.', ':new ~/.config/nvim/init.lua<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>vi', ':source~/.config/nvim/init.lua<CR>', { noremap = true })
 
 -- UpdateRemotePlugins
 vim.api.nvim_set_keymap('n', '<Leader>ur', ':UpdateRemotePlugins<CR>', { noremap = true })

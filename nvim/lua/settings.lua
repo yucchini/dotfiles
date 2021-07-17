@@ -52,7 +52,7 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.expandtab = true
 vim.opt.formatoptions:remove('ro') -- 改行時のコメントアウトをoff
-vim.cmd('autocmd FileType * setlocal formatoptions-=ro')
+vim.cmd('au FileType * setlocal formatoptions-=ro')
 -- vim.opt.nowrap = false
 vim.cmd('set nowrap')
 vim.opt.wildmenu = true
@@ -96,8 +96,8 @@ vim.opt.suffixesadd = '.js,.es,.jsx,.ts,.tsx,.json,.css,.less,.sass,.style,.php,
 vim.opt.path:append('**')
 vim.opt.wildignore:append('*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store/*,*/node_modules/*')
 -- Enable json comment(only tsconfig)
-vim.cmd('autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc')
-vim.cmd('autocmd FileType json syntax match Comment +\b/\b/.\b+$+')
+vim.cmd('au BufRead,BufNewFile tsconfig.json set filetype=jsonc')
+vim.cmd('au FileType json syntax match Comment +\b/\b/.\b+$+')
 -- JavaScript
 vim.cmd('au BufNewFile,BufRead *.es6 setf javascript')
 -- TypeScript
