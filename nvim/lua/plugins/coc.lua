@@ -8,7 +8,7 @@ vim.api.nvim_set_keymap('n', 'gd', '<Plug>(coc-definition)', { silent = true })
 vim.api.nvim_set_keymap('n', 'gy', '<Plug>(coc-type-definition)', { silent = true })
 vim.api.nvim_set_keymap('n', 'gi', '<Plug>(coc-implementation)', { silent = true })
 vim.api.nvim_set_keymap('n', 'gr', '<Plug>(coc-references)', { silent = true })
-vim.api.nvim_set_keymap('n', 'K', ':call <SID>show_documentation()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'K', ':lua show_documentation()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'R', '<Plug>(coc-rename)', { silent = true })
 
 
@@ -39,8 +39,7 @@ function check_back_space()
 end
 
 function show_documentation()
-  local tmp = vim.cmd('index(["vim","help"], &filetype) >= 0')
-  if tmp then
+  if vim.fn.index({"vim","help"}, filetype) >= 0 then
     vim.cmd('h'.. vim.fn.expand('<cword>'))
   else
     vim.fn.CocAction('doHover')

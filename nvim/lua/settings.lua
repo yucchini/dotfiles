@@ -97,7 +97,7 @@ vim.opt.path:append('**')
 vim.opt.wildignore:append('*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store/*,*/node_modules/*')
 -- Enable json comment(only tsconfig)
 vim.cmd('au BufRead,BufNewFile tsconfig.json set filetype=jsonc')
-vim.cmd('au FileType json syntax match Comment +\b/\b/.\b+$+')
+-- vim.cmd('au FileType json syntax match Comment +\b/\b/.\b+$+')
 -- JavaScript
 vim.cmd('au BufNewFile,BufRead *.es6 setf javascript')
 -- TypeScript
@@ -110,12 +110,12 @@ vim.cmd('au BufNewFile,BufRead *.flow set filetype=javascript')
 -- fish
 vim.cmd('au BufNewFile,BufRead fish_funced set filetype=fish')
 
+-- vim.cmd('augroup ReactFiletypes')
+-- vim.cmd('au!')
+-- vim.cmd('au BufRead,BufNewFile *.jsx setf filetype=javascriptreact')
+-- vim.cmd('au BufRead,BufNewFile *.tsx setf filetype=typescriptreact')
+-- vim.cmd('augroup END')
 --[[
-augroup ReactFiletypes
-  autocmd!
-  autocmd BufRead,BufNewFile *.jsx setf filetype=javascriptreact
-  autocmd BufRead,BufNewFile *.tsx setf filetype=typescript.tsx
-augroup END
 ]]
 
 
@@ -184,5 +184,5 @@ if vim.fn.exists('&termguicolors') and vim.fn.exists('&winblend') then
   vim.opt.wildoptions = 'pum'
   vim.opt.pumblend = 5
   vim.g.solarized_termcolors = 256
-  vim.cmd('runtime ./colors/NeoSolarized.vim')
+  vim.cmd('runtime ../colors/NeoSolarized.vim')
 end
