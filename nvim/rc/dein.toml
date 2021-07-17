@@ -19,7 +19,7 @@ lua vim.api.nvim_set_keymap('n', '<Leader>g', ':ToGithub<CR>', { noremap = true 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = """
-source ~/.config/nvim/plugins/lightline.rc.vim
+source ~/.config/nvim/lua/plugins/lightline.lua
 """
 
 [[plugins]]
