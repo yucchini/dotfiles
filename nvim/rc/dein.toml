@@ -48,7 +48,7 @@ repo = 'kristijanhusak/defx-git'
 repo = 'uki1014/defx.nvim'
 depends = ['defx-git']
 hook_add = """
-source ~/.config/nvim/lua/plugins/defx.rc.lua
+source ~/.config/nvim/lua/plugins/defx.lua
 """
 
 ##################
@@ -69,7 +69,7 @@ source ~/.config/nvim/plugins/denite.rc.vim
 #[[plugins]]
 #repo = 'nvim-telescope/telescope.nvim'
 #hook_add = """
-#source ~/.config/nvim/lua/plugins/telescope.rc.lua
+#source ~/.config/nvim/lua/plugins/telescope.lua
 #"""
 
 [[plugins]]
@@ -160,7 +160,7 @@ lua vim.api.nvim_set_keymap('n', '<Leader>y', ':FixWhitespace<CR>', { noremap = 
 # [[plugins]]
 # repo = 'nvim-treesitter/nvim-treesitter'
 # hook_add = """
-# source ~/.config/nvim/plugins/treesitter.rc.vim
+# source ~/.config/nvim/plugins/treesitter.vim
 # """
 
 # [[plugins]]
