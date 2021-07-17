@@ -23,26 +23,26 @@ on_ft = ['toml']
 
 [[plugins]]
 repo = 'yuezk/vim-js'
-on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
+on_ft = ['javascript', 'javascript.jsx', 'javascriptreact', 'typescript', 'typescript.tsx', 'typescriptreact']
 
 [[plugins]]
 repo = 'maxmellon/vim-jsx-pretty'
-on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
+on_ft = ['javascript', 'javascript.jsx', 'javascriptreact', 'typescript', 'typescript.tsx', 'typescriptreact']
 
 [[plugins]]
 repo = 'jparise/vim-graphql'
-on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
+on_ft = ['javascript', 'javascript.jsx', 'javascriptreact', 'typescript', 'typescript.tsx', 'typescriptreact']
 hook_add = """
-au BufNewFile,BufRead *.prisma setfiletype graphql
+lua vim.cmd('au BufNewFile,BufRead *.prisma setfiletype graphql')
 """
 
 [[plugins]]
 repo = 'styled-components/vim-styled-components'
-on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
+on_ft = ['javascript', 'javascript.jsx', 'javascriptreact', 'typescript', 'typescript.tsx', 'typescriptreact']
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
-on_ft = ['typescript', 'typescript.tsx']
+on_ft = ['typescript', 'typescript.tsx', 'typescriptreact']
 
 [[plugins]]
 repo = 'neoclide/jsonc.vim'

@@ -2,4 +2,3 @@
 require('keymap')
 require('plugins/dein')
 require('settings')
-
