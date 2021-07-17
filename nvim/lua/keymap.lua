@@ -1,4 +1,4 @@
-vim.g.mapleader = ','
+vim.g.mapleader = ","
 
 vim.api.nvim_set_keymap('n', '<S-C-p>ud', '"0p', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>d', '"_d', { noremap = true })
@@ -9,6 +9,11 @@ vim.api.nvim_set_keymap('n', 'x', '"_x', { noremap = true })
  nnoremap <C-a>
  nnoremap <C-x>
 ]]
+
+-- 補完表示時のEnterで改行をしない
+vim.api.nvim_set_keymap('i', '<CR>', 'pumvisible() ? "<C-y>" : "<CR>"', { noremap = true, expr = true })
+vim.api.nvim_set_keymap('i', '<C-n>', 'pumvisible() ? "<Down>" : "<C-n>"', { noremap = true, expr = true })
+vim.api.nvim_set_keymap('i', '<C-p>', 'pumvisible() ? "<Up>" : "<C-p>"', { noremap = true, expr = true })
 
 -- bufferの再読み込み
 vim.api.nvim_set_keymap('n', '<Leader>e', ':edit<CR>', { noremap = true })
