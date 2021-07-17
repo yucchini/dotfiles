@@ -163,7 +163,7 @@ endif
 
 -- undo保存先
 if vim.fn.has('persistent_undo') == 1 then
-  undo_path = vim.fn.expand('~/.config/nvim/undo')
+  undo_path = vim.fn.expand('~/.config/nvim/sessions')
   if vim.fn.isdirectory(undo_path) == 0 then
     vim.fn.mkdir(undo_path, 'p')
   end
