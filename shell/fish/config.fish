@@ -163,29 +163,6 @@ end
 # fzf settings
 set -U FZF_LEGACY_KEYBINDINGS 0
 
-function attach_tmux_session_if_needed
-  set ID (tmux list-sessions)
-  if test -z "$ID"
-    tmux new-session
-    return
-  end
-
-  set new_session "Create New Session"
-  set ID (echo $ID\n$new_session | peco --on-cancel=error | cut -d: -f1)
-  if test "$ID" = "$new_session"
-    tmux new-session
-  else if test -n "$ID"
-    tmux attach-session -t "$ID"
-  end
-end
-
-# fish起動時にtmuxを起動
-# if test -z $TMUX && test (uname) != 'Linux'
-#   # if test $using_shell = '-fish'
-#   attach_tmux_session_if_needed
-#   # end
-# end
-
 # 初回シェル時のみ tmux実行
 # if test $SHLVL = 1
 #   tmux new-session
@@ -255,17 +232,17 @@ alias br='git branch'
 alias brd='git branch -D'
 alias brm='git branch -m'
 alias fe='git fetch'
-alias cout='git checkout'
-alias coutb='git checkout -b'
-alias cout-='git checkout -'
+alias cout='git switch'
+alias coutb='git switch -C'
+alias cout-='git switch -'
 alias coutr='git checkout .'
 alias clone='git clone'
 alias scloned='git clone --branch develop --depth 1'
 alias sclonem='git clone --branch master --depth 1'
 alias sclonema='git clone --branch main --depth 1'
-alias coutd='git checkout develop'
-alias coutm='git checkout master'
-alias coutma='git checkout main'
+alias coutd='git switch develop'
+alias coutm='git switch master'
+alias coutma='git switch main'
 alias fepul='git fetch upstream pull/$argv[1]/head:$argv[2]'
 alias ce="/usr/local/bin/gitmoji -c"
 alias gopen='git open'
@@ -348,14 +325,14 @@ alias bashc='nvim ~/.bashrc'
 alias zshc='nvim ~/.zshrc'
 alias fishc='nvim ~/.config/fish/config.fish'
 alias tmuxc='nvim ~/.tmux.conf'
-alias vimc='nvim $DOTFILES_PATH/nvim/init.vim'
+alias vimc='nvim $DOTFILES_PATH/nvim/init.lua'
 alias maps='nvim $DOTFILES_PATH/nvim/lua/keymap.lua'
 alias cdd='cd $DOTFILES_PATH'
 alias diary='cd ~/diary'
 alias vim='nvim'
 alias v='nvim'
 # カレントディレクトリを指定した場合はDefxを起動させるために下記のファイルを同時に読み込む
-alias vi='nvim . -S $DOTFILES_PATH/nvim/lua/plugins/defx.start.rc.lua'
+alias vi='nvim . -S $DOTFILES_PATH/nvim/lua/plugins/defx.start.lua'
 alias ls='ls -a1'
 alias ll='ls -a1l'
 alias note='cd ~/note'
@@ -384,6 +361,3 @@ alias kl='kill -9'
 if [ -d ~/dotfiles/freee ]
   source ~/dotfiles/freee/freee.config.fish
 end
-
-# 毎回やるの面倒なので起動時にssh-add -K
-# sa
