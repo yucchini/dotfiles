@@ -57,7 +57,7 @@ source ~/.config/nvim/lua/plugins/defx.lua
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = """
-source ~/.config/nvim/plugins/denite.rc.vim
+source ~/.config/nvim/lua/plugins/denite.lua
 """
 
 #[[plugins]]
