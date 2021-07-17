@@ -77,7 +77,7 @@ repo = "neoclide/coc.nvim"
 merged = 0
 rev = "release"
 hook_add = """
-source ~/.config/nvim/plugins/coc.rc.vim
+source ~/.config/nvim/lua/plugins/coc.lua
 """
 
 ##################

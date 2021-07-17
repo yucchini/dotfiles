@@ -1,7 +1,75 @@
-local api, bo, cmd, fn, g, o = vim.api, vim.bo, vim.cmd, vim.fn, vim.g, vim.o
-local nvim_set_keymap = vim.api.nvim_set_keymap
+vim.api.nvim_set_keymap('n', '<Leader>co', ':call coc#util#install()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>col', ':CocOpenLog<CR>', { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<Esc>', ':call coc#float#close_all()', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>cre', ':call coc#refresh()<CR>', { noremap = true })
 
-g.coc_global_extensions = {
+-- Remap keys for gotos
+vim.api.nvim_set_keymap('n', 'gd', '<Plug>(coc-definition)', { silent = true })
+vim.api.nvim_set_keymap('n', 'gy', '<Plug>(coc-type-definition)', { silent = true })
+vim.api.nvim_set_keymap('n', 'gi', '<Plug>(coc-implementation)', { silent = true })
+vim.api.nvim_set_keymap('n', 'gr', '<Plug>(coc-references)', { silent = true })
+vim.api.nvim_set_keymap('n', 'K', ':call <SID>show_documentation()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'R', '<Plug>(coc-rename)', { silent = true })
+
+
+-- Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+-- Coc only does snippet and additional edit on confirm.
+vim.api.nvim_set_keymap('i', '<CR>', 'pumvisible() ? "<C-y>" : "<C-g>u<CR>"', { noremap = true, expr = true })
+
+-- Use tab for trigger completion with characters ahead and navigate.
+--Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+vim.api.nvim_set_keymap('i', '<TAB>', 'pumvisible() ? "<C-n>" : <SID>check_back_space() ? "<TAB>" : coc#refresh()', { noremap = true, silent = true, expr = true })
+vim.api.nvim_set_keymap('i', '<S-TAB>', 'pumvisible() ? "<C-p>" : "<C-h>"', { expr = true })
+
+vim.cmd('let coc_path = globpath(&rtp, "autoload/coc.vim")')
+if not vim.fn.empty(coc_path) then
+  function coc_configure_and_start()
+    vim.g.coc_user_config = {}
+    vim.g.coc_user_config['coc.preferences.jumpCommand'] = ':SplitIfNotOpen4COC'
+  end
+end
+
+function check_back_space()
+  local col = vim.fn.col('.') - 1
+  if col == 0 or fn.getline("."):sub(col, col):match("%s") then
+    return true
+  else
+    return false
+  end
+end
+
+function show_documentation()
+  local tmp = vim.cmd('index(["vim","help"], &filetype) >= 0')
+  if tmp then
+    vim.cmd('h'.. vim.fn.expand('<cword>'))
+  else
+    vim.fn.CocAction('doHover')
+  end
+end
+
+--Highlight symbol under cursor on CursorHold
+vim.cmd('au CursorHold * silent call CocActionAsync("highlight")')
+
+vim.cmd('augroup mygroup')
+vim.cmd('au!')
+-- Setup formatexpr specified filetype(s).
+vim.cmd('au FileType typescript,json setl formatexpr=CocAction("formatSelected")')
+-- Update signature help on jump placeholder
+vim.cmd('au User CocJumpPlaceholder call CocActionAsync("showSignatureHelp")')
+vim.cmd('augroup END')
+
+-- coc-cssでscssファイルにおいて@をkeywordとして登録する
+vim.cmd('au FileType scss setl iskeyword+=@-@')
+
+-- Add status line support, for integration with other plugin, checkout `:h coc-status`
+-- set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+--coc-eslint
+vim.cmd("au BufNewFile,BufReadPre,BufEnter *.{flow,config.js,config.copy.js,config.lib.js,config.style.js,config.proxy.js} call coc#config('eslint.enable', v:false)")
+vim.cmd("au BufLeave *.{js,jsx,ts,tsx} call coc#config('eslint.enable', v:true)")
+
+-- Extensions
+vim.g.coc_global_extensions = {
   'coc-tsserver',
   'coc-flow',
   'coc-prettier',
@@ -14,61 +82,6 @@ g.coc_global_extensions = {
   'coc-styled-components',
 }
 
-function _G.check_back_space()
-  local col = fn.col(".") - 1
-  if col == 0 or fn.getline("."):sub(col, col):match("%s") then
-    return true
-  else
-    return false
-  end
-end
 
--- Completion
-nvim_set_keymap('i', '', 'pumvisible() ? "" : v:lua.check_back_space() ? "" : coc#refresh()', { noremap = true, silent = true , expr = true })
-nvim_set_keymap('i', '', 'pumvisible() ? "" : ""', { noremap = true, silent = true , expr = true })
-
-nvim_set_keymap('i', '', 'coc#refresh()', { noremap = true, silent = true , expr = true })
-nvim_set_keymap("i", '', 'pumvisible() ? coc#_select_confirm() : "u=coc#on_enter()"', { noremap = true, silent = true , expr = true })
-
--- navigate diagnostic
-nvim_set_keymap('n', '[g', '(coc-diagnostic-prev)', { noremap = false, silent = true })
-nvim_set_keymap('n', ']g', '(coc-diagnostic-next)', { noremap = false, silent = true })
-
--- goto definition
-nvim_set_keymap('n', 'gd', '(coc-definition)', { noremap = false, silent = true })
-nvim_set_keymap('n', 'gy', '(coc-type-definition)', { noremap = false, silent = true })
-nvim_set_keymap('n', 'gi', '(coc-implementation)', { noremap = false, silent = true })
-nvim_set_keymap('n', 'gr', '(coc-references)', { noremap = false, silent = true })
-
-function _G.show_documentation()
-  --if fn.index({ 'vim', 'help' }, bo.filetype) &amp;gt;= 0 then
-  --  cmd('h ' .. fn.expand(''))
-  --else
-  if api.nvim_eval('coc#rpc#ready()') then
-    fn.CocActionAsync('doHover')
-  else
-    cmd('! ' .. o.keywordprg .. ' ' .. fn.expand(''))
-  end
-end
-
--- show reference
-nvim_set_keymap('n', 'K', 'lua _G.show_documentation()', { noremap = false, silent = true })
-
--- scroll float popups
-nvim_set_keymap('n', '', 'coc#float#has_scroll() ? coc#float#scroll(1) : ""', { noremap = true, silent = true , expr = true })
-nvim_set_keymap('n', '', 'coc#float#has_scroll() ? coc#float#scroll(0) : ""', { noremap = true, silent = true , expr = true })
-nvim_set_keymap('i', '', 'coc#float#has_scroll() ? "=coc#float#scroll(1)" : ""', { noremap = true, silent = true , expr = true })
-nvim_set_keymap('i', '', 'coc#float#has_scroll() ? "=coc#float#scroll(0)" : ""', { noremap = true, silent = true , expr = true })
-
-nvim_set_keymap('n', '', '(coc-float-jump)', { noremap = false, silent = true })
-nvim_set_keymap('i', '', '(coc-float-jump)', { noremap = false, silent = true })
-
--- format
-nvim_set_keymap('n', 'lr', '(coc-rename)', { noremap = false, silent = true })
-nvim_set_keymap('n', 'lf', 'call CocAction("format")call CocAction("runCommand", "editor.action.organizeImport")', { noremap = true, silent = true })
-
--- mappings for coclist
-nvim_set_keymap('n', 'la', 'CocList diagnostics', { noremap = true, silent = true })
-nvim_set_keymap('n', 'le', 'CocList extensions', { noremap = true, silent = true })
-nvim_set_keymap('n', 'lc', 'CocList commands', { noremap = true, silent = true })
-nvim_set_keymap('n', 'lo', 'CocList outline', { noremap = true, silent = true })
+-- Prettier
+vim.cmd('command! -nargs=0 Prettier :CocCommand prettier.formatFile')
