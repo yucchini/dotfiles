@@ -57,6 +57,9 @@ if status --is-interactive
 
 end
 
+# fish vi-mode
+fish_vi_key_bindings
+
 set GHQ_SELECTOR peco
 set -g theme_date_format "+%Y-%m-%d %H:%M:%S"
 set -g fish_prompt_pwd_dir_length 0
