@@ -11,6 +11,7 @@ if [ ! -d ${HOME}/.anyenv ]; then
   anyenv install rbenv
   anyenv install pyenv
   anyenv install nodenv
+  anyenv install tfenv
   exec $SHELL -l
 
   ~/dotfiles/script/lib/node.sh

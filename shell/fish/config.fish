@@ -52,6 +52,10 @@ if status --is-interactive
    set -x GO111MODULE on
   #set -xg GO111MODULE off
 
+  # tfenv
+  set -xg TFENV_ROOT $ANYENV_ROOT/envs/tfenv
+  set -xg PATH $TFENV_ROOT/bin $TFENV_ROOT/shims $PATH
+
   # direnv
   eval (direnv hook fish)
 
